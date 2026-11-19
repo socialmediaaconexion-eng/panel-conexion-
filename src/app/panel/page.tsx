@@ -1,14 +1,14 @@
 import Link from "next/link";
 import { requireSeller, esGestor } from "@/lib/auth";
-import { dinero, fechaHora } from "@/lib/format";
+import { dinero, fechaHora, inicioDiaBogota, inicioMesBogota } from "@/lib/format";
 
 export default async function Resumen() {
   const { seller, supabase } = await requireSeller();
   const gestor = esGestor(seller);
 
-  const inicioDia = new Date(); inicioDia.setHours(0, 0, 0, 0);
-  const finDia = new Date(inicioDia); finDia.setDate(finDia.getDate() + 1);
-  const inicioMes = new Date(inicioDia.getFullYear(), inicioDia.getMonth(), 1);
+  const inicioDia = inicioDiaBogota();
+  const finDia = new Date(inicioDia.getTime() + 86400_000);
+  const inicioMes = inicioMesBogota();
   const ahora = new Date().toISOString();
 
   const [leadsHoy, citasHoy, ventasMes, vencidas, huerfanos, multiples, handoffs] = await Promise.all([

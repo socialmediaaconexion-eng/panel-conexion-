@@ -1,4 +1,16 @@
 const TZ = "America/Bogota";
+const BOGOTA_OFFSET_MS = 5 * 3600_000; // Colombia has no daylight saving time
+
+// Midnight in Bogotá, `diasAtras` days ago, as a UTC instant — independent of the server's timezone.
+export function inicioDiaBogota(diasAtras = 0) {
+  const local = new Date(Date.now() - BOGOTA_OFFSET_MS);
+  return new Date(Date.UTC(local.getUTCFullYear(), local.getUTCMonth(), local.getUTCDate() - diasAtras) + BOGOTA_OFFSET_MS);
+}
+
+export function inicioMesBogota() {
+  const local = new Date(Date.now() - BOGOTA_OFFSET_MS);
+  return new Date(Date.UTC(local.getUTCFullYear(), local.getUTCMonth(), 1) + BOGOTA_OFFSET_MS);
+}
 
 export function fechaHora(iso: string) {
   return new Intl.DateTimeFormat("es-CO", { dateStyle: "medium", timeStyle: "short", timeZone: TZ }).format(new Date(iso));

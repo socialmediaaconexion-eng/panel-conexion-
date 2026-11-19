@@ -50,7 +50,7 @@ h2 { font-size: 16px; margin: 24px 0 10px; }
   width: 220px; flex-shrink: 0; background: var(--surface); border-right: 1px solid var(--line);
   padding: 20px 14px; display: flex; flex-direction: column; gap: 4px;
 }
-.sidebar img { width: 120px; margin: 0 6px 18px; }
+.sidebar img { width: 56px; margin: 0 6px 18px; }
 .sidebar a {
   text-decoration: none; padding: 8px 10px; border-radius: 8px; color: var(--fg);
 }
@@ -61,7 +61,7 @@ h2 { font-size: 16px; margin: 24px 0 10px; }
 @media (max-width: 760px) {
   .shell { flex-direction: column; }
   .sidebar { width: 100%; flex-direction: row; flex-wrap: wrap; border-right: 0; border-bottom: 1px solid var(--line); padding: 10px; }
-  .sidebar img { width: 80px; margin: 0 8px 0 0; }
+  .sidebar img { width: 40px; margin: 0 8px 0 0; }
   .sidebar .who { margin: 0; border: 0; width: 100%; }
   .main { padding: 18px 16px; }
 }
@@ -107,7 +107,7 @@ button.ghost:hover { background: var(--bg); }
 
 /* Embudo VSL */
 .embudo { max-width: 760px; margin: 0 auto; padding: 40px 16px 64px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px; }
-.embudo-logo { width: 130px; }
+.embudo-logo { width: 84px; }
 .eyebrow { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--red-deep); font-weight: 600; margin: 8px 0 0; }
 .embudo-h1 { font-size: clamp(26px, 5vw, 40px); line-height: 1.15; text-wrap: balance; margin: 0; }
 .embudo-lead { font-size: 16px; color: var(--muted); max-width: 60ch; margin: 0; }
@@ -118,7 +118,8 @@ button.ghost:hover { background: var(--bg); }
 .embudo-servicios h2 { margin: 0 0 6px; }
 .embudo-form { width: 100%; max-width: 480px; text-align: left; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
 .slots { border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px 14px; display: flex; flex-wrap: wrap; gap: 8px; }
-.slots legend { font-weight: 600; text-transform: capitalize; padding: 0 4px; }
+.slots legend { font-weight: 600; padding: 0 4px; }
+.slots legend::first-letter { text-transform: uppercase; }
 .slot input { position: absolute; opacity: 0; }
 .slot span { display: inline-block; padding: 7px 12px; border: 1px solid var(--line); border-radius: 8px; cursor: pointer; background: var(--surface); color: var(--fg); font-size: 13px; }
 .slot input:checked + span { background: var(--red); color: #fff; border-color: var(--red); }
