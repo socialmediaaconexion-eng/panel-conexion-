@@ -64,7 +64,7 @@ export default async function VslPage({ searchParams }: Props) {
         <p className="eyebrow">Agencia boutique · pocas plazas al mes</p>
         <TitularDolor />
         <h1 className="lp-h1">Implementamos tu sistema de captación con <span className="rojo">IA</span>.</h1>
-        <p className="lp-lead">Landing, embudo, panel, videos y campañas: todo conectado y hecho a la medida de tu marca. Mira el video de un minuto y entiende cómo funciona.</p>
+        <p className="lp-lead">Landing, embudo, panel, videos y campañas, conectados y hechos a la medida de tu marca.</p>
         <div className="vsl-frame lp-video"><VslVideo /></div>
         <Link href={aplicar} className="btn btn-big" data-evento="cta_aplicar">Aplicar para una llamada</Link>
         <p className="muted small">Llamada gratuita de 45 minutos · revisamos tu caso antes de confirmar.</p>

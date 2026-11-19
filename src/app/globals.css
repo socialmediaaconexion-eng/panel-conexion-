@@ -449,6 +449,34 @@ button.modal-x:hover:not(:disabled) { box-shadow: none; transform: rotate(90deg)
 .legal h1 { font-size: 30px; }
 .legal h2 { margin-top: 28px; }
 .legal p, .legal li { color: var(--muted); }
+/* VSL horizontal con portada */
+.lp-video { aspect-ratio: 16 / 9; width: 100%; max-width: 920px; background: #0d0d0f; overflow: hidden; }
+.vsl { position: relative; width: 100%; height: 100%; }
+.vsl video { width: 100%; height: 100%; object-fit: contain; display: block; background: #0d0d0f; }
+button.vsl-portada { position: absolute; inset: 0; width: 100%; height: 100%; padding: 0; border-radius: 0; display: grid; place-items: center; background: radial-gradient(90% 120% at 50% 40%, #1d1d22 0%, #0d0d0f 60%, #050506 100%); color: #fff; box-shadow: none; cursor: pointer; overflow: hidden; }
+button.vsl-portada:hover:not(:disabled) { transform: none; box-shadow: none; background: radial-gradient(90% 120% at 50% 40%, #232329 0%, #0d0d0f 60%, #050506 100%); }
+button.vsl-portada:active:not(:disabled) { transform: none; }
+.vsl-grano { position: absolute; inset: -50%; background: radial-gradient(circle at 30% 30%, rgba(252,30,42,.22), transparent 35%), radial-gradient(circle at 75% 70%, rgba(252,30,42,.14), transparent 40%); animation: deriva 14s ease-in-out infinite alternate; }
+@keyframes deriva { to { transform: translate(6%, -4%) rotate(8deg); } }
+.vsl-logo { position: absolute; top: 5%; left: 4%; width: clamp(36px, 6vw, 56px); }
+.vsl-play { position: relative; width: clamp(64px, 11vw, 96px); aspect-ratio: 1; border-radius: 50%; display: grid; place-items: center; background: #e0141f; box-shadow: 0 0 0 0 rgba(252,30,42,.55), 0 20px 40px -12px rgba(252,30,42,.7); animation: latido 2.2s ease-out infinite; transition: transform .3s var(--ease); }
+.vsl-portada:hover .vsl-play { transform: scale(1.08); }
+.vsl-play span { width: 0; height: 0; margin-left: 12%; border-style: solid; border-width: 13px 0 13px 22px; border-color: transparent transparent transparent #fff; transform: scale(clamp(1, 1.4vw, 1.4)); }
+@keyframes latido { 0% { box-shadow: 0 0 0 0 rgba(252,30,42,.55), 0 20px 40px -12px rgba(252,30,42,.7); } 70% { box-shadow: 0 0 0 22px rgba(252,30,42,0), 0 20px 40px -12px rgba(252,30,42,.7); } 100% { box-shadow: 0 0 0 0 rgba(252,30,42,0), 0 20px 40px -12px rgba(252,30,42,.7); } }
+.vsl-texto { position: absolute; left: 4%; right: 4%; bottom: 6%; display: flex; flex-direction: column; gap: 2px; text-align: left; }
+.vsl-texto strong { font-size: clamp(14px, 2.2vw, 22px); font-weight: 600; letter-spacing: -0.02em; }
+.vsl-texto span { font-size: clamp(11px, 1.4vw, 13px); color: #a6a6ae; }
+
+/* Inicio optimizado: dolor + titular + video + botón en el primer pantallazo del celular */
+@media (max-width: 640px) {
+  .lp-hero { padding-top: 22px; gap: 10px; }
+  .lp-hero .eyebrow { margin: 0; }
+  .lp-hero .dolor { font-size: 15px; min-height: 1.5em; }
+  .lp-h1 { font-size: 31px; }
+  .lp-lead { font-size: 14.5px; }
+  .lp-video { border-radius: 16px; margin: 8px 0 4px; }
+}
+
 /* Cotizaciones */
 .cotizar { width: 100%; display: flex; flex-direction: column; gap: 14px; text-align: left; margin-top: 8px; }
 .piezas { border: 0; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: 10px; }
