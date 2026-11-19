@@ -39,7 +39,7 @@ export function Historia() {
               key={s.titulo} className={`cuadro${d === 0 ? " on" : ""}`} aria-hidden={d !== 0}
               onClick={() => d !== 0 && ir(k)}
               style={{
-                transform: `translateX(${d * 62}%) translateZ(${-Math.abs(d) * 160}px) rotateY(${d * -28}deg)`,
+                transform: `translateX(${d * 74}%) translateZ(${-Math.abs(d) * 180}px) rotateY(${d * -30}deg)`,
                 opacity: lejos ? 0 : 1 - Math.abs(d) * 0.28,
                 zIndex: 10 - Math.abs(d),
                 pointerEvents: lejos ? "none" : "auto",
