@@ -9,7 +9,7 @@ type Props = { searchParams: Promise<{ lead?: string; t?: string }> };
 
 const cuando = new Intl.DateTimeFormat("es-CO", { weekday: "long", day: "numeric", month: "long", hour: "numeric", minute: "2-digit", timeZone: "America/Bogota" });
 
-type CitaConfirmada = { start_at: string; sellers: { nombre: string; whatsapp: string | null } | null };
+type CitaConfirmada = { start_at: string; sellers: { nombre: string; whatsapp: string | null; link_reunion: string | null } | null };
 
 export default async function GraciasPage({ searchParams }: Props) {
   const { lead, t } = await searchParams;
@@ -18,7 +18,7 @@ export default async function GraciasPage({ searchParams }: Props) {
   if (lead && t && verificarLead(lead, t)) {
     const admin = createAdminClient();
     const [{ data: c }, { data: l }] = await Promise.all([
-      admin.from("citas").select("start_at, sellers(nombre, whatsapp)").eq("lead_id", lead).in("estado", ["agendada", "reagendada"]).order("start_at", { ascending: false }).limit(1).maybeSingle(),
+      admin.from("citas").select("start_at, sellers(nombre, whatsapp, link_reunion)").eq("lead_id", lead).in("estado", ["agendada", "reagendada"]).order("start_at", { ascending: false }).limit(1).maybeSingle(),
       admin.from("leads").select("nombre").eq("id", lead).maybeSingle(),
     ]);
     cita = c as CitaConfirmada | null;
@@ -36,7 +36,11 @@ export default async function GraciasPage({ searchParams }: Props) {
       {cita ? (
         <>
           <p className="embudo-lead"><strong>{cuando.format(new Date(cita.start_at))}</strong> (hora de Colombia){closer ? ` con ${closer.nombre}` : ""}.</p>
-          <p className="muted">Llega con 2 o 3 ejemplos de marcas o páginas que te gusten — nos ayuda a aprovechar mejor los 45 minutos.</p>
+          {closer?.link_reunion && <p>Enlace de la videollamada: <a href={closer.link_reunion} target="_blank" rel="noopener">{closer.link_reunion}</a></p>}
+          <p className="muted">
+            {process.env.RESEND_API_KEY ? "Te enviamos la confirmación y la invitación de calendario a tu correo. " : ""}
+            Llega con 2 o 3 ejemplos de marcas o páginas que te gusten — nos ayuda a aprovechar mejor los 45 minutos.
+          </p>
           {wa && <a className="btn btn-big" href={wa} target="_blank" rel="noopener">Escribirle a {closer!.nombre} por WhatsApp</a>}
         </>
       ) : (

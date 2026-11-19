@@ -8,6 +8,7 @@ export type Seller = {
   nombre: string;
   email: string;
   whatsapp: string | null;
+  link_reunion: string | null;
   rol: "admin" | "manager" | "vendedor";
   tipo: "closer" | "setter";
   es_asignador: boolean;

@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import { requireSeller, esGestor } from "@/lib/auth";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { mensajeError, ETAPAS } from "@/lib/format";
+import { notificarSinBloquear } from "@/lib/notificaciones";
 
 export type Estado = { error?: string; ok?: string } | null;
 
@@ -53,8 +54,12 @@ export async function guardarNotas(leadId: string, formData: FormData) {
 export async function reasignar(leadId: string, _prev: Estado, formData: FormData): Promise<Estado> {
   const { seller, supabase } = await requireSeller();
   if (!esGestor(seller)) return { error: "No tienes permiso para reasignar leads. Pídeselo a un administrador." };
-  const { error } = await supabase.rpc("fn_reasignar_lead", { p_lead: leadId, p_seller: String(formData.get("seller_id")) });
+  const nuevo = String(formData.get("seller_id"));
+  const { error } = await supabase.rpc("fn_reasignar_lead", { p_lead: leadId, p_seller: nuevo });
   if (error) return { error: mensajeError(error)! };
+  const { data: futuras } = await createAdminClient().from("citas").select("id")
+    .eq("lead_id", leadId).eq("seller_id", nuevo).in("estado", ["agendada", "reagendada"]).gt("start_at", new Date().toISOString());
+  for (const c of futuras ?? []) await notificarSinBloquear(c.id, `reasignada:${nuevo}`);
   revalidatePath(`/panel/leads/${leadId}`);
   revalidatePath("/panel/leads");
   return { ok: "Lead reasignado. Sus citas futuras también pasaron al nuevo dueño." };

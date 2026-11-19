@@ -6,6 +6,12 @@ import { createAdminClient } from "@/lib/supabase/admin";
 import { mensajeError } from "@/lib/format";
 import type { Estado } from "../leads/actions";
 
+// Only https links are stored: the value goes into emails and calendar invites.
+function linkMeet(formData: FormData) {
+  const v = String(formData.get("link_reunion") ?? "").trim();
+  return /^https:\/\/\S+$/.test(v) ? v : null;
+}
+
 const ROLES = ["admin", "manager", "vendedor"];
 const TIPOS = ["closer", "setter"];
 
@@ -28,6 +34,7 @@ export async function agregarMiembro(_prev: Estado, formData: FormData): Promise
   const { error } = await admin.from("sellers").insert({
     user_id: creado.user.id, nombre, email, rol, tipo,
     whatsapp: String(formData.get("whatsapp") ?? "").trim() || null,
+    link_reunion: linkMeet(formData),
     es_asignador: formData.get("es_asignador") === "on",
   });
   if (error) {
@@ -47,6 +54,11 @@ export async function actualizarMiembro(id: string, formData: FormData) {
   const activo = formData.get("activo") === "on";
   // An admin can't demote or deactivate themselves (would lock everyone out if they're the only admin).
   if (id === seller.id && (rol !== "admin" || !activo)) return;
-  await admin.from("sellers").update({ rol, tipo, activo, es_asignador: formData.get("es_asignador") === "on" }).eq("id", id);
+  await admin.from("sellers").update({
+    rol, tipo, activo,
+    es_asignador: formData.get("es_asignador") === "on",
+    whatsapp: String(formData.get("whatsapp") ?? "").trim() || null,
+    link_reunion: linkMeet(formData),
+  }).eq("id", id);
   revalidatePath("/panel/equipo");
 }

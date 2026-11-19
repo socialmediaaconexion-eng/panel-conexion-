@@ -30,6 +30,8 @@ export default async function EquipoPage() {
                   <select name="tipo" defaultValue={s.tipo} aria-label={`Tipo de ${s.nombre}`}>
                     <option value="closer">closer</option><option value="setter">setter</option>
                   </select>
+                  <input name="whatsapp" defaultValue={s.whatsapp ?? ""} placeholder="WhatsApp" aria-label={`WhatsApp de ${s.nombre}`} style={{ width: 130 }} />
+                  <input name="link_reunion" defaultValue={s.link_reunion ?? ""} placeholder="https://meet.google.com/..." aria-label={`Link de Google Meet de ${s.nombre}`} style={{ width: 210 }} />
                   <label className="row"><input type="checkbox" name="es_asignador" defaultChecked={s.es_asignador} /> reasigna</label>
                   <label className="row"><input type="checkbox" name="activo" defaultChecked={s.activo} /> activo</label>
                   <button type="submit" className="ghost">Guardar</button>
@@ -52,7 +54,8 @@ export default async function EquipoPage() {
             <label htmlFor="m-nombre">Nombre<input id="m-nombre" name="nombre" required /></label>
             <label htmlFor="m-email">Correo<input id="m-email" name="email" type="email" required /></label>
             <label htmlFor="m-pass">Contraseña inicial (mínimo 8)<input id="m-pass" name="password" type="text" minLength={8} required /></label>
-            <label htmlFor="m-wa">WhatsApp<input id="m-wa" name="whatsapp" /></label>
+            <label htmlFor="m-wa">WhatsApp (con código de país)<input id="m-wa" name="whatsapp" placeholder="+57 300 000 0000" /></label>
+            <label htmlFor="m-meet">Link fijo de Google Meet<input id="m-meet" name="link_reunion" type="url" placeholder="https://meet.google.com/abc-defg-hij" /></label>
             <label htmlFor="m-rol">Rol
               <select id="m-rol" name="rol" defaultValue="vendedor"><option value="vendedor">vendedor</option><option value="manager">manager</option><option value="admin">admin</option></select>
             </label>

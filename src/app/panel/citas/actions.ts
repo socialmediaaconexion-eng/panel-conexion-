@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { requireSeller, esGestor, type Seller } from "@/lib/auth";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { mensajeError } from "@/lib/format";
+import { notificarSinBloquear } from "@/lib/notificaciones";
 import type { Estado } from "../leads/actions";
 
 // Colombia has no daylight saving time: a fixed -05:00 offset is exact year-round.
@@ -66,10 +67,10 @@ export async function agendarCita(leadId: string, _prev: Estado, formData: FormD
     if (!(await libre(admin, closerId, slot.start, slot.end))) return { error: "Ese horario choca con otra cita activa del closer." };
   }
 
-  const { error } = await admin.from("citas").insert({
+  const { data: cita, error } = await admin.from("citas").insert({
     lead_id: leadId, seller_id: closerId, start_at: slot.start.toISOString(), end_at: slot.end.toISOString(),
     notas: String(formData.get("notas") ?? "").trim() || null,
-  });
+  }).select("id").single();
   if (error) return { error: mensajeError(error)! };
 
   if (dueno?.id !== closerId) {
@@ -77,6 +78,7 @@ export async function agendarCita(leadId: string, _prev: Estado, formData: FormD
     await admin.from("lead_assignments").insert({ lead_id: leadId, seller_id: closerId, assigned_by: seller.id, motivo: dueno ? "handoff_setter_closer" : "manual" });
   }
   await admin.from("leads").update({ etapa: "agendado" }).eq("id", leadId).in("etapa", ["nuevo", "contactado"]);
+  await notificarSinBloquear(cita.id, "confirmacion");
 
   revalidatePath(`/panel/leads/${leadId}`);
   revalidatePath("/panel/citas");
@@ -100,6 +102,7 @@ export async function reagendarCita(citaId: string, _prev: Estado, formData: For
 
   const { error } = await supabase.from("citas").update({ start_at: slot.start.toISOString(), end_at: slot.end.toISOString(), estado: "reagendada" }).eq("id", citaId);
   if (error) return { error: mensajeError(error)! };
+  await notificarSinBloquear(citaId, `reagendada:${slot.start.toISOString()}`);
   revalidatePath("/panel/citas");
   revalidatePath(`/panel/leads/${cita.lead_id}`);
   return { ok: "Cita reagendada." };
@@ -110,6 +113,7 @@ export async function cambiarEstadoCita(citaId: string, formData: FormData) {
   const estado = String(formData.get("estado"));
   if (!ESTADOS.includes(estado as (typeof ESTADOS)[number])) return;
   const { data } = await supabase.from("citas").update({ estado }).eq("id", citaId).select("lead_id").maybeSingle();
+  if (data && estado === "cancelada") await notificarSinBloquear(citaId, "cancelada");
   revalidatePath("/panel/citas");
   if (data) revalidatePath(`/panel/leads/${data.lead_id}`);
 }

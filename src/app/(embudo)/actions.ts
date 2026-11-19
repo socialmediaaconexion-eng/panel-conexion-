@@ -3,6 +3,7 @@
 import { redirect } from "next/navigation";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { firmarLead, verificarLead, slotsDisponibles, DURACION_LLAMADA_MIN } from "@/lib/agenda";
+import { notificarSinBloquear } from "@/lib/notificaciones";
 
 const EMBUDO = "vsl-conexion";
 
@@ -58,7 +59,7 @@ export async function agendarLlamada(leadId: string, token: string, _prev: strin
   const { data: existente } = await admin.from("citas").select("id").eq("lead_id", leadId).in("estado", ["agendada", "reagendada"]).gt("start_at", new Date().toISOString()).maybeSingle();
   if (existente) redirect(`/gracias?lead=${leadId}&t=${token}`);
 
-  const { error } = await admin.from("citas").insert({ lead_id: leadId, seller_id: closerId, start_at: start.toISOString(), end_at: end.toISOString(), notas: "Agendada desde el embudo VSL" });
+  const { data: cita, error } = await admin.from("citas").insert({ lead_id: leadId, seller_id: closerId, start_at: start.toISOString(), end_at: end.toISOString(), notas: "Agendada desde el embudo VSL" }).select("id").single();
   if (error) return "Ese horario se acaba de ocupar. Elige otro, por favor."; // exclusion constraint caught a race
 
   if (asignacion?.seller_id !== closerId) {
@@ -66,5 +67,6 @@ export async function agendarLlamada(leadId: string, token: string, _prev: strin
     await admin.from("lead_assignments").insert({ lead_id: leadId, seller_id: closerId, motivo: asignacion ? "handoff_setter_closer" : "auto:round_robin" });
   }
   await admin.from("leads").update({ etapa: "agendado" }).eq("id", leadId).in("etapa", ["nuevo", "contactado"]);
+  await notificarSinBloquear(cita.id, "confirmacion");
   redirect(`/gracias?lead=${leadId}&t=${token}`);
 }
