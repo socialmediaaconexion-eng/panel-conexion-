@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { VslVideo } from "@/components/vsl-video";
 
 export const metadata: Metadata = {
   title: "Conexión — Agencia boutique de marca, diseño y landing pages",
@@ -20,12 +21,10 @@ export default async function VslPage({ searchParams }: Props) {
       <p className="embudo-lead">Mira este video de un minuto: cómo trabajamos manuales de marca, diseño para ads y redes, y landing pages — con atención directa, como agencia boutique.</p>
 
       <div className="vsl-frame">
-        <video controls preload="metadata" poster="/vsl-poster.jpg" playsInline>
-          <source src="/vsl.mp4" type="video/mp4" />
-        </video>
+        <VslVideo />
       </div>
 
-      <Link href={`/aplicar${qs ? `?${qs}` : ""}`} className="btn btn-big">Aplicar para una llamada</Link>
+      <Link href={`/aplicar${qs ? `?${qs}` : ""}`} className="btn btn-big" data-evento="cta_aplicar">Aplicar para una llamada</Link>
       <p className="muted small">La llamada es gratuita y dura 45 minutos. Revisamos tu caso antes de confirmar.</p>
 
       <section className="embudo-servicios">

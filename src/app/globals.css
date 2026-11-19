@@ -262,3 +262,17 @@ a:not(.btn) { transition: color .15s ease; }
 .tema:hover:not(:disabled) { box-shadow: none; background: var(--surface); border-color: var(--line-hover); }
 .tema-ico { width: 14px; height: 14px; border-radius: 50%; background: var(--fg); box-shadow: inset -5px -3px 0 0 var(--surface-2); transition: box-shadow .3s var(--ease), background-color .3s; }
 :root[data-theme="dark"] .tema-ico { background: #fff; box-shadow: inset 0 0 0 0 var(--surface-2); }
+
+/* Analítica del embudo */
+.embudo-pasos { display: flex; flex-direction: column; gap: 12px; }
+.embudo-pasos:hover { transform: none; }
+.paso-txt { display: flex; justify-content: space-between; gap: 12px; font-size: 13px; margin-bottom: 5px; flex-wrap: wrap; }
+.paso-barra { height: 10px; border-radius: 999px; background: var(--surface-2); overflow: hidden; }
+.paso-barra span { display: block; height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--red-btn), var(--red)); transform-origin: left; animation: barra .9s var(--ease) both; }
+.paso:nth-child(n+7) .paso-barra span { background: var(--strong); }
+@keyframes barra { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+.paso-alerta { margin: 4px 0 0; padding: 10px 14px; border-radius: 12px; background: var(--accent-tint); font-size: 13px; }
+.dias { display: flex; align-items: flex-end; gap: 3px; height: 120px; margin-bottom: 8px; }
+.dias span { flex: 1; min-width: 2px; border-radius: 4px 4px 0 0; background: var(--red); transition: opacity .15s; }
+.dias span.cero { background: var(--line); }
+.dias span:hover { opacity: .7; }

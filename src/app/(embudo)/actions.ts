@@ -30,6 +30,9 @@ export async function aplicar(_prev: string | null, formData: FormData): Promise
         nombre, email, telefono, embudo: EMBUDO, respuestas,
         utm_source: String(formData.get("utm_source") ?? "") || null,
         utm_campaign: String(formData.get("utm_campaign") ?? "") || null,
+        utm_medium: String(formData.get("utm_medium") ?? "") || null,
+        utm_content: String(formData.get("utm_content") ?? "") || null,
+        sesion: String(formData.get("sesion") ?? "").slice(0, 64) || null,
       },
       { onConflict: "email,embudo" },
     )

@@ -2,13 +2,13 @@
 
 import { useActionState } from "react";
 import { aplicar } from "../actions";
+import { CamposRastreo } from "@/components/rastreo";
 
-export function AplicarForm({ utmSource, utmCampaign }: { utmSource: string; utmCampaign: string }) {
+export function AplicarForm() {
   const [error, action, pending] = useActionState(aplicar, null);
   return (
-    <form action={action} className="stack embudo-form">
-      <input type="hidden" name="utm_source" value={utmSource} />
-      <input type="hidden" name="utm_campaign" value={utmCampaign} />
+    <form action={action} className="stack embudo-form" data-rastreo>
+      <CamposRastreo />
       <label htmlFor="a-nombre">Nombre completo<input id="a-nombre" name="nombre" required autoComplete="name" /></label>
       <label htmlFor="a-email">Correo<input id="a-email" name="email" type="email" required autoComplete="email" /></label>
       <label htmlFor="a-tel">WhatsApp (con código de país)<input id="a-tel" name="telefono" type="tel" required placeholder="+57 300 000 0000" autoComplete="tel" /></label>
