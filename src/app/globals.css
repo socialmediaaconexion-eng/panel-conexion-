@@ -467,7 +467,13 @@ button.vsl-portada:active:not(:disabled) { transform: none; }
 .vsl-texto strong { font-size: clamp(14px, 2.2vw, 22px); font-weight: 600; letter-spacing: -0.02em; }
 .vsl-texto span { font-size: clamp(11px, 1.4vw, 13px); color: #a6a6ae; }
 
-/* Inicio optimizado: dolor + titular + video + botón en el primer pantallazo del celular */
+/* Inicio optimizado: dolor + titular + video + botón en el primer pantallazo */
+@media (min-width: 641px) {
+  .lp-hero { padding-top: 34px; gap: 10px; }
+  .lp-hero .lp-h1 { font-size: clamp(34px, 4.6vw, 56px); max-width: 20ch; }
+  .lp-hero .dolor { font-size: 19px; }
+  .lp-video { max-width: 780px; margin-top: 10px; }
+}
 @media (max-width: 640px) {
   .lp-hero { padding-top: 22px; gap: 10px; }
   .lp-hero .eyebrow { margin: 0; }
