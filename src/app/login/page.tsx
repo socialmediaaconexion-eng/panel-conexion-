@@ -8,7 +8,7 @@ export default function LoginPage() {
   return (
     <main className="public"><div className="public-card">
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="/logo-dorado.png" alt="Conexión" />
+      <img src="/logo.png" alt="Conexión" />
       <h1>Entrar al panel</h1>
       <p className="muted">Usa el correo y la contraseña que te dio el administrador.</p>
       <form action={action} className="stack">

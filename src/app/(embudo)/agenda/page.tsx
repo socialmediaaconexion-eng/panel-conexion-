@@ -32,7 +32,7 @@ export default async function AgendaPage({ searchParams }: Props) {
   return (
     <main className="embudo">
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="/logo-dorado.png" alt="Conexión" className="embudo-logo" />
+      <img src="/logo.png" alt="Conexión" className="embudo-logo" />
       <h1 className="embudo-h1">Elige el horario de tu llamada</h1>
       <p className="embudo-lead">45 minutos, por videollamada. Horarios en hora de Colombia.</p>
       {porDia.size === 0 ? (

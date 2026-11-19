@@ -1,6 +1,6 @@
-// Intro de marca: la C entra como un "clic" y la palabra sale desde el centro de la C.
-// Solo CSS (sin JS de React) para que no haya parpadeo. Se ve una vez por sesión;
-// ?intro=1 en la URL la repite. Respeta "reducir movimiento".
+// Intro de marca en 3D: la C (con volumen) gira hacia el frente, hace "clic" hundiéndose,
+// y de su centro nace la palabra. Solo CSS + un script mínimo: sin parpadeo.
+// Una vez por sesión; ?intro=1 la repite. Respeta "reducir movimiento".
 const decidir = `(function(){try{
   var d=document.documentElement,q=location.search.indexOf('intro=1')>-1;
   var r=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -8,15 +8,22 @@ const decidir = `(function(){try{
   sessionStorage.setItem('cx-intro','1');
 }catch(e){}})();`;
 
+const CAPAS = 14; // grosor del volumen (capas de canto)
+
 export function Intro() {
   return (
     <>
       <script dangerouslySetInnerHTML={{ __html: decidir }} />
       <div className="intro" aria-hidden="true">
         <div className="intro-logo">
-          <span className="intro-word"><img src="/logo-c-word.png" alt="" /></span>
-          <span className="intro-ripple" />
-          <img className="intro-mark" src="/logo-c-mark.png" alt="" />
+          <div className="intro-3d">
+            {Array.from({ length: CAPAS }, (_, i) => (
+              <img key={i} className="intro-canto" src="/logo-c-mark-side.png" alt="" style={{ transform: `translateZ(${-(i + 1) * 1.4}px)` }} />
+            ))}
+            <img className="intro-frente" src="/logo-c-mark.png" alt="" />
+            <span className="intro-ripple" />
+            <span className="intro-word"><img src="/logo-c-word.png" alt="" /></span>
+          </div>
         </div>
       </div>
     </>
