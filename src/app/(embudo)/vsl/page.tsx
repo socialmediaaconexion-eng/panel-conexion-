@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { VslVideo } from "@/components/vsl-video";
 import { Sistema } from "@/components/landing/sistema";
 import { Tilt } from "@/components/landing/tilt";
+import { Historia } from "@/components/landing/historia";
 
 export const metadata: Metadata = {
   title: "Conexión — Sistemas de captación con IA para marcas boutique",
@@ -44,6 +45,14 @@ export default async function VslPage({ searchParams }: Props) {
         <div className="vsl-frame lp-video"><VslVideo /></div>
         <Link href={aplicar} className="btn btn-big" data-evento="cta_aplicar">Aplicar para una llamada</Link>
         <p className="muted small">Llamada gratuita de 45 minutos. Revisamos tu caso antes de confirmar.</p>
+      </section>
+
+      {/* Historia */}
+      <section className="lp-sec lp-historia">
+        <p className="eyebrow">Soy Fer · la Sabia Creativa</p>
+        <h2 className="lp-h2">Esta no es la historia de una agencia. Es la mía.</h2>
+        <p className="lp-sub">Desliza las escenas. Cada caída me enseñó algo que hoy uso en tu marca.</p>
+        <Historia />
       </section>
 
       {/* El sistema */}
