@@ -89,7 +89,7 @@ function generarIcs(cita: CitaCompleta, cancelar: boolean, secuencia: number) {
     "CALSCALE:GREGORIAN",
     `METHOD:${cancelar ? "CANCEL" : "REQUEST"}`,
     "BEGIN:VEVENT",
-    `UID:cita-${cita.id}@conexion.agency`,
+    `UID:cita-${cita.id}@conexionteam.app`,
     `SEQUENCE:${secuencia}`,
     `DTSTAMP:${icsFecha(new Date().toISOString())}`,
     `DTSTART:${icsFecha(cita.start_at)}`,
