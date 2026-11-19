@@ -1,6 +1,7 @@
 import { requireSeller, esGestor } from "@/lib/auth";
 import { logout } from "../login/actions";
 import { Nav } from "./nav";
+import { TemaToggle } from "@/components/tema-toggle";
 
 export default async function PanelLayout({ children }: { children: React.ReactNode }) {
   const { seller } = await requireSeller();
@@ -13,7 +14,10 @@ export default async function PanelLayout({ children }: { children: React.ReactN
         <div className="who">
           <div><strong>{seller.nombre}</strong></div>
           <div className="muted">{seller.rol} · {seller.tipo}</div>
-          <form action={logout}><button type="submit" className="ghost small" style={{ marginTop: 8 }}>Cerrar sesión</button></form>
+          <div className="row" style={{ marginTop: 10, gap: 8 }}>
+            <TemaToggle />
+            <form action={logout}><button type="submit" className="ghost small">Cerrar sesión</button></form>
+          </div>
         </div>
       </aside>
       <main className="main">{children}</main>

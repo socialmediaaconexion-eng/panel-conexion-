@@ -2,7 +2,8 @@
 // y de su centro nace la palabra. Solo CSS + un script mínimo: sin parpadeo.
 // Una vez por sesión; ?intro=1 la repite. Respeta "reducir movimiento".
 const decidir = `(function(){try{
-  var d=document.documentElement,q=location.search.indexOf('intro=1')>-1;
+  var d=document.documentElement;if(localStorage.getItem('cx-tema')==='dark')d.setAttribute('data-theme','dark');
+  var q=location.search.indexOf('intro=1')>-1;
   var r=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
   if(!q&&(r||sessionStorage.getItem('cx-intro'))){d.classList.add('intro-skip');}
   sessionStorage.setItem('cx-intro','1');

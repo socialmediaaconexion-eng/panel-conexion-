@@ -10,11 +10,11 @@ export const metadata: Metadata = {
   description: "Panel de gestión comercial de Conexión Agency",
 };
 
-export const viewport: Viewport = { themeColor: "#0D0D0F", colorScheme: "dark" };
+export const viewport: Viewport = { themeColor: "#FFFFFF", colorScheme: "light dark" };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es" className={poppins.variable}>
+    <html lang="es" className={poppins.variable} suppressHydrationWarning>
       <body><Intro />{children}</body>
     </html>
   );
