@@ -6,6 +6,8 @@ import { Tilt } from "@/components/landing/tilt";
 import { Historia } from "@/components/landing/historia";
 import { TitularDolor } from "@/components/landing/titular-dolor";
 import { StickyCta } from "@/components/landing/sticky-cta";
+import { AplicarModal } from "@/components/landing/aplicar-modal";
+import { SalidaAviso } from "@/components/landing/salida-aviso";
 
 export const metadata: Metadata = {
   title: "Conexión — Sistemas de captación con IA para marcas boutique",
@@ -154,9 +156,13 @@ export default async function VslPage({ searchParams }: Props) {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/logo.png" alt="Conexión" />
         <span>Conexión · Agencia boutique · Medellín · conexionteam.app</span>
+        <nav className="lp-legal" aria-label="Legal"><Link href="/cotizar">Cotizar</Link><Link href="/privacidad">Privacidad</Link><Link href="/terminos">Términos</Link></nav>
+        <p className="lp-descargo">Cada negocio es distinto: no prometemos ingresos ni resultados específicos. Este sitio no forma parte de Meta ni está respaldado por Meta.</p>
       </footer>
 
       <StickyCta href={aplicar} />
+      <AplicarModal />
+      <SalidaAviso href={aplicar} />
     </div>
   );
 }

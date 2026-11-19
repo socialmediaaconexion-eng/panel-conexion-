@@ -1,0 +1,61 @@
+{
+  "name": "Conexión — Cotizaciones",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "conexion-cotizaciones",
+        "authentication": "headerAuth",
+        "responseMode": "onReceived",
+        "options": {}
+      },
+      "id": "a1f0c1e2-0001-4c11-9a01-000000000001",
+      "name": "Cotización nueva (webhook)",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [0, 0],
+      "webhookId": "conexion-cotizaciones",
+      "credentials": { "httpHeaderAuth": { "id": "", "name": "Conexión secreto" } }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.body.email }}",
+        "subject": "={{ 'Recibimos tu solicitud de cotización, ' + $json.body.nombre.split(' ')[0] }}",
+        "emailType": "html",
+        "message": "={{ `<div style=\"font-family:Arial,sans-serif;font-size:15px;color:#0d0d0f;line-height:1.6;max-width:560px\"><p>Hola ${$json.body.nombre.split(' ')[0]},</p><p>Recibimos tu solicitud de cotización en Conexión. Esto es lo que nos pediste:</p><ul>${($json.body.piezas || []).map(p => `<li>${p}</li>`).join('')}</ul><p>Vamos a revisar tu caso y te enviaremos una propuesta clara a este correo.</p><p>Si prefieres hablarlo en vivo, puedes agendar una llamada gratuita de 45 minutos aquí: <a href=\"https://conexionteam.app/aplicar\">conexionteam.app/aplicar</a></p><p>Un abrazo,<br>Fer · Conexión</p></div>` }}",
+        "options": { "appendAttribution": false, "senderName": "Conexión" }
+      },
+      "id": "a1f0c1e2-0002-4c11-9a01-000000000002",
+      "name": "Correo al cliente",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [320, -120],
+      "credentials": { "gmailOAuth2": { "id": "", "name": "Gmail Conexión" } }
+    },
+    {
+      "parameters": {
+        "sendTo": "CORREO_DEL_EQUIPO@ejemplo.com",
+        "subject": "={{ 'Nueva cotización: ' + $json.body.nombre + ($json.body.empresa ? ' · ' + $json.body.empresa : '') }}",
+        "emailType": "html",
+        "message": "={{ `<div style=\"font-family:Arial,sans-serif;font-size:14px;color:#0d0d0f;line-height:1.6\"><h2 style=\"margin:0 0 8px\">Nueva cotización</h2><p><b>${$json.body.nombre}</b>${$json.body.empresa ? ' · ' + $json.body.empresa : ''}${$json.body.pais ? ' · ' + $json.body.pais : ''}</p><p><b>Quiere:</b> ${($json.body.piezas || []).join(', ')}</p><p><b>Correo:</b> ${$json.body.email}<br><b>WhatsApp:</b> ${$json.body.telefono || '—'}<br><b>Presupuesto:</b> ${$json.body.presupuesto || '—'}<br><b>Plazo:</b> ${$json.body.plazo || '—'}<br><b>Llegó de:</b> ${$json.body.utm_source || 'directo'}</p><p><b>Proyecto:</b><br>${($json.body.mensaje || '—').replace(/\\n/g, '<br>')}</p><p><a href=\"${$json.body.panel_url}\">Abrir en el panel</a></p></div>` }}",
+        "options": { "appendAttribution": false, "senderName": "Panel Conexión" }
+      },
+      "id": "a1f0c1e2-0003-4c11-9a01-000000000003",
+      "name": "Aviso al equipo",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [320, 120],
+      "credentials": { "gmailOAuth2": { "id": "", "name": "Gmail Conexión" } }
+    }
+  ],
+  "connections": {
+    "Cotización nueva (webhook)": {
+      "main": [[
+        { "node": "Correo al cliente", "type": "main", "index": 0 },
+        { "node": "Aviso al equipo", "type": "main", "index": 0 }
+      ]]
+    }
+  },
+  "settings": { "executionOrder": "v1" },
+  "active": false
+}

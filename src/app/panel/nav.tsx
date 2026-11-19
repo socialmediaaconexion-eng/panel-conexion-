@@ -9,6 +9,7 @@ const LINKS = [
   { href: "/panel/citas", label: "Citas", gestor: false },
   { href: "/panel/ventas", label: "Ventas", gestor: false },
   { href: "/panel/horarios", label: "Horarios", gestor: false },
+  { href: "/panel/cotizaciones", label: "Cotizaciones", gestor: true },
   { href: "/panel/analitica", label: "Analítica", gestor: true },
   { href: "/panel/soporte", label: "Soporte", gestor: false },
   { href: "/panel/equipo", label: "Equipo", gestor: true },

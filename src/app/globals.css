@@ -412,3 +412,60 @@ section[id] { scroll-margin-top: 72px; }
 .sticky-cta.ver { transform: translate(-50%, 0); }
 .sticky-cta .btn { padding: 9px 20px; }
 .sticky-cta span { white-space: nowrap; }
+.lp-foot { flex-direction: column; gap: 8px; }
+.lp-legal { display: flex; gap: 16px; }
+.lp-legal a { color: var(--muted); }
+.lp-descargo { max-width: 70ch; margin: 4px 0 0; font-size: 11px; color: var(--placeholder); }
+
+/* Modal de aplicación y aviso de salida */
+html.modal-abierto { overflow: hidden; }
+.modal { border: 0; padding: 0; background: transparent; max-width: min(560px, calc(100% - 24px)); width: 100%; max-height: calc(100dvh - 24px); color: var(--fg); }
+.modal::backdrop { background: rgba(13,13,15,.55); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+.modal[open] { animation: modal-in .45s var(--ease) both; }
+@keyframes modal-in { from { opacity: 0; transform: translateY(24px) scale(.97); } to { opacity: 1; transform: none; } }
+.modal-in { position: relative; display: flex; flex-direction: column; gap: 8px; padding: 30px 26px 26px; border-radius: 26px; background: var(--surface); border: 1px solid var(--line); box-shadow: 0 40px 80px -30px rgba(0,0,0,.5); }
+.modal-in .embudo-form { max-width: none; margin-top: 8px; }
+button.modal-x { position: absolute; top: 12px; right: 12px; width: 36px; height: 36px; padding: 0; border-radius: 50%; background: var(--surface-2); color: var(--fg); box-shadow: none; font-size: 20px; line-height: 1; }
+button.modal-x:hover:not(:disabled) { box-shadow: none; transform: rotate(90deg); }
+
+/* Página de gracias */
+.typ { max-width: 680px; margin: 0 auto; padding: 48px 16px 64px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px; }
+.typ-check { width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center; background: var(--accent); color: #fff; font-size: 30px; font-weight: 700; box-shadow: 0 0 0 10px var(--accent-tint); animation: check .6s var(--ease) both; }
+@keyframes check { from { transform: scale(0) rotate(-30deg); } to { transform: none; } }
+.typ-cita { display: flex; flex-direction: column; gap: 4px; padding: 20px 26px; border-radius: 20px; background: var(--surface); border: 1px solid var(--line); width: 100%; }
+.typ-cita strong { font-size: 20px; letter-spacing: -0.02em; }
+.typ-cita strong::first-letter { text-transform: uppercase; }
+.typ-cita span { color: var(--muted); font-size: 14px; }
+.typ-cita a { color: var(--accent); font-weight: 600; font-size: 14px; }
+.ghost-btn { background: transparent; color: var(--fg); border: 1px solid var(--line); box-shadow: none; }
+.ghost-btn:hover { background: var(--surface-2); color: var(--fg); }
+.typ-h { margin-top: 24px; font-size: 20px; }
+.typ-pasos { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; width: 100%; text-align: left; }
+.typ-pasos li { display: flex; gap: 14px; align-items: flex-start; padding: 16px 18px; border-radius: 18px; background: var(--surface); border: 1px solid var(--line); }
+.typ-pasos b { flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; background: var(--accent-tint); color: var(--accent); }
+
+/* Páginas legales */
+.legal { max-width: 720px; margin: 0 auto; padding: 40px 16px 64px; }
+.legal h1 { font-size: 30px; }
+.legal h2 { margin-top: 28px; }
+.legal p, .legal li { color: var(--muted); }
+/* Cotizaciones */
+.cotizar { width: 100%; display: flex; flex-direction: column; gap: 14px; text-align: left; margin-top: 8px; }
+.piezas { border: 0; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: 10px; }
+.piezas legend { font-weight: 600; margin-bottom: 10px; font-size: 15px; }
+.pieza { cursor: pointer; }
+.pieza input { position: absolute; opacity: 0; }
+.pieza span { display: flex; align-items: center; gap: 10px; padding: 14px 16px; border-radius: 16px; border: 1px solid var(--line); background: var(--surface); color: var(--fg); font-size: 14px; font-weight: 500; transition: transform .18s var(--ease), border-color .18s, background-color .18s; }
+.pieza span::before { content: ""; width: 18px; height: 18px; flex-shrink: 0; border-radius: 6px; border: 1.5px solid var(--line-hover); transition: all .2s var(--ease); }
+.pieza:hover span { transform: translateY(-2px); border-color: var(--accent); }
+.pieza input:checked + span { border-color: var(--accent); background: var(--accent-tint); }
+.pieza input:checked + span::before { background: var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 8.5l3 3 7-7' fill='none' stroke='white' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/12px no-repeat; border-color: var(--accent); }
+.pieza input:focus-visible + span { outline: 2px solid var(--accent); outline-offset: 2px; }
+.cotizar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: 12px; }
+.cotizar button[type=submit] { align-self: center; }
+.cot-lista { display: flex; flex-direction: column; gap: 12px; }
+.cot:hover { transform: none; }
+.cot-datos { display: grid; grid-template-columns: max-content 1fr; gap: 4px 14px; margin: 0 0 12px; font-size: 13.5px; }
+.cot-datos dt { color: var(--muted); }
+.cot-datos dd { margin: 0; white-space: pre-wrap; }
+.legal-volver { display: inline-block; margin-bottom: 18px; color: var(--accent); text-decoration: none; font-weight: 600; }
