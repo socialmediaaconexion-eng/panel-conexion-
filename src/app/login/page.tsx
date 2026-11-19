@@ -6,7 +6,7 @@ import { login } from "./actions";
 export default function LoginPage() {
   const [error, action, pending] = useActionState(login, null);
   return (
-    <main className="public">
+    <main className="public"><div className="public-card">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src="/logo-dorado.png" alt="Conexión" />
       <h1>Entrar al panel</h1>
@@ -21,6 +21,6 @@ export default function LoginPage() {
         {error && <div className="alert error">{error}</div>}
         <button type="submit" disabled={pending}>{pending ? "Entrando…" : "Entrar"}</button>
       </form>
-    </main>
+    </div></main>
   );
 }
