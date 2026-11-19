@@ -14,12 +14,16 @@ export function AplicarModal() {
       const a = (e.target as HTMLElement)?.closest?.('a[href^="/aplicar"]');
       if (!a || e.metaKey || e.ctrlKey || !ref.current) return;
       e.preventDefault();
+      e.stopPropagation(); // antes de que el Link de Next navegue
       ref.current.showModal();
       document.documentElement.classList.add("modal-abierto");
+      // stopPropagation también frena el rastreo de clics, así que se registra aquí.
+      const ev = a.getAttribute("data-evento");
+      if (ev) rastrear(ev);
       rastrear("aplicar_vista");
     };
-    document.addEventListener("click", abrir);
-    return () => document.removeEventListener("click", abrir);
+    document.addEventListener("click", abrir, true);
+    return () => document.removeEventListener("click", abrir, true);
   }, []);
 
   const cerrar = () => { ref.current?.close(); };
