@@ -14,7 +14,7 @@ export default async function VslPage({ searchParams }: Props) {
   return (
     <main className="embudo">
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="/logo.png" alt="Conexión" className="embudo-logo" />
+      <img src="/logo-dorado.png" alt="Conexión" className="embudo-logo" />
       <p className="eyebrow">Agencia boutique · pocos clientes, atención directa</p>
       <h1 className="embudo-h1">Tu marca ya tiene algo que decir. Nosotros hacemos que se vea y se venda como tal.</h1>
       <p className="embudo-lead">Mira este video de un minuto: cómo trabajamos manuales de marca, diseño para ads y redes, y landing pages — con atención directa, como agencia boutique.</p>

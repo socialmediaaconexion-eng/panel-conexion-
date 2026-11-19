@@ -31,7 +31,7 @@ export default async function GraciasPage({ searchParams }: Props) {
   return (
     <main className="embudo">
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="/logo.png" alt="Conexión" className="embudo-logo" />
+      <img src="/logo-dorado.png" alt="Conexión" className="embudo-logo" />
       <h1 className="embudo-h1">{cita ? `Listo${nombre ? `, ${nombre}` : ""}: tu llamada quedó agendada` : "Gracias por aplicar"}</h1>
       {cita ? (
         <>
