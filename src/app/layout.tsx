@@ -8,6 +8,7 @@ const poppins = Poppins({ subsets: ["latin"], weight: ["300", "400", "500", "600
 export const metadata: Metadata = {
   title: "Conexión — Panel",
   description: "Panel de gestión comercial de Conexión Agency",
+  appleWebApp: { capable: true, title: "Conexión", statusBarStyle: "black" },
 };
 
 export const viewport: Viewport = { themeColor: "#FFFFFF", colorScheme: "light dark" };
