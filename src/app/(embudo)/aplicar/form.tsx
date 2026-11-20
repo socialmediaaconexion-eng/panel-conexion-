@@ -46,12 +46,12 @@ export function AplicarForm() {
 
       <fieldset className="quiz-paso" hidden={!enContacto}>
         <legend>Último paso: ¿a dónde te escribimos?</legend>
-        <p className="muted small">Revisamos tus respuestas y, si eres apto, eliges el horario de tu llamada gratuita.</p>
+        <p className="muted small">Revisamos tus respuestas y, si esto es para ti, eliges el horario de tu llamada gratuita.</p>
         <label htmlFor="a-nombre">Nombre<input id="a-nombre" name="nombre" required autoComplete="name" /></label>
         <label htmlFor="a-email">Correo<input id="a-email" name="email" type="email" required autoComplete="email" /></label>
         <label htmlFor="a-tel">WhatsApp (con código de país)<input id="a-tel" name="telefono" type="tel" required placeholder="+57 300 000 0000" autoComplete="tel" /></label>
         {error && <div className="alert error" role="alert">{error}</div>}
-        <button type="submit" className="btn-big" disabled={pending}>{pending ? "Revisando…" : "Ver si soy apto y agendar"}</button>
+        <button type="submit" className="btn-big" disabled={pending}>{pending ? "Revisando…" : "Ver si es para mí y agendar"}</button>
         <p className="muted small">Al enviar aceptas nuestra <a href="/privacidad">política de privacidad</a>.</p>
       </fieldset>
     </form>

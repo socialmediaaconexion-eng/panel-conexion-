@@ -63,7 +63,7 @@ export default async function VslPage({ searchParams }: Props) {
       <header className="lp-top">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/logo.png" alt="Conexión" className="lp-top-logo" />
-        <Link href={aplicar} className="btn lp-top-cta" data-evento="cta_aplicar">¿Soy apto?</Link>
+        <Link href={aplicar} className="btn lp-top-cta" data-evento="cta_aplicar">¿Es para mí?</Link>
       </header>
 
       {/* 1. Dolor → promesa → video → CTA */}
@@ -74,8 +74,8 @@ export default async function VslPage({ searchParams }: Props) {
         <h1 className="lp-h1">Implementamos tu sistema de captación con <span className="rojo">IA</span>.</h1>
         <p className="lp-lead">Estrategia de marca, creatividad humana y la velocidad de la IA: landing, embudo, panel, videos y campañas, a la medida de tu negocio.</p>
         <div className="vsl-frame lp-video"><VslVideo src="/vsl-horizontal.mp4" poster="/vsl-horizontal-poster.jpg" /></div>
-        <Link href={aplicar} className="btn btn-big" data-evento="cta_aplicar">Quiero saber si soy apto</Link>
-        <p className="muted small">5 preguntas de un toque · si eres apto, agendas un diagnóstico gratuito de 45 min.</p>
+        <Link href={aplicar} className="btn btn-big" data-evento="cta_aplicar">Quiero saber si es para mí</Link>
+        <p className="muted small">5 preguntas de un toque · si es para ti, agendas un diagnóstico gratuito de 45 min.</p>
       </section>
 
       {/* 2. Cambios: antes → después */}
@@ -93,7 +93,7 @@ export default async function VslPage({ searchParams }: Props) {
             </li>
           ))}
         </ul>
-        <Link href={aplicar} className="btn btn-big" data-evento="cta_aplicar">Quiero saber si soy apto</Link>
+        <Link href={aplicar} className="btn btn-big" data-evento="cta_aplicar">Quiero saber si es para mí</Link>
       </section>
 
       {/* Filosofía: gestionar la IA, no delegarlo todo */}
@@ -151,7 +151,7 @@ export default async function VslPage({ searchParams }: Props) {
         <LineaHistoria />
         <div className="lh-cierre">
           <p>No te voy a enseñar teoría. <strong>Te voy a instalar lo que ya me funcionó.</strong></p>
-          <Link href={aplicar} className="btn btn-big" data-evento="cta_aplicar">Quiero saber si soy apto</Link>
+          <Link href={aplicar} className="btn btn-big" data-evento="cta_aplicar">Quiero saber si es para mí</Link>
         </div>
       </section>
 
@@ -210,7 +210,7 @@ export default async function VslPage({ searchParams }: Props) {
               <li><b>2</b>Hablamos 45 minutos sobre tu caso</li>
               <li><b>3</b>Implementamos tu sistema</li>
             </ol>
-            <Link href={aplicar} className="btn btn-big" data-evento="cta_aplicar">Quiero saber si soy apto</Link>
+            <Link href={aplicar} className="btn btn-big" data-evento="cta_aplicar">Quiero saber si es para mí</Link>
             <p className="cierre-nota">Si no somos para ti, te lo decimos en la llamada.</p>
           </div>
         </Tilt>

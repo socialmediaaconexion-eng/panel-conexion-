@@ -11,7 +11,7 @@ export default function CotizacionEnviada() {
       <h1 className="lp-h2">Recibimos tu solicitud</h1>
       <p className="lp-lead">Revisa tu correo: te llega la confirmación con lo que pediste. Preparamos tu propuesta y te escribimos.</p>
       <p className="muted small">¿Prefieres hablarlo en vivo? Puedes agendar una llamada gratuita de 45 minutos.</p>
-      <Link href="/aplicar" className="btn btn-big" data-evento="cta_aplicar">Quiero saber si soy apto</Link>
+      <Link href="/aplicar" className="btn btn-big" data-evento="cta_aplicar">Quiero saber si es para mí</Link>
     </main>
   );
 }

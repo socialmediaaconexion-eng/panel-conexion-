@@ -37,8 +37,8 @@ export function AplicarModal() {
       <div className="modal-in">
         <button type="button" className="modal-x" onClick={cerrar} aria-label="Cerrar">×</button>
         <p className="eyebrow">Diagnóstico gratuito</p>
-        <h2 id="modal-titulo" className="lp-h2" style={{ fontSize: 28 }}>¿Eres apto para el servicio?</h2>
-        <p className="muted">Un minuto, cinco preguntas de un toque. Si eres apto, eliges el horario de tu llamada.</p>
+        <h2 id="modal-titulo" className="lp-h2" style={{ fontSize: 28 }}>¿Esto es para ti?</h2>
+        <p className="muted">Un minuto, cinco preguntas de un toque. Si es para ti, eliges el horario de tu llamada.</p>
         <AplicarForm />
       </div>
     </dialog>
