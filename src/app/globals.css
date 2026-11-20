@@ -986,3 +986,10 @@ label.ws-check { flex-direction: row; align-items: center; gap: 8px; font-size: 
 .ws-lecs > li { border-top: 1px solid var(--line); padding: 4px 0; }
 .ws-lecs summary { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
 .ws-contenido textarea { resize: vertical; }
+
+/* Mi historia: fotos y clips en movimiento continuo hacia la derecha */
+.lh-medios { overflow: hidden; scroll-snap-type: none; outline: none; mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent); }
+.lh-cinta { display: flex; gap: 10px; width: max-content; animation: lh-derecha calc(var(--n, 4) * 4.5s) linear infinite; }
+.lh-medios:hover .lh-cinta, .lh-medios:focus-within .lh-cinta, .lh-medios:active .lh-cinta { animation-play-state: paused; }
+@keyframes lh-derecha { from { transform: translateX(calc(-50% - 5px)); } to { transform: translateX(0); } }
+@media (prefers-reduced-motion: reduce) { .lh-medios { overflow-x: auto; } .lh-cinta { animation: none; } }

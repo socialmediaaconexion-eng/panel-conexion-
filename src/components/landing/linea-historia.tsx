@@ -63,15 +63,18 @@ export function LineaHistoria() {
         <li key={c.n} className={`lh-cap${c.oscuro ? " lh-oscuro" : ""}`}>
           <div className="lh-marca" aria-hidden="true"><span>{c.n}</span></div>
           <div className="lh-cuerpo">
-            <div className="lh-medios">
-              {c.medios.map((m) => (
-                <figure key={m.src} className="lh-medio">
-                  {m.tipo === "foto"
-                    // eslint-disable-next-line @next/next/no-img-element
-                    ? <img src={m.src} alt={m.alt} loading="lazy" decoding="async" />
-                    : <Clip m={m} />}
-                </figure>
-              ))}
+            {/* Cinta en movimiento continuo hacia la derecha (pausa al pasar el mouse o tocar); la copia es solo para el bucle. */}
+            <div className="lh-medios" tabIndex={0}>
+              <div className="lh-cinta" style={{ ["--n" as string]: c.medios.length }}>
+                {[false, true].flatMap((copia) => c.medios.map((m) => (
+                  <figure key={`${copia ? "b" : "a"}-${m.src}`} className="lh-medio" aria-hidden={copia || undefined}>
+                    {m.tipo === "foto"
+                      // eslint-disable-next-line @next/next/no-img-element
+                      ? <img src={m.src} alt={copia ? "" : m.alt} loading="lazy" decoding="async" />
+                      : <Clip m={m} />}
+                  </figure>
+                )))}
+              </div>
             </div>
             <div className="lh-texto">
               <p className="lh-n">Capítulo {c.n}</p>
