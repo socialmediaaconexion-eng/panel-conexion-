@@ -36,9 +36,9 @@ export function Ondas() {
         }
         const g = ctx.createLinearGradient(0, 0, w, 0);
         g.addColorStop(0, "rgba(201,162,74,0)");
-        g.addColorStop(0.5, `rgba(214,175,85,${0.32 - k * 0.035})`);
+        g.addColorStop(0.5, `rgba(205,160,60,${0.62 - k * 0.06})`);
         g.addColorStop(1, "rgba(201,162,74,0)");
-        ctx.strokeStyle = g; ctx.lineWidth = k === 0 ? 1.6 : 1; ctx.stroke();
+        ctx.strokeStyle = g; ctx.lineWidth = k === 0 ? 2 : 1.2; ctx.stroke();
       }
       // Ecualizador abajo (barras que suben y bajan)
       const n = Math.max(24, Math.floor(w / 18));
@@ -47,7 +47,7 @@ export function Ondas() {
         const v = 0.5 + 0.5 * Math.sin(s * 2.2 + i * 0.55) * Math.sin(s * 0.7 + i * 0.13);
         const bh = h * 0.08 + v * h * 0.16;
         const centro = 1 - Math.abs(i / n - 0.5) * 2;
-        ctx.fillStyle = `rgba(214,175,85,${0.05 + centro * 0.16})`;
+        ctx.fillStyle = `rgba(205,160,60,${0.10 + centro * 0.32})`;
         ctx.beginPath();
         ctx.roundRect(i * bw + bw * 0.3, h - bh, bw * 0.4, bh, bw * 0.2);
         ctx.fill();
@@ -56,7 +56,7 @@ export function Ondas() {
       for (let i = 0; i < 26; i++) {
         const x = ((i * 137.5 + s * (12 + (i % 5) * 6)) % (w + 40)) - 20;
         const y = (h * ((i * 0.618) % 1) + Math.sin(s + i) * 10);
-        ctx.fillStyle = `rgba(214,175,85,${0.12 + (i % 3) * 0.06})`;
+        ctx.fillStyle = `rgba(205,160,60,${0.28 + (i % 3) * 0.12})`;
         ctx.fillRect(x, y, 2 + (i % 3), 2 + (i % 3));
       }
     };
