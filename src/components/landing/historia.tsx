@@ -11,7 +11,8 @@ const ESCENAS = [
   { tag: "Escena 4", titulo: "Me puse a aprender", texto: "Salí de mi ciudad. Aprendí a viajar y a trabajar al mismo tiempo: Medellín, México, y todo lo que me enseñó el camino." },
   { tag: "Escena 5", titulo: "Me partí la clavícula", texto: "Y seguí trabajando. Descubrí que la constancia también es una forma de creatividad." },
   { tag: "Escena 6", titulo: "Detrás de las grandes marcas", texto: "Estuve detrás de marcas y personas que venden en Latinoamérica, España y el mundo. Vi lo que funciona por dentro." },
-  { tag: "Hoy", titulo: "Conexión 2.0", texto: "Vuelve con todo lo aprendido: los secretos de las grandes marcas, ahora en un sistema de captación con IA para la tuya." },
+  { tag: "Escena 7", titulo: "Liderar desde la estrategia", texto: "Lideré equipos desde la estrategia de comunicación y la estructura organizacional, dentro de las estrategias de marca." },
+  { tag: "Hoy", titulo: "Conexión 2.0", texto: "Un equipo de expertos en IA entre Colombia y México. Los secretos de las grandes marcas, con un enfoque creativo y humano, para la tuya." },
 ];
 
 export function Historia() {

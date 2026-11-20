@@ -10,6 +10,7 @@ const LINKS = [
   { href: "/panel/ventas", label: "Ventas", gestor: false },
   { href: "/panel/horarios", label: "Horarios", gestor: false },
   { href: "/panel/cotizaciones", label: "Cotizaciones", gestor: true },
+  { href: "/panel/cobros", label: "Cobros", gestor: true },
   { href: "/panel/analitica", label: "Analítica", gestor: true },
   { href: "/panel/soporte", label: "Soporte", gestor: false },
   { href: "/panel/equipo", label: "Equipo", gestor: true },

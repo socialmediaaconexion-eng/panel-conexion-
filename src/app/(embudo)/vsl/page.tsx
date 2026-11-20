@@ -47,7 +47,9 @@ const OBJECIONES = [
   ["¿Necesito tener un equipo de ventas?", "No. Si estás sola o solo, el sistema te ordena las citas y te avisa. Si tienes equipo, el panel reparte los leads y muestra cómo va cada persona."],
   ["Ya tengo página web, ¿empiezo de cero?", "No necesariamente. En la llamada revisamos lo que tienes y te decimos qué se puede aprovechar y qué conviene rehacer."],
   ["¿Trabajan solo en Colombia?", "No. Trabajamos de forma remota con marcas en Latinoamérica, España y otros países."],
-  ["¿Cuánto cuesta?", "Depende de las piezas que necesites y del punto en que está tu marca. Te damos una propuesta clara después de la llamada, sin compromiso."],
+  ["¿Cuánto cuesta?", "La implementación completa vale USD 1.800, pago único, y queda lista en un mes. Después, si quieres que sigamos con el mantenimiento y tus campañas, la suscripción como cliente recurrente es de USD 1.500."],
+  ["¿Qué es el panel?", "Un sistema interno diseñado a la medida de tu organización: estado del negocio, métricas de campañas, ventas del día, alertas, tu equipo y los KPI de cada área, en tu celular."],
+  ["¿Puedo pagar en línea?", "Sí. Te enviamos un link de pago seguro de Bold: tarjeta, PSE, Nequi o Botón Bancolombia."],
   ["¿Por qué solo abren pocas plazas?", "Porque somos boutique: trabajamos con pocos clientes a la vez para estar de verdad en cada proyecto, con atención directa."],
   ["¿Qué pasa en la llamada?", "Son 45 minutos para entender tu negocio. Si somos para ti, te decimos qué haríamos; si no, también te lo decimos."],
 ];
@@ -68,10 +70,10 @@ export default async function VslPage({ searchParams }: Props) {
       {/* 1. Dolor → promesa → video → CTA */}
       <section className="lp-hero">
         <Ondas />
-        <p className="eyebrow">Agencia boutique · pocas plazas al mes</p>
+        <p className="eyebrow">Equipo de expertos en IA · Colombia y México</p>
         <TitularDolor />
         <h1 className="lp-h1">Implementamos tu sistema de captación con <span className="rojo">IA</span>.</h1>
-        <p className="lp-lead">Landing, embudo, panel, videos y campañas, conectados y hechos a la medida de tu marca.</p>
+        <p className="lp-lead">Estrategia de marca, creatividad humana y la velocidad de la IA: landing, embudo, panel, videos y campañas, a la medida de tu negocio.</p>
         <div className="vsl-frame lp-video"><VslVideo /></div>
         <Link href={aplicar} className="btn btn-big" data-evento="cta_aplicar">Quiero saber si soy apto</Link>
         <p className="muted small">5 preguntas de un toque · si eres apto, agendas un diagnóstico gratuito de 45 min.</p>
@@ -95,6 +97,45 @@ export default async function VslPage({ searchParams }: Props) {
         <Link href={aplicar} className="btn btn-big" data-evento="cta_aplicar">Quiero saber si soy apto</Link>
       </section>
 
+      {/* Filosofía: gestionar la IA, no delegarlo todo */}
+      <section className="lp-sec">
+        <p className="eyebrow">Nuestra forma de trabajar</p>
+        <h2 className="lp-h2">Las cosas ya no son como antes</h2>
+        <p className="lp-sub">No se trata de que la IA lo haga todo. Se trata de saber gestionarla y hacerla tu mejor aliada. Por eso no somos una agencia de marketing cualquiera: unimos tres cosas que casi nunca van juntas.</p>
+        <ul className="pilares">
+          <li><Tilt className="pilar"><span className="pilar-n">01</span><h3>Estrategia de marca y comunicación</h3><p>Antes de diseñar, entendemos tu negocio, tu estructura y lo que tu marca tiene que decir.</p></Tilt></li>
+          <li><Tilt className="pilar"><span className="pilar-n">02</span><h3>Creatividad humana</h3><p>Ideas, historias y criterio que una máquina no tiene. La IA ejecuta; las decisiones son nuestras y tuyas.</p></Tilt></li>
+          <li><Tilt className="pilar pilar-rojo"><span className="pilar-n">03</span><h3>Ejecución rápida con IA</h3><p>Lo que antes tomaba meses hoy queda listo en semanas, sin perder calidad.</p></Tilt></li>
+        </ul>
+      </section>
+
+      {/* Panel a la medida */}
+      <section className="lp-sec" id="panel">
+        <p className="eyebrow">Tu negocio en tu celular</p>
+        <h2 className="lp-h2">Un panel que te dice cómo está todo tu negocio</h2>
+        <div className="panel-demo">
+          <div className="telefono" aria-hidden="true">
+            <div className="tel-pantalla">
+              <div className="tel-top"><img src="/logo.png" alt="" /><span>Hoy</span></div>
+              <div className="tel-kpis"><div><small>Ventas</small><b>— </b></div><div><small>Leads</small><b>—</b></div></div>
+              <div className="tel-alerta"><i />Alerta: una campaña subió su costo por lead. Revísala hoy.</div>
+              <div className="tel-barras">{[40, 62, 48, 75, 58, 88, 70].map((v, i) => <span key={i} style={{ height: v + "%" }} />)}</div>
+              <div className="tel-lista"><span>Equipo de ventas</span><span>Marketing</span><span>Atención</span></div>
+            </div>
+          </div>
+          <ul className="panel-lista">
+            <li><b>Métricas de tus campañas</b> en tiempo real, desde el celular.</li>
+            <li><b>Tus ventas día a día</b> y lo que falta por cobrar.</li>
+            <li><b>Alertas</b> que te dicen exactamente qué está pasando y a qué ponerle atención.</li>
+            <li><b>Contacto con tu equipo</b> y la agenda de cada persona.</li>
+            <li><b>KPI por departamento</b>, si manejas un equipo de varias áreas.</li>
+            <li><b>Revisión de tus páginas y landing pages</b>: cómo están hechas y qué mejorar.</li>
+            <li><b>Diseñado a la medida de tu organización</b>, con un solo pago.</li>
+          </ul>
+        </div>
+        <p className="muted small">Ilustración del panel: cada uno se diseña con los datos y áreas de tu negocio.</p>
+      </section>
+
       {/* 3. Qué incluye: el sistema */}
       <section className="lp-sec" id="sistema">
         <p className="eyebrow">Qué implementamos</p>
@@ -107,7 +148,7 @@ export default async function VslPage({ searchParams }: Props) {
       <section className="lp-sec lp-historia" id="historia">
         <p className="eyebrow">Soy Fer · la Sabia Creativa</p>
         <h2 className="lp-h2">Esta no es la historia de una agencia. Es la mía.</h2>
-        <p className="lp-sub">Desliza las escenas. Cada caída me enseñó algo que hoy uso en tu marca.</p>
+        <p className="lp-sub">Conexión es un equipo de expertos en IA entre Colombia y México, liderado por mí, Fernanda: estudié cine y mi formación ha estado dentro de las estrategias de marca, liderando equipos desde la comunicación y la estructura organizacional. Desliza las escenas.</p>
         <Historia />
       </section>
 
@@ -153,6 +194,32 @@ export default async function VslPage({ searchParams }: Props) {
             </details>
           ))}
         </div>
+      </section>
+
+      {/* Oferta */}
+      <section className="lp-sec" id="oferta">
+        <p className="eyebrow">Inversión</p>
+        <h2 className="lp-h2">Un sistema completo, un solo pago</h2>
+        <div className="oferta">
+          <Tilt className="plan plan-main">
+            <span className="plan-tag">Implementación</span>
+            <div className="plan-precio"><small>USD</small>1.800</div>
+            <p className="plan-nota">Pago único · listo en 1 mes</p>
+            <ul>
+              <li>Estrategia de marca y comunicación</li><li>Landing y embudo con agenda automática</li><li>Panel a la medida en tu celular</li><li>Videos y campañas de lanzamiento</li><li>Alertas, ventas y KPI por área</li>
+            </ul>
+            <Link href={aplicar} className="btn btn-big" data-evento="cta_aplicar">Quiero saber si soy apto</Link>
+          </Tilt>
+          <Tilt className="plan">
+            <span className="plan-tag">Después · cliente recurrente</span>
+            <div className="plan-precio"><small>USD</small>1.500</div>
+            <p className="plan-nota">Suscripción de mantenimiento y campañas</p>
+            <ul>
+              <li>Mantenimiento del sistema y del panel</li><li>Gestión y optimización de campañas</li><li>Nuevas piezas y ajustes</li><li>Acompañamiento del equipo</li>
+            </ul>
+          </Tilt>
+        </div>
+        <p className="muted small">Pago en línea seguro con Bold: tarjeta, PSE, Nequi o Botón Bancolombia.</p>
       </section>
 
       {/* 6. Cierre: plazas boutique + pasos */}
