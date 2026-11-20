@@ -19,7 +19,7 @@ export function StickyCta({ href }: { href: string }) {
   }, []);
   return (
     <div className={`sticky-cta${ver ? " ver" : ""}`} aria-hidden={!ver}>
-      <span>Diagnóstico gratuito · 45 min</span>
+      <span>Diagnóstico gratuito · 30 min</span>
       <Link href={href} className="btn" data-evento="cta_aplicar" tabIndex={ver ? 0 : -1}>¿Es para mí?</Link>
     </div>
   );

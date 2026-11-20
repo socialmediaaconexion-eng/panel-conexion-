@@ -51,11 +51,11 @@ export default async function AgendaPage({ searchParams }: Props) {
           <span className="resultado-ico" aria-hidden="true">✓</span>
           <p className="eyebrow">Tu resultado</p>
           <h1 className="lp-h2">{nombre ? `${nombre}, ` : ""}¡podemos trabajar juntos!</h1>
-          <p>Por lo que nos contaste, tu negocio está listo para un sistema de captación. Agenda tu diagnóstico gratuito de <strong>45 minutos</strong>: después te contactamos y te enviamos <strong>la cotización a tu correo</strong>, con las instrucciones y toda la información.</p>
+          <p>Por lo que nos contaste, tu negocio está listo para un sistema de captación. Agenda tu diagnóstico gratuito de <strong>30 minutos</strong>: después te contactamos y te enviamos <strong>la cotización a tu correo</strong>, con las instrucciones y toda la información.</p>
         </div>
       )}
       <h2 className="agenda-h">{asesoria ? "Elige el horario de tu asesoría de regalo" : "Elige el horario de tu diagnóstico"}</h2>
-      <p className="muted small">{asesoria ? "20 minutos" : "45 minutos"} por videollamada · horarios en hora de Colombia.</p>
+      <p className="muted small">{asesoria ? "20 minutos" : "30 minutos"} por videollamada · horarios en hora de Colombia.</p>
       {porDia.size === 0 ? (
         <div className="alert error">No hay horarios libres esta semana. Te escribiremos por WhatsApp para coordinar.</div>
       ) : (

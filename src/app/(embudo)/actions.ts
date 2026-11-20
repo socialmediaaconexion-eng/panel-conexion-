@@ -61,7 +61,7 @@ export async function agendarLlamada(leadId: string, token: string, _prev: strin
   const { data: existente } = await admin.from("citas").select("id").eq("lead_id", leadId).in("estado", ["agendada", "reagendada"]).gt("start_at", new Date().toISOString()).maybeSingle();
   if (existente) redirect(`/gracias?lead=${leadId}&t=${token}`);
 
-  const { data: cita, error } = await admin.from("citas").insert({ lead_id: leadId, seller_id: closerId, start_at: start.toISOString(), end_at: end.toISOString(), notas: cal === "asesoria" ? "Asesoría de regalo de 20 min (no calificó todavía) · embudo VSL" : "Diagnóstico 45 min (calificó como viable) · embudo VSL" }).select("id").single();
+  const { data: cita, error } = await admin.from("citas").insert({ lead_id: leadId, seller_id: closerId, start_at: start.toISOString(), end_at: end.toISOString(), notas: cal === "asesoria" ? "Asesoría de regalo de 20 min (no calificó todavía) · embudo VSL" : "Diagnóstico 30 min (calificó como viable) · embudo VSL" }).select("id").single();
   if (error) return "Ese horario se acaba de ocupar. Elige otro, por favor."; // exclusion constraint caught a race
 
   if (asignacion?.seller_id !== closerId) {

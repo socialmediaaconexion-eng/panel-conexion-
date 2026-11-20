@@ -55,7 +55,7 @@ const OBJECIONES = [
   ["¿Cuánto cuesta?", "Depende de tu negocio. Primero respondes 5 preguntas de un toque y te damos una respuesta inmediata; si podemos trabajar juntos, agendas tu diagnóstico y te enviamos la cotización a tu correo."],
   ["¿Qué es el panel?", "Un sistema interno diseñado a la medida de tu organización: estado del negocio, métricas de campañas, ventas del día, alertas, tu equipo y los KPI de cada área, en tu celular."],
   ["¿Por qué solo abren pocas plazas?", "Porque somos boutique: trabajamos con pocos clientes a la vez para estar de verdad en cada proyecto, con atención directa."],
-  ["¿Qué pasa en la llamada?", "Son 45 minutos para entender tu negocio. Si somos para ti, te decimos qué haríamos; si no, también te lo decimos."],
+  ["¿Qué pasa en la llamada?", "Son 30 minutos para entender tu negocio. Si somos para ti, te decimos qué haríamos; si no, también te lo decimos."],
 ];
 
 export default async function VslPage({ searchParams }: Props) {
@@ -80,7 +80,7 @@ export default async function VslPage({ searchParams }: Props) {
         <p className="lp-lead">Estrategia de marca, creatividad humana y la velocidad de la IA: landing, embudo, panel, videos y campañas, a la medida de tu negocio.</p>
         <div className="vsl-frame lp-video"><VslVideo src="/vsl-horizontal.mp4" poster="/vsl-horizontal-poster.jpg" /></div>
         <Link href={aplicar} className="btn btn-big" data-evento="cta_aplicar">Quiero saber si es para mí</Link>
-        <p className="muted small">5 preguntas de un toque · si es para ti, agendas un diagnóstico gratuito de 45 min.</p>
+        <p className="muted small">5 preguntas de un toque · si es para ti, agendas un diagnóstico gratuito de 30 min.</p>
       </section>
 
       {/* 2. Cambios: antes → después */}
@@ -213,7 +213,7 @@ export default async function VslPage({ searchParams }: Props) {
             <h2 className="lp-h2">Abrimos pocas plazas cada mes</h2>
             <ol className="cierre-pasos">
               <li><b>1</b>Respondes 5 preguntas de un toque</li>
-              <li><b>2</b>Hablamos 45 minutos sobre tu caso</li>
+              <li><b>2</b>Hablamos 30 minutos sobre tu caso</li>
               <li><b>3</b>Implementamos tu sistema</li>
             </ol>
             <Link href={aplicar} className="btn btn-big" data-evento="cta_aplicar">Quiero saber si es para mí</Link>

@@ -4,7 +4,7 @@ import { createAdminClient } from "@/lib/supabase/admin";
 
 // Colombia has no daylight saving time: UTC-5 year-round.
 const OFFSET_MS = 5 * 3600_000;
-export const DURACION_LLAMADA_MIN = 45;
+export const DURACION_LLAMADA_MIN = 30;
 
 // Signed link token so an applicant can book only their own call without logging in.
 export function firmarLead(leadId: string) {

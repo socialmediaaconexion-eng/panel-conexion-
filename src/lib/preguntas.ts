@@ -44,7 +44,7 @@ export function calificar(r: Record<string, string>): Calificacion {
   return "viable";
 }
 
-export const DURACION_POR_CALIFICACION: Record<Calificacion, number> = { viable: 45, asesoria: 20 };
+export const DURACION_POR_CALIFICACION: Record<Calificacion, number> = { viable: 30, asesoria: 20 };
 
 // Etiquetas para mostrar las respuestas en el panel (incluye las del formulario anterior).
 export const ETIQUETAS_RESPUESTA: Record<string, string> = {

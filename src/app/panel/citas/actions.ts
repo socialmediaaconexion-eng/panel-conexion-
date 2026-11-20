@@ -13,7 +13,7 @@ const ESTADOS = ["agendada", "reagendada", "atendida", "no_asistio", "cancelada"
 
 function parseInicio(formData: FormData) {
   const local = String(formData.get("inicio") ?? "");
-  const minutos = Number(formData.get("duracion") ?? 45);
+  const minutos = Number(formData.get("duracion") ?? 30);
   if (!local || !Number.isFinite(minutos) || minutos < 15 || minutos > 240) return null;
   const start = new Date(`${local}:00${OFFSET}`);
   if (Number.isNaN(start.getTime())) return null;

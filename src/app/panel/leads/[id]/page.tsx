@@ -36,7 +36,7 @@ export default async function LeadDetalle({ params }: Props) {
     <>
       <p className="small"><Link href="/panel/leads">← Leads</Link></p>
       <h1>{lead.nombre}</h1>
-      {lead.calificacion && <p><span className={"pill " + (lead.calificacion === "viable" ? "good" : "warn")}>{lead.calificacion === "viable" ? "Calificó: viable · diagnóstico 45 min + cotización" : "No calificó todavía · asesoría de regalo 20 min"}</span></p>}
+      {lead.calificacion && <p><span className={"pill " + (lead.calificacion === "viable" ? "good" : "warn")}>{lead.calificacion === "viable" ? "Calificó: viable · diagnóstico 30 min + cotización" : "No calificó todavía · asesoría de regalo 20 min"}</span></p>}
       <div className="row muted">
         <span>{lead.email}</span>
         {lead.telefono && <span>{lead.telefono}</span>}
@@ -102,7 +102,7 @@ export default async function LeadDetalle({ params }: Props) {
       <div className="spacer" />
       <ActionForm action={agendarCita.bind(null, id)} submit="Agendar cita" className="inline">
         <label htmlFor="inicio">Fecha y hora (Colombia)<input id="inicio" name="inicio" type="datetime-local" required /></label>
-        <label htmlFor="duracion">Duración (min)<input id="duracion" name="duracion" type="number" min={15} max={240} step={15} defaultValue={45} /></label>
+        <label htmlFor="duracion">Duración (min)<input id="duracion" name="duracion" type="number" min={15} max={240} step={15} defaultValue={30} /></label>
         <label htmlFor="cita-notas">Notas<input id="cita-notas" name="notas" /></label>
       </ActionForm>
 

@@ -59,7 +59,7 @@ export default async function CitasPage({ searchParams }: Props) {
                       <summary className="small">Reagendar</summary>
                       <ActionForm action={reagendarCita.bind(null, c.id)} submit="Reagendar" className="inline">
                         <label>Nueva fecha y hora<input name="inicio" type="datetime-local" required /></label>
-                        <label>Duración<input name="duracion" type="number" min={15} max={240} step={15} defaultValue={45} /></label>
+                        <label>Duración<input name="duracion" type="number" min={15} max={240} step={15} defaultValue={30} /></label>
                       </ActionForm>
                     </details>
                   )}
