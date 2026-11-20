@@ -14,7 +14,7 @@ const CAPITULOS: Capitulo[] = [
   {
     n: "01", titulo: "El origen: detrás de cámara",
     texto: "Empecé en producción audiovisual en Medellín. Luces, cámaras, guiones. Ahí aprendí lo que hoy aplico en cada VSL: si no capturas la atención en 3 segundos, no existes.",
-    medios: [v("origen-set", "Set de producción"), f("origen-estudio", "Sesión de fotos en estudio"), f("origen-noche", "Sesión de fotos de noche"), f("origen-set-instagram", "Publicación de un set de producción en Medellín")],
+    medios: [v("origen-gimbal-montana", "Fer grabando con gimbal en la montaña"), v("origen-set", "Set de producción"), f("origen-camara-2021", "Detrás de cámara, 2021"), v("origen-gimbal-campo", "Grabando en exteriores"), f("conexion1-equipo-set", "Equipo en un set de grabación"), f("origen-tripode-2021", "Grabación en la calle, 2021"), v("origen-edicion", "Editando"), f("conexion1-gorras", "Primeras gorras del equipo de Conexión, 2022"), f("conexion1-equipo-2022", "Primer equipo de Conexión, 2022"), v("conexion1-equipo-grabando", "El equipo grabando"), f("conexion1-fer-2021", "Fer con su cámara"), f("origen-estudio", "Sesión de fotos en estudio"), f("origen-noche", "Sesión de fotos de noche")],
   },
   {
     n: "02", titulo: "Lanzamientos de verdad",
@@ -24,7 +24,7 @@ const CAPITULOS: Capitulo[] = [
   {
     n: "03", titulo: "El ecosistema 1+1=3",
     texto: "Me formé y trabajé en un ecosistema donde todo se mide y todo se ejecuta. Embudos, closers, eventos, equipos. Ahí entendí que la sinergia multiplica: 1+1=3.",
-    medios: [f("ecosistema-oficina", "Oficina con el lema 1+1=3"), v("ecosistema-trabajo", "Trabajando en la oficina"), v("ecosistema-evento", "Salón preparado para un evento"), f("ecosistema-camiseta", "Fernanda con la camiseta 1+1=3"), v("ecosistema-calendario", "Oficina")],
+    medios: [v("ecosistema-guadalajara", "Evento en Guadalajara, México"), f("ecosistema-oficina", "Oficina con el lema 1+1=3"), v("ecosistema-equipo-trabajando", "Equipo trabajando"), v("ecosistema-gracias-equipo", "Gracias, equipo"), v("ecosistema-1mas1", "1+1=3"), v("ecosistema-trabajo", "Trabajando en la oficina"), v("ecosistema-evento", "Salón preparado para un evento"), f("ecosistema-camiseta", "Fernanda con la camiseta 1+1=3"), v("ecosistema-calendario", "Oficina")],
   },
   {
     n: "04", titulo: "La caída", oscuro: true,
@@ -34,12 +34,12 @@ const CAPITULOS: Capitulo[] = [
   {
     n: "05", titulo: "Construir de noche",
     texto: "En vez de parar, aprendí a construir. Con Claude y mucho código a medianoche armé los sistemas que hoy uso con clientes: embudos, pasarelas de pago y un panel CRM que se ve desde el celular. Así nació Conexión.",
-    medios: [f("noche-codigo", "Programando de noche"), v("noche-panel", "Un panel de agendamiento que construí"), v("noche-llamada", "Llamada con el equipo"), v("noche-equipo", "Equipo en la terraza")],
+    medios: [f("noche-codigo", "Programando de noche"), v("noche-ama-su-trabajo", "Fer en la oficina"), v("noche-guardando-equipos", "Guardando equipos después de grabar una clase"), v("noche-streaming", "Produciendo un streaming"), v("noche-escritorio", "Trabajando en el escritorio"), v("noche-panel", "Un panel de agendamiento que construí"), v("noche-llamada", "Llamada con el equipo"), v("noche-equipo", "Equipo en la terraza")],
   },
   {
     n: "06", titulo: "Lo humano",
     texto: "Y sigo siendo yo: la que viaja, se ríe y se monta en la atracción de la feria. Por eso en Conexión el marketing se gestiona con IA, pero humanamente.",
-    medios: [f("humano-feria", "Fernanda sonriendo en la feria"), v("humano-risa", "Riendo en la calle"), f("humano-san-miguel", "Viaje a San Miguel de Allende"), f("humano-vuelo", "Mirando por la ventana del avión"), v("humano-vuelo-atardecer", "Atardecer desde el avión"), f("humano-terraza-1", "Terraza de noche"), f("humano-terraza-2", "Terraza de noche"), v("humano-terraza-atardecer", "Terraza al atardecer")],
+    medios: [f("humano-feria", "Fernanda sonriendo en la feria"), v("humano-risa", "Riendo en la calle"), f("humano-san-miguel", "Viaje a San Miguel de Allende"), f("humano-vuelo", "Mirando por la ventana del avión"), v("humano-vuelo-atardecer", "Atardecer desde el avión"), v("humano-vuelo-noche", "Volando de noche"), v("humano-moto", "En moto"), v("humano-caminando", "Caminando"), f("humano-terraza-1", "Terraza de noche"), f("humano-terraza-2", "Terraza de noche"), v("humano-terraza-atardecer", "Terraza al atardecer")],
   },
 ];
 
