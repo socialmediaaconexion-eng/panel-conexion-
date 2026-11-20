@@ -29,7 +29,7 @@ function instante(fechaBogota: Date, hhmm: string) {
 // their schedule and has no overlapping active appointment. Returns slot start → list of free closers.
 export async function slotsDisponibles(dias = 7) {
   const admin = createAdminClient();
-  const { data: closers } = await admin.from("sellers").select("id").eq("activo", true).eq("rol", "vendedor").eq("tipo", "closer");
+  const { data: closers } = await admin.from("sellers").select("id").eq("activo", true).eq("tipo", "closer"); // cualquier rol: solo cuenta quien tenga horarios cargados
   const ids = (closers ?? []).map((c) => c.id);
   if (ids.length === 0) return new Map<string, string[]>();
 
