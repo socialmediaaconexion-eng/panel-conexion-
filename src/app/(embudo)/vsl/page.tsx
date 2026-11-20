@@ -10,6 +10,7 @@ import { AplicarModal } from "@/components/landing/aplicar-modal";
 import { SalidaAviso } from "@/components/landing/salida-aviso";
 import { Clientes, type Cliente } from "@/components/landing/clientes";
 import { Ondas } from "@/components/landing/ondas";
+import { CambiosToggle } from "@/components/landing/cambios-toggle";
 
 const DESCRIPCION = "Implementamos tu sistema de captación con IA: landing, embudo, panel, videos y campañas, conectados y a tu medida. Abrimos pocas plazas al mes.";
 export const metadata: Metadata = {
@@ -82,17 +83,7 @@ export default async function VslPage({ searchParams }: Props) {
       <section className="lp-sec">
         <p className="eyebrow">Lo que cambia</p>
         <h2 className="lp-h2">De piezas sueltas a un sistema que vende</h2>
-        <ul className="cambios">
-          {CAMBIOS.map(([antes, despues]) => (
-            <li key={antes}>
-              <Tilt className="cambio">
-                <span className="cambio-antes">{antes}</span>
-                <span className="cambio-flecha" aria-hidden="true">↓</span>
-                <span className="cambio-despues">{despues}</span>
-              </Tilt>
-            </li>
-          ))}
-        </ul>
+        <CambiosToggle />
         <Link href={aplicar} className="btn btn-big" data-evento="cta_aplicar">Quiero saber si es para mí</Link>
       </section>
 
