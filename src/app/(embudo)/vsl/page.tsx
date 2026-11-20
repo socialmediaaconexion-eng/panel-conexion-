@@ -47,9 +47,8 @@ const OBJECIONES = [
   ["¿Necesito tener un equipo de ventas?", "No. Si estás sola o solo, el sistema te ordena las citas y te avisa. Si tienes equipo, el panel reparte los leads y muestra cómo va cada persona."],
   ["Ya tengo página web, ¿empiezo de cero?", "No necesariamente. En la llamada revisamos lo que tienes y te decimos qué se puede aprovechar y qué conviene rehacer."],
   ["¿Trabajan solo en Colombia?", "No. Trabajamos de forma remota con marcas en Latinoamérica, España y otros países."],
-  ["¿Cuánto cuesta?", "La implementación completa vale USD 1.800, pago único, y queda lista en un mes. Después, si quieres que sigamos con el mantenimiento y tus campañas, la suscripción mensual es de USD 1.500 e incluye un paquete de contenido: te pasamos los guiones, tú grabas, nosotros editamos, tú publicas, y nosotros hacemos tus campañas y gestionamos tu panel."],
+  ["¿Cuánto cuesta?", "Depende de tu negocio. Primero respondes 5 preguntas de un toque y te damos una respuesta inmediata; si podemos trabajar juntos, agendas tu diagnóstico y te enviamos la cotización a tu correo."],
   ["¿Qué es el panel?", "Un sistema interno diseñado a la medida de tu organización: estado del negocio, métricas de campañas, ventas del día, alertas, tu equipo y los KPI de cada área, en tu celular."],
-  ["¿Puedo pagar en línea?", "Sí. Te enviamos un link de pago seguro de Bold: tarjeta, PSE, Nequi o Botón Bancolombia."],
   ["¿Por qué solo abren pocas plazas?", "Porque somos boutique: trabajamos con pocos clientes a la vez para estar de verdad en cada proyecto, con atención directa."],
   ["¿Qué pasa en la llamada?", "Son 45 minutos para entender tu negocio. Si somos para ti, te decimos qué haríamos; si no, también te lo decimos."],
 ];
@@ -130,7 +129,7 @@ export default async function VslPage({ searchParams }: Props) {
             <li><b>Contacto con tu equipo</b> y la agenda de cada persona.</li>
             <li><b>KPI por departamento</b>, si manejas un equipo de varias áreas.</li>
             <li><b>Revisión de tus páginas y landing pages</b>: cómo están hechas y qué mejorar.</li>
-            <li><b>Diseñado a la medida de tu organización</b>, con un solo pago.</li>
+            <li><b>Diseñado a la medida de tu organización</b>.</li>
           </ul>
         </div>
         <p className="muted small">Ilustración del panel: cada uno se diseña con los datos y áreas de tu negocio.</p>
@@ -194,36 +193,6 @@ export default async function VslPage({ searchParams }: Props) {
             </details>
           ))}
         </div>
-      </section>
-
-      {/* Oferta */}
-      <section className="lp-sec" id="oferta">
-        <p className="eyebrow">Inversión</p>
-        <h2 className="lp-h2">Un sistema completo, un solo pago</h2>
-        <div className="oferta">
-          <Tilt className="plan plan-main">
-            <span className="plan-tag">Implementación</span>
-            <div className="plan-precio"><small>USD</small>1.800</div>
-            <p className="plan-nota">Pago único · listo en 1 mes</p>
-            <ul>
-              <li>Estrategia de marca y comunicación</li><li>Guionización, grabación y edición de tus videos</li><li>Landing y embudo con agenda automática</li><li>Campañas de lanzamiento</li><li>Panel a la medida: ventas, alertas y KPI por área</li>
-            </ul>
-            <Link href={aplicar} className="btn btn-big" data-evento="cta_aplicar">Quiero saber si soy apto</Link>
-          </Tilt>
-          <Tilt className="plan">
-            <span className="plan-tag">Después · cliente recurrente</span>
-            <div className="plan-precio"><small>USD</small>1.500<span className="plan-mes">/mes</span></div>
-            <p className="plan-nota">Suscripción mensual con paquete de contenido</p>
-            <ol className="plan-flujo">
-              <li><b>Te pasamos los guiones</b> de tus videos del mes</li>
-              <li><b>Tú grabas</b> y nos envías el material</li>
-              <li><b>Lo editamos</b> con motion graphics y subtítulos</li>
-              <li><b>Tú lo publicas</b> en tus redes</li>
-              <li><b>Nosotros hacemos tus campañas</b> y gestionamos tu panel</li>
-            </ol>
-          </Tilt>
-        </div>
-        <p className="muted small">Pago en línea seguro con Bold: tarjeta, PSE, Nequi o Botón Bancolombia.</p>
       </section>
 
       {/* 6. Cierre: plazas boutique + pasos */}

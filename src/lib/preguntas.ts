@@ -33,6 +33,19 @@ export const PREGUNTAS = [
   },
 ] as const;
 
+export type Calificacion = "viable" | "asesoria";
+
+// Respuesta inmediata: viable si ya factura, puede invertir al menos $500 y no está "solo explorando".
+// Si no, se le regala una asesoría de 20 minutos (el closer decide si ofrecerle la opción de aprender).
+export function calificar(r: Record<string, string>): Calificacion {
+  if (r.facturacion === "Todavía no facturo") return "asesoria";
+  if (r.inversion === "Menos de $500") return "asesoria";
+  if (r.cuando === "Solo estoy explorando") return "asesoria";
+  return "viable";
+}
+
+export const DURACION_POR_CALIFICACION: Record<Calificacion, number> = { viable: 45, asesoria: 20 };
+
 // Etiquetas para mostrar las respuestas en el panel (incluye las del formulario anterior).
 export const ETIQUETAS_RESPUESTA: Record<string, string> = {
   vende: "Qué vende",

@@ -36,6 +36,7 @@ export default async function LeadDetalle({ params }: Props) {
     <>
       <p className="small"><Link href="/panel/leads">← Leads</Link></p>
       <h1>{lead.nombre}</h1>
+      {lead.calificacion && <p><span className={"pill " + (lead.calificacion === "viable" ? "good" : "warn")}>{lead.calificacion === "viable" ? "Calificó: viable · diagnóstico 45 min + cotización" : "No calificó todavía · asesoría de regalo 20 min"}</span></p>}
       <div className="row muted">
         <span>{lead.email}</span>
         {lead.telefono && <span>{lead.telefono}</span>}

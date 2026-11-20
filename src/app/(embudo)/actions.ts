@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { firmarLead, verificarLead, slotsDisponibles, DURACION_LLAMADA_MIN } from "@/lib/agenda";
 import { notificarSinBloquear } from "@/lib/notificaciones";
-import { PREGUNTAS } from "@/lib/preguntas";
+import { PREGUNTAS, calificar, DURACION_POR_CALIFICACION, type Calificacion } from "@/lib/preguntas";
 
 const EMBUDO = "vsl-conexion";
 
@@ -24,7 +24,7 @@ export async function aplicar(_prev: string | null, formData: FormData): Promise
     .from("leads")
     .upsert(
       {
-        nombre, email, telefono, embudo: EMBUDO, respuestas,
+        nombre, email, telefono, embudo: EMBUDO, respuestas, calificacion: calificar(respuestas),
         utm_source: String(formData.get("utm_source") ?? "") || null,
         utm_campaign: String(formData.get("utm_campaign") ?? "") || null,
         utm_medium: String(formData.get("utm_medium") ?? "") || null,
@@ -50,16 +50,18 @@ export async function agendarLlamada(leadId: string, token: string, _prev: strin
   if (!libres || libres.length === 0) return "Ese horario se acaba de ocupar. Elige otro, por favor.";
 
   const admin = createAdminClient();
+  const { data: leadCal } = await admin.from("leads").select("calificacion").eq("id", leadId).maybeSingle();
+  const cal = (leadCal?.calificacion ?? "viable") as Calificacion;
   const { data: asignacion } = await admin.from("lead_assignments").select("seller_id").eq("lead_id", leadId).eq("activo", true).maybeSingle();
   // Keep the current owner when they're free at that time; otherwise the first free closer takes it.
   const closerId = asignacion && libres.includes(asignacion.seller_id) ? asignacion.seller_id : libres[0];
 
   const start = new Date(slot);
-  const end = new Date(start.getTime() + DURACION_LLAMADA_MIN * 60_000);
+  const end = new Date(start.getTime() + DURACION_POR_CALIFICACION[cal] * 60_000);
   const { data: existente } = await admin.from("citas").select("id").eq("lead_id", leadId).in("estado", ["agendada", "reagendada"]).gt("start_at", new Date().toISOString()).maybeSingle();
   if (existente) redirect(`/gracias?lead=${leadId}&t=${token}`);
 
-  const { data: cita, error } = await admin.from("citas").insert({ lead_id: leadId, seller_id: closerId, start_at: start.toISOString(), end_at: end.toISOString(), notas: "Agendada desde el embudo VSL" }).select("id").single();
+  const { data: cita, error } = await admin.from("citas").insert({ lead_id: leadId, seller_id: closerId, start_at: start.toISOString(), end_at: end.toISOString(), notas: cal === "asesoria" ? "Asesoría de regalo de 20 min (no calificó todavía) · embudo VSL" : "Diagnóstico 45 min (calificó como viable) · embudo VSL" }).select("id").single();
   if (error) return "Ese horario se acaba de ocupar. Elige otro, por favor."; // exclusion constraint caught a race
 
   if (asignacion?.seller_id !== closerId) {
