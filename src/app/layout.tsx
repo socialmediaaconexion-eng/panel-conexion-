@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "Conexión — Panel",
   description: "Panel de gestión comercial de Conexión Agency",
   appleWebApp: { capable: true, title: "Conexión", statusBarStyle: "black" },
+  formatDetection: { telephone: false, email: false, address: false, date: false },
 };
 
 export const viewport: Viewport = { themeColor: "#FFFFFF", colorScheme: "light dark" };

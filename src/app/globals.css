@@ -633,3 +633,8 @@ button.pill-btn.on { background: var(--accent-tint); border-color: var(--accent)
 .cot-datos dt { color: var(--muted); }
 .cot-datos dd { margin: 0; white-space: pre-wrap; }
 .legal-volver { display: inline-block; margin-bottom: 18px; color: var(--accent); text-decoration: none; font-weight: 600; }
+
+/* Palabras enlazadas o detectadas por el celular: en dorado, nunca en azul */
+a[x-apple-data-detectors], a[href^="tel"], a[href^="mailto"] { color: #b8924a !important; text-decoration: none !important; font-weight: inherit !important; }
+.lp a:not(.btn):not(.pill), .legal a:not(.legal-volver), .quiz a, .cotizar a, .typ a:not(.btn), .modal a:not(.btn) { color: #b8924a; text-decoration-color: rgba(184,146,74,.45); text-underline-offset: 3px; }
+.lp a:not(.btn):not(.pill):hover, .legal a:hover, .quiz a:hover, .cotizar a:hover { color: #9c7a2e; }
