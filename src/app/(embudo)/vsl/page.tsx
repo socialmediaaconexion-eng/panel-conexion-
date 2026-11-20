@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { VslVideo } from "@/components/vsl-video";
 import { Sistema } from "@/components/landing/sistema";
 import { Tilt } from "@/components/landing/tilt";
-import { Historia } from "@/components/landing/historia";
+import { LineaHistoria } from "@/components/landing/linea-historia";
 import { TitularDolor } from "@/components/landing/titular-dolor";
 import { StickyCta } from "@/components/landing/sticky-cta";
 import { AplicarModal } from "@/components/landing/aplicar-modal";
@@ -145,10 +145,14 @@ export default async function VslPage({ searchParams }: Props) {
 
       {/* 4. Quién está detrás: historia + trayectoria */}
       <section className="lp-sec lp-historia" id="historia">
-        <p className="eyebrow">Soy Fer · la Sabia Creativa</p>
-        <h2 className="lp-h2">Esta no es la historia de una agencia. Es la mía.</h2>
-        <p className="lp-sub">Conexión es un equipo de expertos en IA entre Colombia y México, liderado por mí, Fernanda: estudié cine y mi formación ha estado dentro de las estrategias de marca, liderando equipos desde la comunicación y la estructura organizacional. Desliza las escenas.</p>
-        <Historia />
+        <p className="eyebrow">Mi historia · Fer</p>
+        <h2 className="lp-h2">No vendo lo que leí. Vendo lo que construí.</h2>
+        <p className="lp-sub">Detrás de cada embudo de Conexión hay años en sets, lanzamientos, madrugadas de código y una caída que no me paró.</p>
+        <LineaHistoria />
+        <div className="lh-cierre">
+          <p>No te voy a enseñar teoría. <strong>Te voy a instalar lo que ya me funcionó.</strong></p>
+          <Link href={aplicar} className="btn btn-big" data-evento="cta_aplicar">Quiero saber si soy apto</Link>
+        </div>
       </section>
 
       <section className="lp-sec lp-tray">
