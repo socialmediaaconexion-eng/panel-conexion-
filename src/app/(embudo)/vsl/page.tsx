@@ -176,8 +176,12 @@ export default async function VslPage({ searchParams }: Props) {
       {/* Testimonios en video */}
       <section className="lp-sec" id="testimonios">
         <p className="eyebrow">Testimonios</p>
-        <h2 className="lp-h2">Escúchalo en video</h2>
+        <h2 className="lp-h2">Lo que dicen quienes ya trabajaron con nosotros</h2>
         <div className="testimonios">
+          <figure className="testimonio testimonio-h">
+            <video controls preload="metadata" playsInline poster="/testimonio-dr-camilo.jpg"><source src="/testimonio-dr-camilo.mp4" type="video/mp4" /></video>
+            <figcaption><strong>Dr. Camilo</strong> · médico intensivista e influencer · «Un antes y un después para tu negocio»</figcaption>
+          </figure>
           <figure className="testimonio">
             <video controls preload="metadata" playsInline poster="/vsl-poster.jpg"><source src="/vsl.mp4" type="video/mp4" /></video>
             <figcaption>¿Negocio estancado? · 1 min</figcaption>
