@@ -63,7 +63,7 @@ export default async function VslPage({ searchParams }: Props) {
     <div className="lp">
       <header className="lp-top">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/logo.png" alt="Conexión" className="lp-top-logo" />
+        <img src="/logo-3d.png" alt="Conexión" className="lp-top-logo" />
         <Link href={aplicar} className="btn lp-top-cta" data-evento="cta_aplicar">¿Es para mí?</Link>
       </header>
 
@@ -106,7 +106,7 @@ export default async function VslPage({ searchParams }: Props) {
         <div className="panel-demo">
           <div className="telefono" aria-hidden="true">
             <div className="tel-pantalla">
-              <div className="tel-top"><img src="/logo.png" alt="" /><span>Hoy</span></div>
+              <div className="tel-top"><img src="/logo-3d.png" alt="" /><span>Hoy</span></div>
               <div className="tel-kpis"><div><small>Ventas</small><b>— </b></div><div><small>Leads</small><b>—</b></div></div>
               <div className="tel-alerta"><i />Alerta: una campaña subió su costo por lead. Revísala hoy.</div>
               <div className="tel-barras">{[40, 62, 48, 75, 58, 88, 70].map((v, i) => <span key={i} style={{ height: v + "%" }} />)}</div>
@@ -213,7 +213,7 @@ export default async function VslPage({ searchParams }: Props) {
 
       <footer className="lp-foot">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/logo.png" alt="Conexión" />
+        <img src="/logo-3d.png" alt="Conexión" />
         <span>Conexión · Agencia boutique · Medellín · conexionteam.app</span>
         <nav className="lp-legal" aria-label="Legal"><Link href="/cotizar">Cotizar</Link><Link href="/privacidad">Privacidad</Link><Link href="/terminos">Términos</Link></nav>
         <p className="lp-descargo">Cada negocio es distinto: no prometemos ingresos ni resultados específicos. Este sitio no forma parte de Meta ni está respaldado por Meta.</p>

@@ -40,7 +40,7 @@ export function VslVideo({ src, poster }: { src?: string; poster?: string }) {
         <button type="button" className={`vsl-portada${poster ? " con-foto" : ""}`} style={poster ? { backgroundImage: `linear-gradient(180deg, rgba(13,13,15,.15), rgba(13,13,15,.75)), url(${poster})` } : undefined} onClick={play} aria-label="Reproducir el video: cómo funciona tu sistema de captación">
           <span className="vsl-grano" aria-hidden="true" />
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/logo.png" alt="" className="vsl-logo" />
+          <img src="/logo-3d.png" alt="" className="vsl-logo" />
           <span className="vsl-play" aria-hidden="true"><span /></span>
           <span className="vsl-texto">
             <strong>Cómo funciona tu sistema de captación</strong>

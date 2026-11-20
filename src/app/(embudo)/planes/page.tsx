@@ -39,7 +39,7 @@ export default function PlanesPage() {
       <header className="lp-top">
         <Link href="/vsl" aria-label="Conexión">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/logo.png" alt="Conexión" className="lp-top-logo" />
+          <img src="/logo-3d.png" alt="Conexión" className="lp-top-logo" />
         </Link>
         <Link href="/aplicar" className="btn lp-top-cta" data-evento="cta_aplicar">¿Es para mí?</Link>
       </header>
@@ -88,12 +88,12 @@ export default function PlanesPage() {
         <h2 className="lp-h2">¿Quieres saber si es para ti?</h2>
         <p className="lp-lead">Responde 5 preguntas y te decimos con honestidad si podemos trabajar juntos.</p>
         <Link href="/aplicar" className="btn btn-big" data-evento="cta_aplicar">Quiero saber si es para mí</Link>
-        <p className="muted small">Pago seguro con Bold: tarjeta, PSE, Nequi o Botón Bancolombia.</p>
+        <p className="muted small">Pago seguro con Bold, con tarjeta de crédito o débito.</p>
       </section>
 
       <footer className="lp-foot">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/logo.png" alt="Conexión" />
+        <img src="/logo-3d.png" alt="Conexión" />
         <nav className="lp-legal" aria-label="Legal"><Link href="/privacidad">Privacidad</Link><Link href="/terminos">Términos</Link></nav>
       </footer>
     </div>

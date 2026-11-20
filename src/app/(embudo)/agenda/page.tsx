@@ -36,7 +36,7 @@ export default async function AgendaPage({ searchParams }: Props) {
   return (
     <main className="embudo">
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="/logo.png" alt="Conexión" className="embudo-logo" />
+      <img src="/logo-3d.png" alt="Conexión" className="embudo-logo" />
       {asesoria ? (
         <div className="resultado resultado-regalo">
           <span className="resultado-ico" aria-hidden="true">🎁</span>

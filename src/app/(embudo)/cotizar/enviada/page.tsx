@@ -6,7 +6,7 @@ export default function CotizacionEnviada() {
   return (
     <main className="typ">
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="/logo.png" alt="Conexión" className="embudo-logo" />
+      <img src="/logo-3d.png" alt="Conexión" className="embudo-logo" />
       <span className="typ-check" aria-hidden="true">✓</span>
       <h1 className="lp-h2">Recibimos tu solicitud</h1>
       <p className="lp-lead">Revisa tu correo: te llega la confirmación con lo que pediste. Preparamos tu propuesta y te escribimos.</p>

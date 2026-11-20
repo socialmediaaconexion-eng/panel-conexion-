@@ -9,7 +9,7 @@ export default async function CotizarPage({ searchParams }: { searchParams: Prom
     <main className="typ" style={{ maxWidth: 760 }}>
       <Link href="/vsl" aria-label="Volver al inicio">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/logo.png" alt="Conexión" className="embudo-logo" />
+        <img src="/logo-3d.png" alt="Conexión" className="embudo-logo" />
       </Link>
       <p className="eyebrow">Cotización</p>
       <h1 className="lp-h2">Cotiza tu proyecto</h1>

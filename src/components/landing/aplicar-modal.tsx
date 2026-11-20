@@ -15,6 +15,8 @@ export function AplicarModal() {
       if (!a || e.metaKey || e.ctrlKey || !ref.current) return;
       e.preventDefault();
       e.stopPropagation(); // antes de que el Link de Next navegue
+      // cierra cualquier otro diálogo abierto (p. ej. el aviso de salida) para que no quede detrás
+      document.querySelectorAll<HTMLDialogElement>("dialog[open]").forEach((d) => { if (d !== ref.current) d.close(); });
       ref.current.showModal();
       document.documentElement.classList.add("modal-abierto");
       // stopPropagation también frena el rastreo de clics, así que se registra aquí.

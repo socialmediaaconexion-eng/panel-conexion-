@@ -10,7 +10,7 @@ export default async function PanelLayout({ children }: { children: React.ReactN
     <div className="shell">
       <aside className="sidebar">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/logo.png" alt="Conexión" />
+        <img src="/logo-3d.png" alt="Conexión" />
         <Nav esGestor={esGestor(seller)} />
         <div className="who">
           <div><strong>{seller.nombre}</strong></div>

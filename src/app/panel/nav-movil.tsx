@@ -43,7 +43,7 @@ export function NavMovil({ esGestor, nombre, logout }: { esGestor: boolean; nomb
     <>
       <header className="m-top">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/logo.png" alt="Conexión" />
+        <img src="/logo-3d.png" alt="Conexión" />
         <strong>{titulo}</strong>
         <span className="m-avatar" aria-hidden="true">{nombre.charAt(0)}</span>
       </header>
