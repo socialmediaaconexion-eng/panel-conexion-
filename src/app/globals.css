@@ -647,6 +647,22 @@ button.vsl-portada:active:not(:disabled) { transform: none; }
 .pl-col p { margin: 0; color: var(--muted); font-size: 14px; }
 .pl-col-garantia { background: #fffdf7; border-color: #ecdcb4; }
 
+/* Planes v2: implementación + mensual */
+.pl-dos { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 18px; align-items: start; text-align: left; }
+@media (max-width: 860px) { .pl-dos { grid-template-columns: 1fr; } }
+.pl-nota-osc { margin: 0; color: #c9c9cf; font-size: 14px; }
+.pl-items { list-style: none; padding: 0; margin: 10px 0 6px; display: flex; flex-direction: column; gap: 12px; }
+.pl-items li { display: flex; gap: 12px; align-items: flex-start; }
+.pl-i { width: 34px; height: 34px; flex-shrink: 0; border-radius: 10px; display: grid; place-items: center; background: rgba(255,255,255,.08); font-size: 17px; }
+.pl-items strong { display: block; color: #fff; font-size: 15px; font-weight: 600; }
+.pl-items small { display: block; color: #a6a6ae; font-size: 13px; line-height: 1.4; }
+.pl-mes { position: sticky; top: 80px; }
+.pl-check { list-style: none; padding: 0; margin: 8px 0; display: flex; flex-direction: column; gap: 9px; }
+.pl-check li { position: relative; padding-left: 26px; font-size: 14.5px; }
+.pl-check li::before { content: "✓"; position: absolute; left: 0; color: var(--red-btn); font-weight: 700; }
+a.pl-pagar-sec { background: #0d0d0f; box-shadow: none; }
+a.pl-pagar-sec:hover { background: #26262b; }
+
 /* Testimonios en video (verticales) */
 .testimonios { width: 100%; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 8px; }
 .testimonio { margin: 0; width: min(300px, 100%); display: flex; flex-direction: column; gap: 8px; }
