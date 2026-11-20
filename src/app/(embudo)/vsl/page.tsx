@@ -61,9 +61,6 @@ export default async function VslPage({ searchParams }: Props) {
       <header className="lp-top">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/logo.png" alt="Conexión" className="lp-top-logo" />
-        <nav className="lp-nav" aria-label="Secciones">
-          <a href="#sistema">El sistema</a><a href="#historia">Mi historia</a><a href="#preguntas">Preguntas</a>
-        </nav>
         <Link href={aplicar} className="btn lp-top-cta" data-evento="cta_aplicar">¿Soy apto?</Link>
       </header>
 
