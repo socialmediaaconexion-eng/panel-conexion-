@@ -29,14 +29,21 @@ type Props = { searchParams: Promise<{ utm_source?: string; utm_campaign?: strin
 // Personas y marcas con las que ha trabajado Fernanda (dato dado por ella, 19-nov-2026).
 // Fotos de clientes (public/trayectoria/). Solo fotos reales enviadas por Fernanda, con permiso.
 // Mientras la lista esté vacía, la sección de fotos no se muestra.
-const CLIENTES: Cliente[] = [];
+const CLIENTES: Cliente[] = [
+  { nombre: "María Elena Badillo", foto: "/trayectoria/maria-elena-badillo.jpg" },
+  { nombre: "Jorge Serratos", foto: "/trayectoria/jorge-serratos.jpg" },
+  { nombre: "Marco Lezama", foto: "/trayectoria/marco-lezama.jpg" },
+  { nombre: "Manuel de León", foto: "/trayectoria/manuel-de-leon.jpg" },
+  { nombre: "Dra. Diana y Dr. Camilo", foto: "/trayectoria/dra-diana-dr-camilo.jpg" },
+  { nombre: "Elizabet García Duque", foto: "/trayectoria/elizabet-garcia-duque.jpg" },
+];
 
 // Valores de Conexión (dados por Fernanda, 20-nov-2026).
 const VALORES = ["Transparencia", "Resiliencia", "Comunicación", "Energía", "Sinergia", "Respeto", "Osadía"];
 
 const TRAYECTORIA = [
-  "Juan Ads", "María Elena Badillo", "Marco Lesama", "Jorge Serratos", "Manuel de León",
-  "Dra. Diana y Dr. Camilo", "Elizabeth García Duque", "Adriana Vargas", "Empresas en España", "Marcas en todo el mundo",
+  "Juan Ads", "María Elena Badillo", "Marco Lezama", "Jorge Serratos", "Manuel de León",
+  "Dra. Diana y Dr. Camilo", "Elizabet García Duque", "Adriana Vargas", "Empresas en España", "Marcas en todo el mundo",
 ];
 
 const CAMBIOS = [

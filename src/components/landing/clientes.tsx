@@ -23,7 +23,9 @@ export function Clientes({ clientes }: { clientes: Cliente[] }) {
         onPointerLeave={() => { arrastre.current = null; }}
       >
         {clientes.map((c) => {
-          const [uno, ...resto] = c.nombre.split(" ");
+          // Dos líneas: corta en " y " si son dos personas; si no, después de la primera palabra.
+          const y = c.nombre.indexOf(" y ");
+          const [uno, ...resto] = y > 0 ? [c.nombre.slice(0, y), c.nombre.slice(y + 1)] : c.nombre.split(" ");
           return (
             <figure key={c.nombre} className="cliente" role="listitem">
               {/* eslint-disable-next-line @next/next/no-img-element */}
