@@ -24,14 +24,15 @@ export async function crearLinkBold(p: { monto: number; moneda: "USD" | "COP"; d
     reference: p.referencia.replace(/[^A-Za-z0-9_-]/g, "").slice(0, 60),
     description: p.descripcion.slice(0, 100).padEnd(2, " "),
     callback_url: "https://conexionteam.app/pago-recibido",
-    expiration_date: Date.now() + (p.venceDias ?? 7) * 86400_000,
+    // Bold espera nanosegundos desde epoch (verificado: en ms responde "expiration date must be greater…").
+    expiration_date: (Date.now() + (p.venceDias ?? 7) * 86400_000) * 1_000_000,
   };
   if (p.email) body.payer_email = p.email;
   try {
     const r = await fetch(BASE, { method: "POST", headers: headers(), body: JSON.stringify(body), signal: AbortSignal.timeout(12000) });
     const j = await r.json().catch(() => null);
     const link = j?.payload?.payment_link, url = j?.payload?.url;
-    if (!r.ok || !link || !url) return { ok: false, error: (j?.errors?.[0]?.message ?? j?.message ?? `Bold respondió ${r.status}`).toString().slice(0, 200) };
+    if (!r.ok || !link || !url) return { ok: false, error: (j?.errors?.[0]?.errors ?? j?.errors?.[0]?.message ?? j?.message ?? `Bold respondió ${r.status}`).toString().slice(0, 200) };
     return { ok: true, link, url };
   } catch (e) {
     return { ok: false, error: e instanceof Error ? e.message.slice(0, 200) : "Error de conexión con Bold" };
