@@ -30,6 +30,7 @@ type Props = { searchParams: Promise<{ utm_source?: string; utm_campaign?: strin
 // Fotos de clientes (public/trayectoria/). Solo fotos reales enviadas por Fernanda, con permiso.
 // Mientras la lista esté vacía, la sección de fotos no se muestra.
 const CLIENTES: Cliente[] = [
+  { nombre: "Juan Ads", foto: "/trayectoria/juan-ads.jpg" },
   { nombre: "María Elena Badillo", foto: "/trayectoria/maria-elena-badillo.jpg" },
   { nombre: "Jorge Serratos", foto: "/trayectoria/jorge-serratos.jpg" },
   { nombre: "Marco Lezama", foto: "/trayectoria/marco-lezama.jpg" },
@@ -61,8 +62,8 @@ const OBJECIONES = [
   ["¿Trabajan solo en Colombia?", "No. Trabajamos de forma remota con marcas en Latinoamérica, España y otros países."],
   ["¿Cuánto cuesta?", "Depende de tu negocio. Primero respondes 5 preguntas de un toque y te damos una respuesta inmediata; si podemos trabajar juntos, agendas tu diagnóstico y te enviamos la cotización a tu correo."],
   ["¿Qué es el panel?", "Un sistema interno diseñado a la medida de tu organización: estado del negocio, métricas de campañas, ventas del día, alertas, tu equipo y los KPI de cada área, en tu celular."],
-  ["¿Por qué solo abren pocas plazas?", "Porque somos boutique: trabajamos con pocos clientes a la vez para estar de verdad en cada proyecto, con atención directa."],
-  ["¿Qué pasa en la llamada?", "Son 30 minutos para entender tu negocio. Si somos para ti, te decimos qué haríamos; si no, también te lo decimos."],
+  ["¿Por qué solo abren pocas plazas?", "Porque somos boutique: trabajamos con pocos clientes a la vez para estar de verdad en cada proyecto, con atención directa y respeto por tu tiempo."],
+  ["¿Qué pasa en la llamada?", "Son 30 minutos para entender tu negocio, con total transparencia: si somos para ti, te decimos qué haríamos; si no, también te lo decimos."],
 ];
 
 export default async function VslPage({ searchParams }: Props) {
@@ -102,11 +103,11 @@ export default async function VslPage({ searchParams }: Props) {
       <section className="lp-sec">
         <p className="eyebrow">Nuestra forma de trabajar</p>
         <h2 className="lp-h2">Las cosas ya no son como antes</h2>
-        <p className="lp-sub">No se trata de que la IA lo haga todo. Se trata de saber gestionarla y hacerla tu mejor aliada. Por eso no somos una agencia de marketing cualquiera: unimos tres cosas que casi nunca van juntas.</p>
+        <p className="lp-sub">No se trata de que la IA lo haga todo. Se trata de saber gestionarla y hacerla tu mejor aliada. Por eso no somos una agencia de marketing cualquiera: unimos en sinergia tres cosas que casi nunca van juntas.</p>
         <ul className="pilares">
-          <li><Tilt className="pilar"><span className="pilar-n">01</span><h3>Estrategia de marca y comunicación</h3><p>Antes de diseñar, entendemos tu negocio, tu estructura y lo que tu marca tiene que decir.</p></Tilt></li>
-          <li><Tilt className="pilar"><span className="pilar-n">02</span><h3>Creatividad humana</h3><p>Ideas, historias y criterio que una máquina no tiene. La IA ejecuta; las decisiones son nuestras y tuyas.</p></Tilt></li>
-          <li><Tilt className="pilar pilar-rojo"><span className="pilar-n">03</span><h3>Ejecución rápida con IA</h3><p>Lo que antes tomaba meses hoy queda listo en semanas, sin perder calidad.</p></Tilt></li>
+          <li><Tilt className="pilar"><span className="pilar-n">01</span><h3>Estrategia de marca y comunicación</h3><p>Antes de diseñar, entendemos tu negocio, tu estructura y lo que tu marca necesita comunicar.</p></Tilt></li>
+          <li><Tilt className="pilar"><span className="pilar-n">02</span><h3>Creatividad humana</h3><p>Ideas osadas, historias y criterio que una máquina no tiene. La IA ejecuta; las decisiones son nuestras y tuyas.</p></Tilt></li>
+          <li><Tilt className="pilar pilar-rojo"><span className="pilar-n">03</span><h3>Ejecución rápida con IA</h3><p>Lo que antes tomaba meses hoy queda listo en semanas, con la misma calidad y toda la energía del equipo.</p></Tilt></li>
         </ul>
         <div className="lema">
           <p className="lema-frase">Si lo puedes imaginar, <span className="texto-acento">lo podemos crear.</span></p>
@@ -156,7 +157,7 @@ export default async function VslPage({ searchParams }: Props) {
       <section className="lp-sec lp-historia" id="historia">
         <p className="eyebrow">Mi historia · Fer</p>
         <h2 className="lp-h2">No vendo lo que leí. Vendo lo que construí.</h2>
-        <p className="lp-sub">Detrás de cada embudo de Conexión hay años en sets, lanzamientos, madrugadas de código y una caída que no me paró.</p>
+        <p className="lp-sub">Detrás de cada embudo de Conexión hay años en sets, lanzamientos, madrugadas de código y una caída de la que aprendí a levantarme.</p>
         <LineaHistoria />
         <div className="lh-cierre">
           <p>No te voy a enseñar teoría. <strong>Te voy a instalar lo que ya me funcionó.</strong></p>
