@@ -12,6 +12,7 @@ const LINKS = [
   { href: "/panel/cotizaciones", label: "Cotizaciones", gestor: true },
   { href: "/panel/cobros", label: "Cobros", gestor: true },
   { href: "/panel/analitica", label: "Analítica", gestor: true },
+  { href: "/panel/workshop", label: "Workshop", gestor: true },
   { href: "/panel/soporte", label: "Soporte", gestor: false },
   { href: "/panel/equipo", label: "Equipo", gestor: true },
 ];
