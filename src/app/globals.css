@@ -479,6 +479,16 @@ button.vsl-portada:active:not(:disabled) { transform: none; }
 .lp-regiones { margin-top: 10px; }
 @media (min-width: 641px) { .lp-hero, .lp-sec { padding-top: 56px; } .lp-hero { padding-top: 22px; } }
 
+/* Computador: texto a la izquierda y video a la derecha, todo en una sola pantalla */
+@media (min-width: 1024px) {
+  .lp-hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); column-gap: 48px; row-gap: 10px; align-items: center; text-align: left; justify-items: start; padding: 36px 16px 8px; grid-auto-rows: min-content; align-content: center; }
+  .lp-hero > * { grid-column: 1; }
+  .lp-hero > .vsl-frame { grid-column: 2; grid-row: 1 / span 6; align-self: center; margin: 0; max-width: none; }
+  .lp-hero .lp-h1 { font-size: clamp(36px, 3.9vw, 54px); max-width: 13ch; text-align: left; }
+  .lp-hero .lp-lead { margin: 0; }
+  .lp-hero .btn-big { margin-top: 8px; }
+}
+
 /* Inicio optimizado: dolor + titular + video + botón en el primer pantallazo */
 @media (min-width: 641px) {
   .lp-hero { padding-top: 22px; gap: 8px; }
