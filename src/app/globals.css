@@ -825,3 +825,13 @@ button.vsl-portada.con-foto .vsl-grano { opacity: .45; }
 @keyframes tv-aparece { to { opacity: 1; } }
 @keyframes tv-late { 0% { box-shadow: 0 0 0 0 rgba(252,30,42,.6); } 100% { box-shadow: 0 0 0 10px rgba(252,30,42,0); } }
 @media (prefers-reduced-motion: reduce) { .tv-trazo { stroke-dashoffset: 0; animation: none !important; } .tv-area, .tv-punto { opacity: 1; animation: none !important; } }
+
+/* Lema y valores de Conexión */
+.lema { display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center; margin-top: 8px; }
+.lema-frase { margin: 0; font-size: clamp(24px, 4.2vw, 38px); font-weight: 700; letter-spacing: -.02em; line-height: 1.15; text-wrap: balance; }
+.lema-sub { margin: 0 0 10px; font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.valores { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+.valores li { padding: 8px 16px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); font-size: 14px; font-weight: 600; transition: background-color .25s, color .25s, transform .25s var(--ease), border-color .25s; cursor: default; }
+.valores li:hover { background: #0d0d0f; color: #fff; border-color: #0d0d0f; transform: translateY(-2px); }
+.valores li:last-child { background: var(--red-btn); color: #fff; border-color: transparent; }
+.lema-frase .texto-acento { color: var(--cx-texto-acento); }

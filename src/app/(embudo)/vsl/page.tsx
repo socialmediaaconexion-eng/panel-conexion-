@@ -31,6 +31,9 @@ type Props = { searchParams: Promise<{ utm_source?: string; utm_campaign?: strin
 // Mientras la lista esté vacía, la sección de fotos no se muestra.
 const CLIENTES: Cliente[] = [];
 
+// Valores de Conexión (dados por Fernanda, 20-nov-2026).
+const VALORES = ["Transparencia", "Resiliencia", "Comunicación", "Energía", "Sinergia", "Respeto", "Osadía"];
+
 const TRAYECTORIA = [
   "Juan Ads", "María Elena Badillo", "Marco Lesama", "Jorge Serratos", "Manuel de León",
   "Dra. Diana y Dr. Camilo", "Elizabeth García Duque", "Adriana Vargas", "Empresas en España", "Marcas en todo el mundo",
@@ -98,6 +101,13 @@ export default async function VslPage({ searchParams }: Props) {
           <li><Tilt className="pilar"><span className="pilar-n">02</span><h3>Creatividad humana</h3><p>Ideas, historias y criterio que una máquina no tiene. La IA ejecuta; las decisiones son nuestras y tuyas.</p></Tilt></li>
           <li><Tilt className="pilar pilar-rojo"><span className="pilar-n">03</span><h3>Ejecución rápida con IA</h3><p>Lo que antes tomaba meses hoy queda listo en semanas, sin perder calidad.</p></Tilt></li>
         </ul>
+        <div className="lema">
+          <p className="lema-frase">Si lo puedes imaginar, <span className="texto-acento">lo podemos crear.</span></p>
+          <p className="lema-sub">Creadores para crear</p>
+          <ul className="valores" aria-label="Nuestros valores">
+            {VALORES.map((v) => <li key={v}>{v}</li>)}
+          </ul>
+        </div>
       </section>
 
       {/* Panel a la medida */}
@@ -215,7 +225,7 @@ export default async function VslPage({ searchParams }: Props) {
       <footer className="lp-foot">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/logo-3d.png" alt="Conexión" />
-        <span>Conexión · Agencia boutique · Medellín · conexionteam.app</span>
+        <span>Conexión · Creadores para crear · Si lo puedes imaginar, lo podemos crear</span>
         <nav className="lp-legal" aria-label="Legal"><Link href="/cotizar">Cotizar</Link><Link href="/privacidad">Privacidad</Link><Link href="/terminos">Términos</Link></nav>
         <p className="lp-descargo">Cada negocio es distinto: no prometemos ingresos ni resultados específicos. Este sitio no forma parte de Meta ni está respaldado por Meta.</p>
       </footer>
