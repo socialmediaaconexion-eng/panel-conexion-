@@ -2,13 +2,13 @@
 
 import { useEffect, useState } from "react";
 
-// Las 5 piezas del sistema de captación, conectadas. Avanza sola hasta que la persona toca una.
+// Las 5 piezas del sistema en el orden real de trabajo: guion → videos → landing → campañas → panel. Avanza sola hasta que la persona toca una.
 const PIEZAS = [
-  { id: "campanas", nombre: "Campañas", corto: "Atraen", texto: "Anuncios en Meta pensados para atraer a la persona correcta, no a cualquiera. Medimos cada clic hasta la venta." },
-  { id: "videos", nombre: "Videos", corto: "Explican", texto: "Tu VSL y piezas de contenido que explican tu oferta con tu voz, para que la llamada empiece con confianza." },
+  { id: "guion", nombre: "Guion", corto: "Estrategia", texto: "Partimos de tu estrategia de marca: qué decir, a quién y en qué orden. Guionizamos tu VSL y tus piezas antes de grabar nada." },
+  { id: "videos", nombre: "Videos", corto: "Graban y editan", texto: "Grabamos y editamos con motion graphics y subtítulos: tu VSL y contenido que explican tu oferta con tu voz." },
   { id: "landing", nombre: "Landing", corto: "Convierte", texto: "Una página con tu identidad que convierte la visita en una aplicación, en celular y en computador." },
-  { id: "embudo", nombre: "Embudo", corto: "Filtra y agenda", texto: "Preguntas que califican, agenda automática con tu equipo y recordatorios por correo y WhatsApp." },
-  { id: "panel", nombre: "Panel", corto: "Ordena y mide", texto: "Tu equipo ve cada lead, cita y venta en un solo lugar, con la analítica del embudo paso a paso." },
+  { id: "campanas", nombre: "Campañas", corto: "Atraen", texto: "Con el guion, los videos y la landing listos, lanzamos anuncios en Meta para atraer a la persona correcta, y medimos cada clic hasta la venta." },
+  { id: "panel", nombre: "Panel", corto: "Ordena y mide", texto: "Embudo con agenda automática y tu panel: cada lead, cita, venta y alerta en tu celular, con la analítica paso a paso." },
 ] as const;
 
 export function Sistema() {

@@ -140,7 +140,7 @@ export default async function VslPage({ searchParams }: Props) {
       <section className="lp-sec" id="sistema">
         <p className="eyebrow">Qué implementamos</p>
         <h2 className="lp-h2">Cinco piezas que trabajan juntas</h2>
-        <p className="lp-sub">No vendemos piezas sueltas. Construimos el camino completo que lleva a una persona desde el anuncio hasta la venta, y lo dejamos funcionando con tu equipo.</p>
+        <p className="lp-sub">No vendemos piezas sueltas y no empezamos por los anuncios. Primero el guion y los videos; después la landing y las campañas; todo medido en tu panel.</p>
         <Sistema />
       </section>
 
@@ -206,7 +206,7 @@ export default async function VslPage({ searchParams }: Props) {
             <div className="plan-precio"><small>USD</small>1.800</div>
             <p className="plan-nota">Pago único · listo en 1 mes</p>
             <ul>
-              <li>Estrategia de marca y comunicación</li><li>Landing y embudo con agenda automática</li><li>Panel a la medida en tu celular</li><li>Videos y campañas de lanzamiento</li><li>Alertas, ventas y KPI por área</li>
+              <li>Estrategia de marca y comunicación</li><li>Guionización, grabación y edición de tus videos</li><li>Landing y embudo con agenda automática</li><li>Campañas de lanzamiento</li><li>Panel a la medida: ventas, alertas y KPI por área</li>
             </ul>
             <Link href={aplicar} className="btn btn-big" data-evento="cta_aplicar">Quiero saber si soy apto</Link>
           </Tilt>
