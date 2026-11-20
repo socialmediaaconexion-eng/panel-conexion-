@@ -835,3 +835,16 @@ button.vsl-portada.con-foto .vsl-grano { opacity: .45; }
 .valores li:hover { background: #0d0d0f; color: #fff; border-color: #0d0d0f; transform: translateY(-2px); }
 .valores li:last-child { background: var(--red-btn); color: #fff; border-color: transparent; }
 .lema-frase .texto-acento { color: var(--cx-texto-acento); }
+
+/* Trayectoria v2: fotos en movimiento continuo + cinta de nombres pequeña */
+.clientes { overflow: hidden; outline: none; mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+.clientes-cinta { display: flex; gap: 14px; width: max-content; padding: 6px 0 14px; animation: cinta calc(var(--n, 7) * 5s) linear infinite; }
+.clientes:hover .clientes-cinta, .clientes:focus-within .clientes-cinta, .clientes:active .clientes-cinta { animation-play-state: paused; }
+.clientes-cinta .cliente { scroll-snap-align: none; }
+@keyframes cinta { to { transform: translateX(calc(-50% - 7px)); } }
+.marquee-mini { margin-top: 2px; }
+.marquee-mini .marquee-fila { animation-duration: 60s; }
+.lp .marquee-mini .marquee-item { font-family: var(--body, inherit); font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); -webkit-text-stroke: 0; padding: 0 10px; gap: 20px; }
+.lp .marquee-mini .marquee-item:hover { color: var(--muted); -webkit-text-stroke: 0; }
+.marquee-mini .marquee-item i { font-size: 6px; }
+@media (prefers-reduced-motion: reduce) { .clientes { overflow-x: auto; } .clientes-cinta { animation: none; } }

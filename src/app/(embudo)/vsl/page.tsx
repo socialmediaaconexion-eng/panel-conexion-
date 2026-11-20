@@ -170,14 +170,12 @@ export default async function VslPage({ searchParams }: Props) {
         <h2 className="lp-h2">He estado detrás de marcas que venden</h2>
         <p className="lp-sub">Creadores, expertos, médicos y empresas en Latinoamérica, España y otros países. Esto es parte de ese camino:</p>
         <Clientes clientes={CLIENTES} />
-        <div className="marquee" aria-label="Personas y marcas con las que he trabajado">
-          {[0, 1].map((fila) => (
-            <div key={fila} className={`marquee-fila${fila ? " inversa" : ""}`} aria-hidden={fila === 1}>
-              {[...TRAYECTORIA, ...TRAYECTORIA].map((n, i) => (
-                <span key={i} className="marquee-item" aria-hidden={i >= TRAYECTORIA.length || fila === 1}>{n}<i aria-hidden="true">●</i></span>
-              ))}
-            </div>
-          ))}
+        <div className="marquee marquee-mini" aria-hidden="true">
+          <div className="marquee-fila">
+            {[...TRAYECTORIA, ...TRAYECTORIA].map((n, i) => (
+              <span key={i} className="marquee-item">{n}<i>●</i></span>
+            ))}
+          </div>
         </div>
         <ul className="sr-only">{TRAYECTORIA.map((n) => <li key={n}>{n}</li>)}</ul>
         <div className="lp-regiones">{["Latinoamérica", "España", "El mundo"].map((r) => <span key={r} className="pill">{r}</span>)}</div>

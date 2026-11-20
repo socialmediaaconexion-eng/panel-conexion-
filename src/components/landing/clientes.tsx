@@ -1,46 +1,31 @@
-"use client";
-
-import { useRef } from "react";
-
 export type Cliente = { nombre: string; foto: string; rol?: string };
 
-// Fila de tarjetas altas en blanco y negro con el nombre abajo (se colorean al pasar el mouse).
-// Se desliza con el dedo, con la rueda/trackpad o arrastrando con el mouse.
+// Cinta de tarjetas altas en blanco y negro con el nombre abajo, en movimiento continuo para que se vean todas.
+// Se pausa al pasar el mouse o al tocar; las tarjetas se colorean al pasar el mouse.
+// La lista va duplicada para que el bucle no tenga salto (la copia queda oculta a lectores de pantalla).
 export function Clientes({ clientes }: { clientes: Cliente[] }) {
-  const fila = useRef<HTMLDivElement>(null);
-  const arrastre = useRef<{ x: number; scroll: number } | null>(null);
   if (clientes.length === 0) return null;
 
-  const mover = (dir: number) => fila.current?.scrollBy({ left: dir * fila.current.clientWidth * 0.8, behavior: "smooth" });
+  const tarjeta = (c: Cliente, copia: boolean, i: number) => {
+    const y = c.nombre.indexOf(" y "); // dos personas: corta en " y "; si no, después de la primera palabra
+    const [uno, ...resto] = y > 0 ? [c.nombre.slice(0, y), c.nombre.slice(y + 1)] : c.nombre.split(" ");
+    return (
+      <figure key={`${copia ? "b" : "a"}${i}`} className="cliente" role={copia ? undefined : "listitem"} aria-hidden={copia || undefined}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={c.foto} alt={copia ? "" : c.nombre} loading="lazy" draggable={false} />
+        <figcaption>
+          <strong>{uno}<br />{resto.join(" ")}</strong>
+          {c.rol && <span>{c.rol}</span>}
+        </figcaption>
+      </figure>
+    );
+  };
 
   return (
-    <div className="clientes">
-      <div
-        ref={fila} className="clientes-fila" role="list" aria-label="Personas y marcas con las que he trabajado"
-        onPointerDown={(e) => { if (e.pointerType === "mouse" && fila.current) arrastre.current = { x: e.clientX, scroll: fila.current.scrollLeft }; }}
-        onPointerMove={(e) => { if (arrastre.current && fila.current) fila.current.scrollLeft = arrastre.current.scroll - (e.clientX - arrastre.current.x); }}
-        onPointerUp={() => { arrastre.current = null; }}
-        onPointerLeave={() => { arrastre.current = null; }}
-      >
-        {clientes.map((c) => {
-          // Dos líneas: corta en " y " si son dos personas; si no, después de la primera palabra.
-          const y = c.nombre.indexOf(" y ");
-          const [uno, ...resto] = y > 0 ? [c.nombre.slice(0, y), c.nombre.slice(y + 1)] : c.nombre.split(" ");
-          return (
-            <figure key={c.nombre} className="cliente" role="listitem">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={c.foto} alt={c.nombre} loading="lazy" draggable={false} />
-              <figcaption>
-                <strong>{uno}<br />{resto.join(" ")}</strong>
-                {c.rol && <span>{c.rol}</span>}
-              </figcaption>
-            </figure>
-          );
-        })}
-      </div>
-      <div className="clientes-ctrl">
-        <button type="button" className="ghost rollo-btn" onClick={() => mover(-1)} aria-label="Ver anteriores">←</button>
-        <button type="button" className="ghost rollo-btn" onClick={() => mover(1)} aria-label="Ver siguientes">→</button>
+    <div className="clientes" tabIndex={0} aria-label="Personas y marcas con las que he trabajado">
+      <div className="clientes-cinta" role="list" style={{ ["--n" as string]: clientes.length }}>
+        {clientes.map((c, i) => tarjeta(c, false, i))}
+        {clientes.map((c, i) => tarjeta(c, true, i))}
       </div>
     </div>
   );
