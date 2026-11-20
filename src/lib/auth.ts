@@ -30,7 +30,11 @@ export async function requireSeller(): Promise<{ seller: Seller; supabase: Await
     .eq("user_id", user.id)
     .eq("activo", true)
     .maybeSingle<Seller>();
-  if (!seller) redirect("/sin-acceso");
+  if (!seller) {
+    // Un alumno (ALMA) nunca ve el panel: va directo a su área del curso.
+    const { data: alumno } = await supabase.from("alumnos").select("id").eq("user_id", user.id).maybeSingle();
+    redirect(alumno ? "/curso" : "/sin-acceso");
+  }
   return { seller, supabase };
 }
 
