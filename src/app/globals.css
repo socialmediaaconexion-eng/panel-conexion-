@@ -522,6 +522,14 @@ button.vsl-portada:active:not(:disabled) { transform: none; }
 .clientes-ctrl { display: flex; gap: 10px; justify-content: center; }
 @media (hover: none) { .cliente figcaption span { opacity: 1; transform: none; } }
 
+/* Textura animada del inicio (ondas doradas) y más blanco */
+.lp { background: #ffffff; overflow-x: clip; }
+.lp-top { background: rgba(255,255,255,.82); }
+.lp-hero { position: relative; isolation: isolate; }
+.lp-hero::before { content: ""; position: absolute; inset: 0 calc(50% - 50vw); z-index: -2; background: radial-gradient(60% 70% at 50% 35%, #ffffff 0%, #fbfaf6 55%, #f6f3ea 100%); }
+.ondas { position: absolute; inset: 0 calc(50% - 50vw); width: 100vw; height: 100%; z-index: -1; pointer-events: none; opacity: .9; -webkit-mask-image: linear-gradient(#000 70%, transparent); mask-image: linear-gradient(#000 70%, transparent); }
+.lp-sec:nth-of-type(even) { background: transparent; }
+
 /* Testimonios en video (verticales) */
 .testimonios { width: 100%; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 8px; }
 .testimonio { margin: 0; width: min(300px, 100%); display: flex; flex-direction: column; gap: 8px; }

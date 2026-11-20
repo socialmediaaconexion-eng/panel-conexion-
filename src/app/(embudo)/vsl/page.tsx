@@ -9,6 +9,7 @@ import { StickyCta } from "@/components/landing/sticky-cta";
 import { AplicarModal } from "@/components/landing/aplicar-modal";
 import { SalidaAviso } from "@/components/landing/salida-aviso";
 import { Clientes, type Cliente } from "@/components/landing/clientes";
+import { Ondas } from "@/components/landing/ondas";
 
 const DESCRIPCION = "Implementamos tu sistema de captación con IA: landing, embudo, panel, videos y campañas, conectados y a tu medida. Abrimos pocas plazas al mes.";
 export const metadata: Metadata = {
@@ -66,6 +67,7 @@ export default async function VslPage({ searchParams }: Props) {
 
       {/* 1. Dolor → promesa → video → CTA */}
       <section className="lp-hero">
+        <Ondas />
         <p className="eyebrow">Agencia boutique · pocas plazas al mes</p>
         <TitularDolor />
         <h1 className="lp-h1">Implementamos tu sistema de captación con <span className="rojo">IA</span>.</h1>
