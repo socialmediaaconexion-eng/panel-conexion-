@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export const metadata = { title: "Términos y condiciones — Conexión" };
+export const metadata = { title: "Términos y condiciones — Conexión", description: "Términos de uso del sitio y de la llamada de diagnóstico de Conexión." };
 
 export default function TerminosPage() {
   return (

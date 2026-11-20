@@ -1,3 +1,4 @@
+import { ETIQUETAS_RESPUESTA } from "@/lib/preguntas";
 import { Fragment } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -47,7 +48,7 @@ export default async function LeadDetalle({ params }: Props) {
         <div className="card" style={{ marginTop: 18 }}>
           <h2 style={{ marginTop: 0 }}>Respuestas de la aplicación</h2>
           <dl style={{ margin: 0, display: "grid", gridTemplateColumns: "max-content 1fr", gap: "4px 14px" }}>
-            {[["negocio", "Negocio"], ["necesidad", "Necesita"], ["inversion", "Inversión pensada"], ["cuando", "Para cuándo"]].map(([k, l]) => (
+            {Object.keys(lead.respuestas as Record<string, string>).map((k) => [k, ETIQUETAS_RESPUESTA[k] ?? k]).map(([k, l]) => (
               <Fragment key={k}><dt className="muted">{l}</dt><dd style={{ margin: 0 }}>{(lead.respuestas as Record<string, string>)[k] || "—"}</dd></Fragment>
             ))}
           </dl>

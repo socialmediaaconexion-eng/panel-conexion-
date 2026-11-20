@@ -6,6 +6,7 @@ import { Intro } from "@/components/intro";
 const poppins = Poppins({ subsets: ["latin"], weight: ["300", "400", "500", "600", "700"], variable: "--font-poppins" });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://conexionteam.app"),
   title: "Conexión — Panel",
   description: "Panel de gestión comercial de Conexión Agency",
   appleWebApp: { capable: true, title: "Conexión", statusBarStyle: "black" },

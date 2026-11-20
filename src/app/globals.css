@@ -522,6 +522,29 @@ button.vsl-portada:active:not(:disabled) { transform: none; }
 .clientes-ctrl { display: flex; gap: 10px; justify-content: center; }
 @media (hover: none) { .cliente figcaption span { opacity: 1; transform: none; } }
 
+/* Testimonios en video (verticales) */
+.testimonios { width: 100%; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 8px; }
+.testimonio { margin: 0; width: min(300px, 100%); display: flex; flex-direction: column; gap: 8px; }
+.testimonio video { width: 100%; aspect-ratio: 9 / 16; border-radius: 22px; background: #0d0d0f; object-fit: cover; box-shadow: var(--shadow); }
+.testimonio figcaption { font-size: 13px; color: var(--muted); }
+
+/* Formulario por pasos */
+.quiz { width: 100%; max-width: 520px; margin: 6px auto 0; display: flex; flex-direction: column; gap: 10px; text-align: left; }
+.quiz-top { display: flex; justify-content: space-between; align-items: center; min-height: 28px; }
+button.quiz-atras { background: none; color: var(--muted); box-shadow: none; padding: 4px 0; font-weight: 500; font-size: 13px; }
+button.quiz-atras:hover:not(:disabled) { background: none; box-shadow: none; transform: translateX(-3px); color: var(--accent); }
+.quiz-barra { height: 6px; border-radius: 99px; background: var(--surface-2); overflow: hidden; }
+.quiz-barra span { display: block; height: 100%; background: var(--accent); border-radius: 99px; transition: width .45s var(--ease); }
+.quiz-paso { border: 0; padding: 0; margin: 6px 0 0; display: flex; flex-direction: column; gap: 10px; animation: aparece .4s var(--ease) both; }
+.quiz-paso[hidden] { display: none; }
+.quiz-paso legend { font-size: 20px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.25; padding: 0; margin-bottom: 2px; }
+.quiz-paso > p { margin: 0 0 4px; }
+.quiz-opciones { display: flex; flex-direction: column; gap: 8px; }
+button.quiz-op { text-align: left; background: var(--surface); color: var(--fg); border: 1px solid var(--line); box-shadow: none; border-radius: 16px; padding: 14px 18px; font-weight: 500; }
+button.quiz-op:hover:not(:disabled) { background: var(--accent-tint); border-color: var(--accent); box-shadow: none; transform: translateX(4px); }
+button.quiz-op.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+.quiz .btn-big { align-self: stretch; text-align: center; }
+
 /* Cotizaciones */
 .cotizar { width: 100%; display: flex; flex-direction: column; gap: 14px; text-align: left; margin-top: 8px; }
 .piezas { border: 0; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: 10px; }

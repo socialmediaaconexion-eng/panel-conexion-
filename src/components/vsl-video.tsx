@@ -4,16 +4,17 @@ import { useRef, useState } from "react";
 import { rastrear } from "./rastreo";
 
 // VSL en formato horizontal (16:9) con portada de marca. Al tocar la portada empieza el video.
-// Para cambiar el video: reemplazar public/vsl.mp4 (ideal 1920×1080, H.264) — no hay que tocar código.
-const VIDEO = "/vsl.mp4";
+// Cuando llegue el VSL horizontal: subir public/vsl-horizontal.mp4 (1920×1080, H.264) y pasar src="/vsl-horizontal.mp4".
+// Sin src, la portada lleva al video corto de la sección Testimonios.
 
-export function VslVideo() {
+export function VslVideo({ src }: { src?: string }) {
   const hechos = useRef(new Set<string>());
   const video = useRef<HTMLVideoElement>(null);
   const [iniciado, setIniciado] = useState(false);
   const una = (e: string) => { if (!hechos.current.has(e)) { hechos.current.add(e); rastrear(e); } };
 
   function play() {
+    if (!src) { document.getElementById("testimonios")?.scrollIntoView({ behavior: "smooth", block: "center" }); return; }
     setIniciado(true);
     requestAnimationFrame(() => video.current?.play().catch(() => {}));
   }
@@ -33,7 +34,7 @@ export function VslVideo() {
         }}
         onEnded={() => una("video_100")}
       >
-        <source src={VIDEO} type="video/mp4" />
+        {src && <source src={src} type="video/mp4" />}
       </video>
       {!iniciado && (
         <button type="button" className="vsl-portada" onClick={play} aria-label="Reproducir el video: cómo funciona tu sistema de captación">
@@ -43,7 +44,7 @@ export function VslVideo() {
           <span className="vsl-play" aria-hidden="true"><span /></span>
           <span className="vsl-texto">
             <strong>Cómo funciona tu sistema de captación</strong>
-            <span>Video · 1 minuto · activa el sonido</span>
+            <span>{src ? "Video · activa el sonido" : "El video completo llega muy pronto · mira el video corto"}</span>
           </span>
         </button>
       )}

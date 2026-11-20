@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export const metadata = { title: "Política de privacidad — Conexión" };
+export const metadata = { title: "Política de privacidad — Conexión", description: "Cómo Conexión trata tus datos personales (Ley 1581 de 2012)." };
 
 const CONTACTO = "socialmediaaconexion@gmail.com";
 

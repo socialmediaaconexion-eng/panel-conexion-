@@ -27,8 +27,8 @@ export function SalidaAviso({ href }: { href: string }) {
         <button type="button" className="modal-x" onClick={() => ref.current?.close()} aria-label="Cerrar">×</button>
         <p className="eyebrow">Antes de irte</p>
         <h2 id="salida-titulo" className="lp-h2" style={{ fontSize: 28 }}>Abrimos pocas plazas al mes</h2>
-        <p className="muted">Aplicar toma menos de dos minutos y la llamada es gratuita. Si no somos para ti, te lo decimos.</p>
-        <Link href={href} className="btn btn-big" onClick={() => ref.current?.close()} data-evento="cta_aplicar">Aplicar ahora</Link>
+        <p className="muted">Son 5 preguntas de un toque y el diagnóstico es gratuito. Si no somos para ti, te lo decimos.</p>
+        <Link href={href} className="btn btn-big" onClick={() => ref.current?.close()} data-evento="cta_aplicar">Quiero saber si soy apto</Link>
         <button type="button" className="ghost" onClick={() => ref.current?.close()}>Seguir viendo la página</button>
       </div>
     </dialog>

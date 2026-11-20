@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { firmarLead, verificarLead, slotsDisponibles, DURACION_LLAMADA_MIN } from "@/lib/agenda";
 import { notificarSinBloquear } from "@/lib/notificaciones";
+import { PREGUNTAS } from "@/lib/preguntas";
 
 const EMBUDO = "vsl-conexion";
 
@@ -14,12 +15,8 @@ export async function aplicar(_prev: string | null, formData: FormData): Promise
   if (!nombre || !email || !telefono) return "Completa nombre, correo y WhatsApp.";
   if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return "Ese correo no parece válido.";
 
-  const respuestas = {
-    negocio: String(formData.get("negocio") ?? ""),
-    necesidad: String(formData.get("necesidad") ?? ""),
-    inversion: String(formData.get("inversion") ?? ""),
-    cuando: String(formData.get("cuando") ?? ""),
-  };
+  const respuestas = Object.fromEntries(PREGUNTAS.map((q) => [q.id, String(formData.get(q.id) ?? "").slice(0, 120)]));
+  if (PREGUNTAS.some((q) => !respuestas[q.id])) return "Responde todas las preguntas antes de continuar.";
 
   const admin = createAdminClient();
   // Re-applying with the same email updates the answers instead of duplicating the lead.

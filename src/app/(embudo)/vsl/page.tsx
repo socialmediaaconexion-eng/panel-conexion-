@@ -10,9 +10,12 @@ import { AplicarModal } from "@/components/landing/aplicar-modal";
 import { SalidaAviso } from "@/components/landing/salida-aviso";
 import { Clientes, type Cliente } from "@/components/landing/clientes";
 
+const DESCRIPCION = "Implementamos tu sistema de captación con IA: landing, embudo, panel, videos y campañas, conectados y a tu medida. Abrimos pocas plazas al mes.";
 export const metadata: Metadata = {
   title: "Conexión — Sistemas de captación con IA para marcas boutique",
-  description: "Implementamos tu sistema de captación con IA: landing, embudo, panel, videos y campañas, conectados y a tu medida. Abrimos pocas plazas al mes.",
+  description: DESCRIPCION,
+  openGraph: { title: "Conexión — Tu sistema de captación con IA", description: DESCRIPCION, url: "https://conexionteam.app", siteName: "Conexión", locale: "es_CO", type: "website", images: [{ url: "/og.png", width: 1200, height: 630, alt: "Conexión — sistemas de captación con IA" }] },
+  twitter: { card: "summary_large_image", images: ["/og.png"] },
 };
 
 type Props = { searchParams: Promise<{ utm_source?: string; utm_campaign?: string; utm_medium?: string; utm_content?: string }> };
@@ -61,7 +64,7 @@ export default async function VslPage({ searchParams }: Props) {
         <nav className="lp-nav" aria-label="Secciones">
           <a href="#sistema">El sistema</a><a href="#historia">Mi historia</a><a href="#preguntas">Preguntas</a>
         </nav>
-        <Link href={aplicar} className="btn lp-top-cta" data-evento="cta_aplicar">Aplicar</Link>
+        <Link href={aplicar} className="btn lp-top-cta" data-evento="cta_aplicar">¿Soy apto?</Link>
       </header>
 
       {/* 1. Dolor → promesa → video → CTA */}
@@ -71,8 +74,8 @@ export default async function VslPage({ searchParams }: Props) {
         <h1 className="lp-h1">Implementamos tu sistema de captación con <span className="rojo">IA</span>.</h1>
         <p className="lp-lead">Landing, embudo, panel, videos y campañas, conectados y hechos a la medida de tu marca.</p>
         <div className="vsl-frame lp-video"><VslVideo /></div>
-        <Link href={aplicar} className="btn btn-big" data-evento="cta_aplicar">Aplicar para una llamada</Link>
-        <p className="muted small">Llamada gratuita de 45 minutos · revisamos tu caso antes de confirmar.</p>
+        <Link href={aplicar} className="btn btn-big" data-evento="cta_aplicar">Quiero saber si soy apto</Link>
+        <p className="muted small">5 preguntas de un toque · si eres apto, agendas un diagnóstico gratuito de 45 min.</p>
       </section>
 
       {/* 2. Cambios: antes → después */}
@@ -90,7 +93,7 @@ export default async function VslPage({ searchParams }: Props) {
             </li>
           ))}
         </ul>
-        <Link href={aplicar} className="btn btn-big" data-evento="cta_aplicar">Quiero mi sistema</Link>
+        <Link href={aplicar} className="btn btn-big" data-evento="cta_aplicar">Quiero saber si soy apto</Link>
       </section>
 
       {/* 3. Qué incluye: el sistema */}
@@ -127,6 +130,18 @@ export default async function VslPage({ searchParams }: Props) {
         <div className="lp-regiones">{["Latinoamérica", "España", "El mundo"].map((r) => <span key={r} className="pill">{r}</span>)}</div>
       </section>
 
+      {/* Testimonios en video */}
+      <section className="lp-sec" id="testimonios">
+        <p className="eyebrow">Testimonios</p>
+        <h2 className="lp-h2">Escúchalo en video</h2>
+        <div className="testimonios">
+          <figure className="testimonio">
+            <video controls preload="metadata" playsInline poster="/vsl-poster.jpg"><source src="/vsl.mp4" type="video/mp4" /></video>
+            <figcaption>¿Negocio estancado? · 1 min</figcaption>
+          </figure>
+        </div>
+      </section>
+
       {/* 5. Objeciones */}
       <section className="lp-sec" id="preguntas">
         <p className="eyebrow">Preguntas</p>
@@ -148,11 +163,11 @@ export default async function VslPage({ searchParams }: Props) {
             <p className="eyebrow">Boutique de verdad</p>
             <h2 className="lp-h2">Abrimos pocas plazas cada mes</h2>
             <ol className="cierre-pasos">
-              <li><b>1</b>Aplicas: cuatro preguntas rápidas</li>
+              <li><b>1</b>Respondes 5 preguntas de un toque</li>
               <li><b>2</b>Hablamos 45 minutos sobre tu caso</li>
               <li><b>3</b>Implementamos tu sistema</li>
             </ol>
-            <Link href={aplicar} className="btn btn-big" data-evento="cta_aplicar">Aplicar para una plaza</Link>
+            <Link href={aplicar} className="btn btn-big" data-evento="cta_aplicar">Quiero saber si soy apto</Link>
             <p className="cierre-nota">Si no somos para ti, te lo decimos en la llamada.</p>
           </div>
         </Tilt>
