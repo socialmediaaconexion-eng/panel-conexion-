@@ -24,9 +24,18 @@ export async function middleware(request: NextRequest) {
     url.pathname = "/login";
     return NextResponse.redirect(url);
   }
+  // Área del alumno: sin sesión va al login del curso (la guarda requireAlumno decide el resto).
+  const p = request.nextUrl.pathname;
+  const publicaCurso = p === "/curso/login" || p.startsWith("/curso/auth/") || p === "/curso/manifest.webmanifest";
+  if (!user && p.startsWith("/curso") && !publicaCurso) {
+    const url = request.nextUrl.clone();
+    url.pathname = "/curso/login";
+    url.search = "";
+    return NextResponse.redirect(url);
+  }
   return response;
 }
 
 export const config = {
-  matcher: ["/panel/:path*", "/login"],
+  matcher: ["/panel/:path*", "/login", "/curso/:path*", "/curso"],
 };

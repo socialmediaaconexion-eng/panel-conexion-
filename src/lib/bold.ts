@@ -15,7 +15,7 @@ function headers() {
   return { "Content-Type": "application/json", Authorization: `x-api-key ${process.env.BOLD_API_KEY}` };
 }
 
-export async function crearLinkBold(p: { monto: number; moneda: "USD" | "COP"; descripcion: string; referencia: string; email?: string | null; venceDias?: number }):
+export async function crearLinkBold(p: { monto: number; moneda: "USD" | "COP"; descripcion: string; referencia: string; email?: string | null; venceDias?: number; callbackUrl?: string }):
   Promise<{ ok: true; link: string; url: string } | { ok: false; error: string }> {
   if (!boldConfigurado()) return { ok: false, error: "Bold no está conectado (falta BOLD_API_KEY)." };
   const body: Record<string, unknown> = {
@@ -23,7 +23,7 @@ export async function crearLinkBold(p: { monto: number; moneda: "USD" | "COP"; d
     amount: { currency: p.moneda, total_amount: p.monto, tip_amount: 0, taxes: [] },
     reference: p.referencia.replace(/[^A-Za-z0-9_-]/g, "").slice(0, 60),
     description: p.descripcion.slice(0, 100).padEnd(2, " "),
-    callback_url: "https://conexionteam.app/pago-recibido",
+    callback_url: p.callbackUrl ?? "https://conexionteam.app/pago-recibido",
     // Bold espera nanosegundos desde epoch (verificado: en ms responde "expiration date must be greater…").
     expiration_date: (Date.now() + (p.venceDias ?? 7) * 86400_000) * 1_000_000,
   };

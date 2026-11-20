@@ -105,7 +105,7 @@ function generarIcs(cita: CitaCompleta, cancelar: boolean, secuencia: number) {
   ].filter(Boolean).join("\r\n");
 }
 
-async function enviarEmail(para: string, asunto: string, html: string, ics?: string): Promise<Resultado> {
+export async function enviarEmail(para: string, asunto: string, html: string, ics?: string): Promise<Resultado> {
   const key = process.env.RESEND_API_KEY;
   const from = process.env.EMAIL_REMITENTE;
   if (!key || !from) return { estado: "omitido", detalle: "Correo todavía no está configurado" };

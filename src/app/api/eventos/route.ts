@@ -2,7 +2,11 @@ import { NextResponse } from "next/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 
 // Recibe los pasos del embudo que manda el navegador (sendBeacon). Lista cerrada de eventos.
-const EVENTOS = new Set(["vsl_vista", "video_play", "video_25", "video_50", "video_75", "video_100", "cta_aplicar", "aplicar_vista", "agenda_vista", "gracias_vista"]);
+const EVENTOS = new Set([
+  "vsl_vista", "video_play", "video_25", "video_50", "video_75", "video_100", "cta_aplicar", "aplicar_vista", "agenda_vista", "gracias_vista",
+  // Embudo del workshop (ALMA). workshop_checkout, workshop_pago y workshop_acceso los registra solo el servidor.
+  "workshop_vista", "workshop_video_play", "workshop_cta",
+]);
 const corto = (v: unknown, n = 200) => (typeof v === "string" && v.trim() ? v.trim().slice(0, n) : null);
 
 export async function POST(req: Request) {
@@ -17,6 +21,7 @@ export async function POST(req: Request) {
 
   await createAdminClient().from("embudo_eventos").insert({
     evento, sesion,
+    ...(evento.startsWith("workshop_") ? { embudo: "workshop" } : {}),
     utm_source: corto(body.utm_source), utm_medium: corto(body.utm_medium),
     utm_campaign: corto(body.utm_campaign), utm_content: corto(body.utm_content),
     referrer: corto(body.referrer, 300),
