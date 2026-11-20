@@ -505,6 +505,23 @@ button.vsl-portada:active:not(:disabled) { transform: none; }
   .lp-video { border-radius: 16px; margin: 8px 0 4px; }
 }
 
+/* Fotos de clientes: tarjetas altas en blanco y negro */
+.clientes { width: 100%; max-width: var(--lp-w); margin: 6px auto 18px; }
+.clientes-fila { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding: 6px 4px 14px; cursor: grab; mask-image: linear-gradient(90deg, #000 85%, transparent); -webkit-mask-image: linear-gradient(90deg, #000 85%, transparent); }
+.clientes-fila::-webkit-scrollbar { display: none; }
+.clientes-fila:active { cursor: grabbing; }
+.cliente { position: relative; flex: 0 0 clamp(150px, 19vw, 210px); aspect-ratio: 210 / 320; margin: 0; border-radius: 24px; overflow: hidden; scroll-snap-align: start; background: #1a1a1d; transition: transform .35s var(--ease), box-shadow .35s ease; }
+.cliente img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.05); transition: filter .5s ease, transform .6s var(--ease); user-select: none; }
+.cliente::after { content: ""; position: absolute; inset: 45% 0 0; background: linear-gradient(transparent, rgba(0,0,0,.78)); pointer-events: none; }
+.cliente figcaption { position: absolute; left: 16px; right: 12px; bottom: 16px; z-index: 1; color: #fff; text-align: left; display: flex; flex-direction: column; gap: 4px; }
+.cliente strong { font-size: clamp(17px, 1.9vw, 22px); font-weight: 600; line-height: 1.15; letter-spacing: -0.02em; }
+.cliente figcaption span { font-size: 12px; color: #d4d4d8; opacity: 0; transform: translateY(6px); transition: all .35s var(--ease); }
+.cliente:hover { transform: translateY(-6px); box-shadow: 0 24px 40px -20px rgba(0,0,0,.6); }
+.cliente:hover img { filter: grayscale(0); transform: scale(1.04); }
+.cliente:hover figcaption span { opacity: 1; transform: none; }
+.clientes-ctrl { display: flex; gap: 10px; justify-content: center; }
+@media (hover: none) { .cliente figcaption span { opacity: 1; transform: none; } }
+
 /* Cotizaciones */
 .cotizar { width: 100%; display: flex; flex-direction: column; gap: 14px; text-align: left; margin-top: 8px; }
 .piezas { border: 0; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: 10px; }

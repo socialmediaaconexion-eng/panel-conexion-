@@ -8,6 +8,7 @@ import { TitularDolor } from "@/components/landing/titular-dolor";
 import { StickyCta } from "@/components/landing/sticky-cta";
 import { AplicarModal } from "@/components/landing/aplicar-modal";
 import { SalidaAviso } from "@/components/landing/salida-aviso";
+import { Clientes, type Cliente } from "@/components/landing/clientes";
 
 export const metadata: Metadata = {
   title: "Conexión — Sistemas de captación con IA para marcas boutique",
@@ -20,6 +21,10 @@ type Props = { searchParams: Promise<{ utm_source?: string; utm_campaign?: strin
 // dolor → video → CTA · cambios antes/después · qué incluye · quién está detrás · objeciones · cierre · CTA fija.
 
 // Personas y marcas con las que ha trabajado Fernanda (dato dado por ella, 19-nov-2026).
+// Fotos de clientes (public/trayectoria/). Solo fotos reales enviadas por Fernanda, con permiso.
+// Mientras la lista esté vacía, la sección de fotos no se muestra.
+const CLIENTES: Cliente[] = [];
+
 const TRAYECTORIA = [
   "Juan Ads", "María Elena Badillo", "Marco Lesama", "Jorge Serratos", "Manuel de León",
   "Dra. Diana y Dr. Camilo", "Elizabeth García Duque", "Adriana Vargas", "Empresas en España", "Marcas en todo el mundo",
@@ -108,6 +113,7 @@ export default async function VslPage({ searchParams }: Props) {
         <p className="eyebrow">Trayectoria</p>
         <h2 className="lp-h2">He estado detrás de marcas que venden</h2>
         <p className="lp-sub">Creadores, expertos, médicos y empresas en Latinoamérica, España y otros países. Esto es parte de ese camino:</p>
+        <Clientes clientes={CLIENTES} />
         <div className="marquee" aria-label="Personas y marcas con las que he trabajado">
           {[0, 1].map((fila) => (
             <div key={fila} className={`marquee-fila${fila ? " inversa" : ""}`} aria-hidden={fila === 1}>
