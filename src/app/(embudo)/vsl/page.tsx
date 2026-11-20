@@ -8,6 +8,7 @@ import { TitularDolor } from "@/components/landing/titular-dolor";
 import { StickyCta } from "@/components/landing/sticky-cta";
 import { AplicarModal } from "@/components/landing/aplicar-modal";
 import { SalidaAviso } from "@/components/landing/salida-aviso";
+import { TelVentas } from "@/components/landing/tel-ventas";
 import { Clientes, type Cliente } from "@/components/landing/clientes";
 import { Ondas } from "@/components/landing/ondas";
 import { CambiosToggle } from "@/components/landing/cambios-toggle";
@@ -107,7 +108,7 @@ export default async function VslPage({ searchParams }: Props) {
           <div className="telefono" aria-hidden="true">
             <div className="tel-pantalla">
               <div className="tel-top"><img src="/logo-3d.png" alt="" /><span>Hoy</span></div>
-              <div className="tel-kpis"><div><small>Ventas</small><b>— </b></div><div><small>Leads</small><b>—</b></div></div>
+              <TelVentas />
               <div className="tel-alerta"><i />Alerta: una campaña subió su costo por lead. Revísala hoy.</div>
               <div className="tel-barras">{[40, 62, 48, 75, 58, 88, 70].map((v, i) => <span key={i} style={{ height: v + "%" }} />)}</div>
               <div className="tel-lista"><span>Equipo de ventas</span><span>Marketing</span><span>Atención</span></div>

@@ -807,3 +807,21 @@ button.vsl-portada.con-foto .vsl-grano { opacity: .45; }
 /* Logo 3D: el PNG ya trae relieve y sombra propia */
 .lp-top-logo, .embudo-logo { height: auto; }
 @media (max-width: 380px) { .sticky-cta { gap: 10px; padding-left: 14px; font-size: 12px; } }
+
+/* Teléfono de demo: tarjeta negra de ventas que crecen (components/landing/tel-ventas.tsx) */
+.tel-ventas { position: relative; background: radial-gradient(120% 90% at 100% 0%, #2a0a0d 0%, #0d0d0f 55%); border-radius: 16px; padding: 11px 12px 8px; color: #fff; overflow: hidden; box-shadow: inset 0 0 0 1px rgba(255,255,255,.06); }
+.tv-cab { display: flex; justify-content: space-between; align-items: center; }
+.tv-cab small { font-size: 10px; color: #b9b9c2; }
+.tv-chip { font-size: 9.5px; font-weight: 600; color: #ff6b73; background: rgba(252,30,42,.16); padding: 2px 7px; border-radius: 999px; }
+.tv-num { display: block; font-size: 30px; line-height: 1.1; font-weight: 700; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+.tv-linea { display: block; width: 100%; height: 44px; margin-top: 2px; overflow: visible; }
+.tv-trazo { stroke-dasharray: 1; stroke-dashoffset: 1; filter: drop-shadow(0 0 4px rgba(252,30,42,.7)); }
+.tv-area { opacity: 0; }
+.tel-ventas.on .tv-trazo { animation: tv-dibuja 1.8s cubic-bezier(.22,1,.36,1) forwards; }
+.tel-ventas.on .tv-area { animation: tv-aparece .8s ease 1.2s forwards; }
+.tv-punto { position: absolute; right: 12px; bottom: 49px; width: 8px; height: 8px; border-radius: 50%; background: #ff4a54; box-shadow: 0 0 0 0 rgba(252,30,42,.6); opacity: 0; }
+.tel-ventas.on .tv-punto { animation: tv-aparece .3s ease 1.7s forwards, tv-late 1.8s ease-out 2s infinite; }
+@keyframes tv-dibuja { to { stroke-dashoffset: 0; } }
+@keyframes tv-aparece { to { opacity: 1; } }
+@keyframes tv-late { 0% { box-shadow: 0 0 0 0 rgba(252,30,42,.6); } 100% { box-shadow: 0 0 0 10px rgba(252,30,42,0); } }
+@media (prefers-reduced-motion: reduce) { .tv-trazo { stroke-dashoffset: 0; animation: none !important; } .tv-area, .tv-punto { opacity: 1; animation: none !important; } }
