@@ -187,7 +187,7 @@ export default async function VslPage({ searchParams }: Props) {
         <h2 className="lp-h2">Lo que dicen quienes ya trabajaron con nosotros</h2>
         <div className="testimonios">
           <figure className="testimonio testimonio-h">
-            <video controls preload="metadata" playsInline poster="/testimonio-dr-camilo.jpg"><source src="/testimonio-dr-camilo.mp4" type="video/mp4" /></video>
+            <video controls preload="metadata" playsInline poster="/testimonio-dr-camilo-portada.jpg"><source src="/testimonio-dr-camilo.mp4" type="video/mp4" /></video>
             <figcaption><strong>Dr. Camilo</strong> · médico intensivista e influencer · «Un antes y un después para tu negocio»</figcaption>
           </figure>
         </div>
