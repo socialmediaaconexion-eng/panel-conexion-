@@ -62,7 +62,7 @@ export const WORKSHOP = {
 
   // ── La solución ──
   solucion: {
-    titulo: "ALMA es ese orden, en cuatro letras.",
+    titulo: "ALMA son las cuatro piezas que vas a construir.",
     letras: [
       ["A", "de Arquetipo", "Descubres qué tipo de marca eres y qué contenido te toca hacer."],
       ["L", "de Landing", "Creas con Claude tu propia página y la publicas con tu link."],

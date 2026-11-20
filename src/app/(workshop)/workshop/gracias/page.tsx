@@ -65,7 +65,7 @@ export default async function GraciasWorkshop({ searchParams }: Props) {
         <span className="ws-espera" aria-hidden="true" />
         <h1 className="lp-h2">Estamos confirmando tu pago</h1>
         <p className="lp-lead">Bold está procesando el pago. Apenas se confirme, te llega el acceso a <strong>{ocultar(email)}</strong>. Esta página se actualiza sola.</p>
-        <p className="muted small">Con PSE la confirmación puede tardar unos minutos. Puedes cerrar esta página: el acceso te llega igual al correo.</p>
+        <p className="muted small">Si pagaste con PSE, la confirmación puede tardar unos minutos. Puedes cerrar esta página: el acceso te llega igual al correo.</p>
       </main>
     );
   }
@@ -74,9 +74,12 @@ export default async function GraciasWorkshop({ searchParams }: Props) {
     <main className="typ">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src="/logo-3d.png" alt="Conexión" className="embudo-logo" />
-      <h1 className="lp-h2">Gracias por tu compra</h1>
-      <p className="lp-lead">Cuando Bold confirme el pago, te llega tu usuario y tu contraseña al correo que registraste.</p>
-      <Link href="/curso/login" className="btn btn-big">Entrar a mi curso</Link>
+      <h1 className="lp-h2">¿Ya compraste ALMA?</h1>
+      <p className="lp-lead">Si ya pagaste, tu usuario y tu contraseña llegan al correo que registraste. Si todavía no, puedes entrar desde aquí.</p>
+      <div className="row" style={{ justifyContent: "center" }}>
+        <Link href="/curso/login" className="btn btn-big">Entrar a mi curso</Link>
+        <Link href="/workshop/comprar" className="btn ghost-btn">Comprar ALMA</Link>
+      </div>
     </main>
   );
 }

@@ -993,3 +993,5 @@ label.ws-check { flex-direction: row; align-items: center; gap: 8px; font-size: 
 .lh-medios:hover .lh-cinta, .lh-medios:focus-within .lh-cinta, .lh-medios:active .lh-cinta { animation-play-state: paused; }
 @keyframes lh-derecha { from { transform: translateX(calc(-50% - 5px)); } to { transform: translateX(0); } }
 @media (prefers-reduced-motion: reduce) { .lh-medios { overflow-x: auto; } .lh-cinta { animation: none; } }
+
+.ws-letra-mini { display: inline-grid; place-items: center; width: 22px; height: 22px; margin-right: 8px; border-radius: 6px; background: #0d0d0f; color: #fff; font-size: 12px; font-weight: 700; vertical-align: 2px; }

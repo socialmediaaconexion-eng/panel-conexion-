@@ -79,9 +79,9 @@ export default async function WorkshopPage() {
           <ol className="ws-modulos">
             {modulos.map((m, i) => (
               <li key={m.id}>
-                <span className={`ws-num${m.letra ? " con-letra" : ""}`}>{m.letra ?? i + 1}</span>
+                <span className="ws-num">{i + 1}</span>
                 <div>
-                  <strong>{m.titulo}</strong>
+                  <strong>{m.letra && <span className="ws-letra-mini" aria-label={`Letra ${m.letra} de ALMA`}>{m.letra}</span>}{m.titulo}</strong>
                   {m.descripcion && <p>{m.descripcion}</p>}
                   {m.lecciones.length > 0 && <span className="muted small">{m.lecciones.length} {m.lecciones.length === 1 ? "lección" : "lecciones"}</span>}
                 </div>

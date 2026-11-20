@@ -23,7 +23,7 @@ export default async function ComprarPage({ searchParams }: Props) {
       <p className="eyebrow">Último paso</p>
       <h1 className="embudo-h1">Entra a <em>{t?.curso.titulo || WORKSHOP.nombre}</em></h1>
       <p className="embudo-lead">Déjanos tus datos para crear tu acceso. Después pagas en Bold y te llega el usuario y la contraseña a tu correo.</p>
-      {t ? <ComprarForm cop={cop} usd={usd} paises={WORKSHOP.paises} inicial={moneda === "USD" ? "" : "Colombia"} notaCop={WORKSHOP.notaCop} /> : <div className="alert error">El workshop no está disponible en este momento.</div>}
+      {t ? <ComprarForm cop={cop} usd={usd} paises={WORKSHOP.paises} inicial={moneda === "USD" ? "Otro país" : "Colombia"} notaCop={WORKSHOP.notaCop} /> : <div className="alert error">El workshop no está disponible en este momento.</div>}
       <p className="muted small">{WORKSHOP.garantia} Pago único · {WORKSHOP.marca}</p>
     </main>
   );
