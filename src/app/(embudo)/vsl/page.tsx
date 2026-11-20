@@ -73,7 +73,7 @@ export default async function VslPage({ searchParams }: Props) {
         <TitularDolor />
         <h1 className="lp-h1">Implementamos tu sistema de captación con <span className="rojo">IA</span>.</h1>
         <p className="lp-lead">Estrategia de marca, creatividad humana y la velocidad de la IA: landing, embudo, panel, videos y campañas, a la medida de tu negocio.</p>
-        <div className="vsl-frame lp-video"><VslVideo /></div>
+        <div className="vsl-frame lp-video"><VslVideo src="/vsl-horizontal.mp4" poster="/vsl-horizontal-poster.jpg" /></div>
         <Link href={aplicar} className="btn btn-big" data-evento="cta_aplicar">Quiero saber si soy apto</Link>
         <p className="muted small">5 preguntas de un toque · si eres apto, agendas un diagnóstico gratuito de 45 min.</p>
       </section>

@@ -94,12 +94,38 @@ h2 { font-size: 19px; margin: 26px 0 10px; }
 .sidebar a.active { background: var(--cx-acento-tint); color: var(--strong); font-weight: 600; box-shadow: inset 2px 0 0 var(--cx-acento); }
 .sidebar .who { margin-top: auto; padding: 10px; border-top: 1px solid var(--line); font-size: 12px; }
 .main { flex: 1; padding: 28px 32px; min-width: 0; }
+/* Panel en el celular / app instalada: barra arriba, pestañas abajo, hoja "Más" */
+.m-top, .m-tabs, .m-hoja, .m-velo { display: none; }
 @media (max-width: 760px) {
   .shell { flex-direction: column; }
-  .sidebar { width: 100%; flex-direction: row; flex-wrap: wrap; border-right: 0; border-bottom: 1px solid var(--line); padding: 10px; }
-  .sidebar img { width: 40px; margin: 0 8px 0 0; }
-  .sidebar .who { margin: 0; border: 0; width: 100%; }
-  .main { padding: 18px 16px; }
+  .sidebar { display: none; }
+  .main { padding: 14px 14px calc(86px + env(safe-area-inset-bottom)); }
+  .main > h1:first-child { display: none; }
+  .m-top { display: flex; align-items: center; gap: 10px; position: sticky; top: 0; z-index: 40; padding: calc(10px + env(safe-area-inset-top)) 16px 10px; background: color-mix(in srgb, var(--surface) 88%, transparent); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+  .m-top img { width: 32px; }
+  .m-top strong { flex: 1; font-size: 17px; letter-spacing: -0.01em; }
+  .m-avatar { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; background: var(--red-btn); color: #fff; font-weight: 700; font-size: 14px; }
+  .m-tabs { display: grid; grid-template-columns: repeat(5, 1fr); position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; padding: 6px 6px calc(6px + env(safe-area-inset-bottom)); background: color-mix(in srgb, var(--surface) 92%, transparent); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-top: 1px solid var(--line); }
+  .m-tabs a, .m-tabs button { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 6px 0; border-radius: 14px; color: var(--muted); text-decoration: none; font-size: 10.5px; font-weight: 500; background: none; box-shadow: none; border: 0; }
+  .m-tabs button:hover:not(:disabled) { background: none; box-shadow: none; transform: none; }
+  .m-tabs .on { color: var(--cx-acento); }
+  .m-tabs .on svg { transform: translateY(-1px) scale(1.08); }
+  .m-tabs svg { transition: transform .2s var(--ease); }
+  .m-velo { display: block; position: fixed; inset: 0; z-index: 55; background: rgba(13,13,15,.35); animation: aparece .25s ease both; }
+  .m-hoja { display: flex; flex-direction: column; gap: 14px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; padding: 10px 16px calc(18px + env(safe-area-inset-bottom)); background: var(--surface); border-radius: 24px 24px 0 0; box-shadow: 0 -20px 40px -20px rgba(0,0,0,.35); transform: translateY(105%); transition: transform .35s var(--ease); }
+  .m-hoja.on { transform: none; }
+  .m-asa { align-self: center; width: 40px; height: 4px; border-radius: 99px; background: var(--line-hover); }
+  .m-hoja-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .m-hoja-grid a { padding: 14px; border-radius: 16px; background: var(--surface-2); border: 1px solid var(--line); text-decoration: none; font-weight: 600; font-size: 14px; color: var(--fg); }
+  .m-hoja-grid a.on { border-color: var(--cx-acento); background: var(--cx-acento-tint); }
+  .m-hoja-pie { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; padding-top: 6px; border-top: 1px solid var(--line); }
+  .grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .stat .n { font-size: 24px; }
+  .card { padding: 14px; border-radius: 16px; }
+  .card:hover { transform: none; }
+  th, td { padding: 8px 10px; font-size: 13px; }
+  form.inline > * { flex: 1 1 140px; }
+  input, select, textarea { font-size: 16px; }
 }
 
 /* Components */
@@ -663,3 +689,7 @@ a[x-apple-data-detectors], a[href^="tel"], a[href^="mailto"] { color: #b8924a !i
 .resultado-regalo .resultado-ico { background: #0d0d0f; box-shadow: 0 0 0 10px rgba(184,146,74,.18); }
 .resultado-firma { font-weight: 600; color: #9c7a2e !important; }
 .agenda-h { margin: 26px 0 0; font-size: 22px; }
+
+/* Portada del VSL con foto real de Fer */
+button.vsl-portada.con-foto { background-size: cover !important; background-position: center 30% !important; }
+button.vsl-portada.con-foto .vsl-grano { opacity: .45; }

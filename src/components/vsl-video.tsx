@@ -7,7 +7,7 @@ import { rastrear } from "./rastreo";
 // Cuando llegue el VSL horizontal: subir public/vsl-horizontal.mp4 (1920×1080, H.264) y pasar src="/vsl-horizontal.mp4".
 // Sin src, la portada lleva al video corto de la sección Testimonios.
 
-export function VslVideo({ src }: { src?: string }) {
+export function VslVideo({ src, poster }: { src?: string; poster?: string }) {
   const hechos = useRef(new Set<string>());
   const video = useRef<HTMLVideoElement>(null);
   const [iniciado, setIniciado] = useState(false);
@@ -22,7 +22,7 @@ export function VslVideo({ src }: { src?: string }) {
   return (
     <div className={`vsl${iniciado ? " vsl-on" : ""}`}>
       <video
-        ref={video} controls={iniciado} preload="metadata" playsInline
+        ref={video} controls={iniciado} preload="metadata" playsInline poster={poster}
         onPlay={() => { setIniciado(true); una("video_play"); }}
         onTimeUpdate={(e) => {
           const v = e.currentTarget;
@@ -37,7 +37,7 @@ export function VslVideo({ src }: { src?: string }) {
         {src && <source src={src} type="video/mp4" />}
       </video>
       {!iniciado && (
-        <button type="button" className="vsl-portada" onClick={play} aria-label="Reproducir el video: cómo funciona tu sistema de captación">
+        <button type="button" className={`vsl-portada${poster ? " con-foto" : ""}`} style={poster ? { backgroundImage: `linear-gradient(180deg, rgba(13,13,15,.15), rgba(13,13,15,.75)), url(${poster})` } : undefined} onClick={play} aria-label="Reproducir el video: cómo funciona tu sistema de captación">
           <span className="vsl-grano" aria-hidden="true" />
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/logo.png" alt="" className="vsl-logo" />

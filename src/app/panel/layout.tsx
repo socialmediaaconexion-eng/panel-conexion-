@@ -2,6 +2,7 @@ import { requireSeller, esGestor } from "@/lib/auth";
 import { logout } from "../login/actions";
 import { Nav } from "./nav";
 import { TemaToggle } from "@/components/tema-toggle";
+import { NavMovil } from "./nav-movil";
 
 export default async function PanelLayout({ children }: { children: React.ReactNode }) {
   const { seller } = await requireSeller();
@@ -20,6 +21,7 @@ export default async function PanelLayout({ children }: { children: React.ReactN
           </div>
         </div>
       </aside>
+      <NavMovil esGestor={esGestor(seller)} nombre={seller.nombre} logout={logout} />
       <main className="main">{children}</main>
     </div>
   );
