@@ -6,7 +6,7 @@ import { crearCobro } from "./actions";
 // Planes de Conexión (precios dados por Fernanda, 19-nov-2026).
 const PLANES = [
   { concepto: "Implementación sistema Conexión (pago único)", monto: "1800", moneda: "USD" },
-  { concepto: "Suscripción mensual: mantenimiento y campañas", monto: "1500", moneda: "USD" },
+  { concepto: "Suscripción mensual: contenido, campañas y panel", monto: "1500", moneda: "USD" },
   { concepto: "", monto: "", moneda: "USD" },
 ];
 

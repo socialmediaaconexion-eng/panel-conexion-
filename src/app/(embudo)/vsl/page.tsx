@@ -47,7 +47,7 @@ const OBJECIONES = [
   ["¿Necesito tener un equipo de ventas?", "No. Si estás sola o solo, el sistema te ordena las citas y te avisa. Si tienes equipo, el panel reparte los leads y muestra cómo va cada persona."],
   ["Ya tengo página web, ¿empiezo de cero?", "No necesariamente. En la llamada revisamos lo que tienes y te decimos qué se puede aprovechar y qué conviene rehacer."],
   ["¿Trabajan solo en Colombia?", "No. Trabajamos de forma remota con marcas en Latinoamérica, España y otros países."],
-  ["¿Cuánto cuesta?", "La implementación completa vale USD 1.800, pago único, y queda lista en un mes. Después, si quieres que sigamos con el mantenimiento y tus campañas, la suscripción como cliente recurrente es de USD 1.500."],
+  ["¿Cuánto cuesta?", "La implementación completa vale USD 1.800, pago único, y queda lista en un mes. Después, si quieres que sigamos con el mantenimiento y tus campañas, la suscripción mensual es de USD 1.500 e incluye un paquete de contenido: te pasamos los guiones, tú grabas, nosotros editamos, tú publicas, y nosotros hacemos tus campañas y gestionamos tu panel."],
   ["¿Qué es el panel?", "Un sistema interno diseñado a la medida de tu organización: estado del negocio, métricas de campañas, ventas del día, alertas, tu equipo y los KPI de cada área, en tu celular."],
   ["¿Puedo pagar en línea?", "Sí. Te enviamos un link de pago seguro de Bold: tarjeta, PSE, Nequi o Botón Bancolombia."],
   ["¿Por qué solo abren pocas plazas?", "Porque somos boutique: trabajamos con pocos clientes a la vez para estar de verdad en cada proyecto, con atención directa."],
@@ -212,11 +212,15 @@ export default async function VslPage({ searchParams }: Props) {
           </Tilt>
           <Tilt className="plan">
             <span className="plan-tag">Después · cliente recurrente</span>
-            <div className="plan-precio"><small>USD</small>1.500</div>
-            <p className="plan-nota">Suscripción de mantenimiento y campañas</p>
-            <ul>
-              <li>Mantenimiento del sistema y del panel</li><li>Gestión y optimización de campañas</li><li>Nuevas piezas y ajustes</li><li>Acompañamiento del equipo</li>
-            </ul>
+            <div className="plan-precio"><small>USD</small>1.500<span className="plan-mes">/mes</span></div>
+            <p className="plan-nota">Suscripción mensual con paquete de contenido</p>
+            <ol className="plan-flujo">
+              <li><b>Te pasamos los guiones</b> de tus videos del mes</li>
+              <li><b>Tú grabas</b> y nos envías el material</li>
+              <li><b>Lo editamos</b> con motion graphics y subtítulos</li>
+              <li><b>Tú lo publicas</b> en tus redes</li>
+              <li><b>Nosotros hacemos tus campañas</b> y gestionamos tu panel</li>
+            </ol>
           </Tilt>
         </div>
         <p className="muted small">Pago en línea seguro con Bold: tarjeta, PSE, Nequi o Botón Bancolombia.</p>

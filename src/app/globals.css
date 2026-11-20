@@ -638,3 +638,10 @@ button.pill-btn.on { background: var(--accent-tint); border-color: var(--accent)
 a[x-apple-data-detectors], a[href^="tel"], a[href^="mailto"] { color: #b8924a !important; text-decoration: none !important; font-weight: inherit !important; }
 .lp a:not(.btn):not(.pill), .legal a:not(.legal-volver), .quiz a, .cotizar a, .typ a:not(.btn), .modal a:not(.btn) { color: #b8924a; text-decoration-color: rgba(184,146,74,.45); text-underline-offset: 3px; }
 .lp a:not(.btn):not(.pill):hover, .legal a:hover, .quiz a:hover, .cotizar a:hover { color: #9c7a2e; }
+
+/* Plan mensual: flujo del paquete de contenido */
+.plan-mes { font-size: 18px; font-weight: 600; color: var(--muted); margin-left: 4px; letter-spacing: 0; }
+.plan-flujo { list-style: none; counter-reset: paso; padding: 0; margin: 10px 0; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.plan-flujo li { counter-increment: paso; position: relative; padding-left: 34px; font-size: 14px; color: var(--muted); }
+.plan-flujo li::before { content: counter(paso); position: absolute; left: 0; top: 0; width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; background: var(--accent-tint); color: var(--accent); font-size: 12px; font-weight: 700; }
+.plan-flujo b { color: var(--strong); font-weight: 600; }
