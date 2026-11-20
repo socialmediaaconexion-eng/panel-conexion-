@@ -33,6 +33,7 @@ export async function darAcceso(_prev: EstadoCred, f: FormData): Promise<EstadoC
 }
 
 // Nueva contraseña temporal + correo de acceso (reemplaza la contraseña actual del alumno).
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export async function reenviar(inscripcionId: string, _prev: EstadoCred): Promise<EstadoCred> {
   await requireGestor();
   const admin = createAdminClient();
@@ -45,6 +46,7 @@ export async function reenviar(inscripcionId: string, _prev: EstadoCred): Promis
 }
 
 // Activa a mano una inscripción pendiente (por ejemplo, pago por transferencia): crea el usuario y envía el acceso.
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export async function activarManual(inscripcionId: string, _prev: EstadoCred): Promise<EstadoCred> {
   await requireGestor();
   const r = await activarInscripcion(inscripcionId);

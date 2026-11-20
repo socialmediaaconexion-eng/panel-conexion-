@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://conexionteam.app"),
   title: "Conexión — Panel",
   description: "Panel de gestión comercial de Conexión Agency",
+  manifest: "/manifest.webmanifest", // el área del alumno lo reemplaza por /curso/manifest.webmanifest
   appleWebApp: { capable: true, title: "Conexión", statusBarStyle: "black" },
   formatDetection: { telephone: false, email: false, address: false, date: false },
 };
