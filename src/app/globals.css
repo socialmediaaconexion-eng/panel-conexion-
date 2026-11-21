@@ -1027,3 +1027,9 @@ label.ws-check { flex-direction: row; align-items: center; gap: 8px; font-size: 
 .alma .alu-marca img { width: 74px; }
 .alma .rojo { color: #b8924a; }
 .alma ::selection { background: rgba(232,201,104,.45); }
+/* ALMA: reproductor en dorado */
+.alma .vsl-play { background: linear-gradient(135deg, #e8c968, #b8924a); box-shadow: 0 0 0 0 rgba(232,201,104,.55), 0 20px 40px -12px rgba(184,146,74,.7); animation-name: latido-oro; }
+.alma .vsl-play span { border-color: transparent transparent transparent #1b1a17; }
+.alma .vsl-grano { background: radial-gradient(circle at 30% 30%, rgba(232,201,104,.20), transparent 35%), radial-gradient(circle at 75% 70%, rgba(184,146,74,.16), transparent 40%); }
+.alma .vsl-logo { width: clamp(70px, 11vw, 110px); }
+@keyframes latido-oro { 0% { box-shadow: 0 0 0 0 rgba(232,201,104,.55), 0 20px 40px -12px rgba(184,146,74,.7); } 70% { box-shadow: 0 0 0 22px rgba(232,201,104,0), 0 20px 40px -12px rgba(184,146,74,.7); } 100% { box-shadow: 0 0 0 0 rgba(232,201,104,0), 0 20px 40px -12px rgba(184,146,74,.7); } }
