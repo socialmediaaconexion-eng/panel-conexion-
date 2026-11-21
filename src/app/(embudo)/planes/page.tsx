@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { Tilt } from "@/components/landing/tilt";
+import { Entregables } from "@/components/landing/entregables";
 
 // Página de venta (no enlazada desde la landing: se envía después de la calificación o en la cotización).
 export const metadata: Metadata = {
@@ -50,10 +51,23 @@ export default function PlanesPage() {
         <p className="lp-lead">Estrategia de marca, creatividad humana y ejecución con IA. Pocas plazas al mes, atención directa.</p>
       </section>
 
+      <Entregables />
+
+      {/* Precio: mes 1 a USD 1.800; desde el mes 2, USD 1.500/mes con descuento por continuar (dato de Fernanda, 21-nov-2026). */}
+      <section className="lp-sec pl-precios" id="inversion">
+        <p className="eyebrow">Cómo se paga</p>
+        <h2 className="lp-h2">Un mes para crearlo. Después, un precio con descuento si sigues con nosotros.</h2>
+        <ol className="pl-linea" aria-label="Pagos mes a mes">
+          <li><small>Mes 1</small><b>USD 1.800</b><span>Implementación</span></li>
+          <li className="pl-linea-desc"><small>Mes 2</small><b>USD 1.500</b><span>Con descuento</span></li>
+          <li className="pl-linea-desc"><small>Mes 3 en adelante</small><b>USD 1.500</b><span>Con descuento</span></li>
+        </ol>
+      </section>
+
       <section className="lp-sec pl-dos">
         {/* Implementación */}
         <Tilt className="pl-card pl-card-main">
-          <span className="plan-tag">Paso 1 · Implementación</span>
+          <span className="plan-tag">Mes 1 · Implementación</span>
           <h2>Sistema de Captación Conexión</h2>
           <div className="plan-precio"><small>USD</small>1.800</div>
           <p className="pl-nota-osc">Pago único · listo y funcionando en 30 días</p>
@@ -67,9 +81,10 @@ export default function PlanesPage() {
 
         {/* Mensual */}
         <Tilt className="pl-card pl-mes">
-          <span className="plan-tag">Paso 2 · Cada mes</span>
+          <span className="plan-tag">Desde el mes 2 · Si sigues con nosotros</span>
           <h2>Dirección de Captación</h2>
           <div className="plan-precio"><small>USD</small>1.500<span className="plan-mes">/mes</span></div>
+          <p className="pl-desc"><b>Precio con descuento</b> para quienes siguen con nosotros el mes siguiente. El primer mes es de USD 1.800; desde el segundo pagas USD 1.500 al mes.</p>
           <p className="pl-nota">Comienza cuando tu sistema está entregado. Permanencia mínima de 3 meses.</p>
           <ul className="pl-check">{MENSUAL.map((t) => <li key={t}>{t}</li>)}</ul>
           <a className="btn btn-big pl-pagar pl-pagar-sec" href="/api/pagar?plan=mes">Pagar mensualidad</a>
