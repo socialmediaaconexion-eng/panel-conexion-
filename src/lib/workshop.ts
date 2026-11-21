@@ -49,7 +49,7 @@ export const WORKSHOP = {
   ctaFija: "ALMA · pago único",
 
   // Video de venta. Sube public/workshop-vsl.mp4 (16:9, H.264) y su portada, y cambia `listo` a true.
-  video: { src: "/workshop-vsl.mp4", poster: "/workshop-vsl-poster.jpg", listo: false, titulo: "Dale ALMA a tu negocio con IA" },
+  video: { src: "/workshop-vsl.mp4", poster: "/workshop-vsl-poster.jpg", listo: true, titulo: "Dale ALMA a tu negocio con IA" },
 
   // ── El problema ──
   problema: {
