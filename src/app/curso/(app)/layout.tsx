@@ -15,7 +15,7 @@ export default async function AlumnoLayout({ children }: { children: React.React
       <header className="alu-top">
         <Link href="/curso" className="alu-marca" aria-label="Mis cursos">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/logo-3d.png" alt="" />
+          <img src="/logo-alma.png" alt="" />
           <strong>Mis cursos</strong>
         </Link>
         <details className="alu-menu">

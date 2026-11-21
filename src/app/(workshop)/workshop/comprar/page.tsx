@@ -18,7 +18,7 @@ export default async function ComprarPage({ searchParams }: Props) {
     <main className="embudo ws-pagina">
       <Link href="/workshop">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/logo-3d.png" alt="Conexión" className="embudo-logo" />
+        <img src="/logo-alma.png" alt="ALMA by Conexión" className="embudo-logo" />
       </Link>
       <p className="eyebrow">Último paso</p>
       <h1 className="embudo-h1">Entra a <em>{t?.curso.titulo || WORKSHOP.nombre}</em></h1>

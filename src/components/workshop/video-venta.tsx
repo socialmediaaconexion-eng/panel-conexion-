@@ -36,7 +36,7 @@ export function VideoVenta({ src, poster, listo, titulo }: { src: string; poster
         >
           <span className="vsl-grano" aria-hidden="true" />
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/logo-3d.png" alt="" className="vsl-logo" />
+          <img src="/logo-alma.png" alt="" className="vsl-logo" />
           <span className="vsl-play" aria-hidden="true"><span /></span>
           <span className="vsl-texto">
             <strong>{titulo}</strong>

@@ -34,7 +34,7 @@ export default async function WorkshopPage() {
       <VistaUnaVez evento="workshop_vista" />
       <header className="lp-top">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/logo-3d.png" alt="Conexión" className="lp-top-logo" />
+        <img src="/logo-alma.png" alt="ALMA by Conexión" className="lp-top-logo" />
         <Link href={comprar} className="btn lp-top-cta" data-evento="workshop_cta">Entrar a ALMA</Link>
       </header>
 
@@ -158,7 +158,7 @@ export default async function WorkshopPage() {
 
       <footer className="lp-foot">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/logo-3d.png" alt="" />
+        <img src="/logo-alma.png" alt="" />
         <span>© Conexión · {WORKSHOP.marca}</span>
         <p className="lp-descargo">{WORKSHOP.pie}</p>
         <div className="lp-legal"><Link href="/terminos">Términos</Link><Link href="/privacidad">Privacidad</Link></div>

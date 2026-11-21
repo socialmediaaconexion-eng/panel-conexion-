@@ -995,3 +995,35 @@ label.ws-check { flex-direction: row; align-items: center; gap: 8px; font-size: 
 @media (prefers-reduced-motion: reduce) { .lh-medios { overflow-x: auto; } .lh-cinta { animation: none; } }
 
 .ws-letra-mini { display: inline-grid; place-items: center; width: 22px; height: 22px; margin-right: 8px; border-radius: 6px; background: #0d0d0f; color: #fff; font-size: 12px; font-weight: 700; vertical-align: 2px; }
+
+/* ───────── Marca ALMA (blanco y dorado) · se aplica en /workshop y /curso ───────── */
+.alma, .alma .lp, .alma .ws-pagina, .alma .alu-shell {
+  --bg: #fffdf8; --surface: #ffffff; --surface-2: #faf6ec; --line: #eee5d0; --line-hover: #e2d4b2;
+  --fg: #1b1a17; --strong: #1b1a17; --muted: #6b6457;
+  --cx-acento: #b8924a; --cx-acento-hover: #c9a24b; --cx-acento-tint: rgba(184,146,74,.12);
+  --cx-texto-acento: #9c7a28;
+  --red: #c9a24b; --red-btn: #b8924a; --red-deep: #8a6a2c; --red-tint: rgba(184,146,74,.12);
+  --ripple: #b8924a; --ring: 0 0 0 4px rgba(184,146,74,.22);
+  --shadow: 0 18px 40px -24px rgba(120,92,30,.28);
+  --display: var(--font-playfair), "Playfair Display", Georgia, serif;
+}
+.alma { background: #fffdf8; color: #1b1a17; }
+.alma .lp-h1, .alma .lp-h2, .alma h1, .alma h2, .alma .ws-letra, .alma .plan-precio { font-family: var(--display); letter-spacing: -0.01em; }
+.alma .lp-h1, .alma .lp-h2 { font-weight: 700; }
+.alma .eyebrow { color: #9c7a28; }
+/* Botones: dorado con texto tinta (contraste alto) */
+.alma .btn, .alma .btn-big, .alma button[type="submit"]:not(.ghost) { background: linear-gradient(135deg, #d9b45e, #b8924a); color: #1b1a17; box-shadow: 0 12px 26px -14px rgba(156,122,40,.7); }
+.alma .btn:hover, .alma .btn-big:hover, .alma button[type="submit"]:not(.ghost):hover { background: linear-gradient(135deg, #e8c968, #c9a24b); color: #1b1a17; }
+.alma .ws-btn-usd { background: #fff !important; color: #1b1a17 !important; border: 1px solid #e2d4b2 !important; }
+/* Detalles que eran negro/rojo en Conexión */
+.alma .ws-letra { background: #1b1a17; color: #e8c968; box-shadow: inset 0 -3px 0 #b8924a; }
+.alma .ws-letra-mini, .alma .ws-num.con-letra { background: #1b1a17; color: #e8c968; }
+.alma .ws-num { background: rgba(184,146,74,.14); color: #8a6a2c; }
+.alma .alu-siguiente { background: #1b1a17; }
+.alma .alu-siguiente .alu-tag { background: rgba(232,201,104,.18); color: #e8c968; }
+.alma .lp-top { background: color-mix(in srgb, #fffdf8 82%, transparent); border-bottom-color: #eee5d0; }
+.alma .lp-top-logo { width: 104px; }
+.alma .embudo-logo { width: 150px; }
+.alma .alu-marca img { width: 74px; }
+.alma .rojo { color: #b8924a; }
+.alma ::selection { background: rgba(232,201,104,.45); }

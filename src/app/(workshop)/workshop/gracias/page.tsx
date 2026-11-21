@@ -33,7 +33,7 @@ export default async function GraciasWorkshop({ searchParams }: Props) {
     return (
       <main className="typ">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/logo-3d.png" alt="Conexión" className="embudo-logo" />
+        <img src="/logo-alma.png" alt="ALMA by Conexión" className="embudo-logo" />
         <span className="typ-check" aria-hidden="true">✓</span>
         <h1 className="lp-h2">¡Listo! Ya tienes acceso</h1>
         <p className="lp-lead">Te enviamos tu usuario y tu contraseña a <strong>{ocultar(email)}</strong>. Revisa también la carpeta de spam o promociones.</p>
@@ -48,7 +48,7 @@ export default async function GraciasWorkshop({ searchParams }: Props) {
     return (
       <main className="typ">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/logo-3d.png" alt="Conexión" className="embudo-logo" />
+        <img src="/logo-alma.png" alt="ALMA by Conexión" className="embudo-logo" />
         <h1 className="lp-h2">El pago no se completó</h1>
         <p className="lp-lead">Bold nos reporta el pago como {estado!.pago}. No se hizo ningún cobro. Puedes intentarlo de nuevo con otro medio de pago.</p>
         <Link href="/workshop/comprar" className="btn btn-big">Intentar de nuevo</Link>
@@ -61,7 +61,7 @@ export default async function GraciasWorkshop({ searchParams }: Props) {
       <main className="typ">
         <Refrescar />
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/logo-3d.png" alt="Conexión" className="embudo-logo" />
+        <img src="/logo-alma.png" alt="ALMA by Conexión" className="embudo-logo" />
         <span className="ws-espera" aria-hidden="true" />
         <h1 className="lp-h2">Estamos confirmando tu pago</h1>
         <p className="lp-lead">Bold está procesando el pago. Apenas se confirme, te llega el acceso a <strong>{ocultar(email)}</strong>. Esta página se actualiza sola.</p>
@@ -73,7 +73,7 @@ export default async function GraciasWorkshop({ searchParams }: Props) {
   return (
     <main className="typ">
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="/logo-3d.png" alt="Conexión" className="embudo-logo" />
+      <img src="/logo-alma.png" alt="ALMA by Conexión" className="embudo-logo" />
       <h1 className="lp-h2">¿Ya compraste ALMA?</h1>
       <p className="lp-lead">Si ya pagaste, tu usuario y tu contraseña llegan al correo que registraste. Si todavía no, puedes entrar desde aquí.</p>
       <div className="row" style={{ justifyContent: "center" }}>

@@ -27,7 +27,7 @@ export default async function LoginCurso({ searchParams }: Props) {
     <main className="public alu-login">
       <div className="public-card">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/logo-3d.png" alt="Conexión" />
+        <img src="/logo-alma.png" alt="ALMA by Conexión" />
         <h1>Entra a tu curso</h1>
         <p className="muted">Usa el correo y la contraseña que te llegaron después de la compra.</p>
         {user && (
