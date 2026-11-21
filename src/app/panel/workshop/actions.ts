@@ -62,7 +62,7 @@ export async function revocar(inscripcionId: string) {
   refrescar();
 }
 
-// Garantía de 7 días: la devolución se procesa a mano en Bold; aquí se registra y se quita el acceso.
+// Garantía de 3 días: la devolución se procesa a mano en Bold; aquí se registra y se quita el acceso.
 export async function reembolsar(inscripcionId: string) {
   await requireGestor();
   await createAdminClient().from("inscripciones").update({ estado: "reembolsada", reembolsada_at: new Date().toISOString() }).eq("id", inscripcionId).in("estado", ["activa", "revocada"]);

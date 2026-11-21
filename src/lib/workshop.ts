@@ -114,7 +114,7 @@ export const WORKSHOP = {
     ...(p.comunidad ? ["Grupo exclusivo y comunidad en Skool."] : []),
     p.meses ? `${p.meses} meses de acceso con actualizaciones.` : "Acceso con actualizaciones.",
   ],
-  garantia: "Garantía de 7 días: si no es para ti, te devolvemos el 100 %.",
+  garantia: "Garantía de 3 días: si no es para ti, te devolvemos el 100 %.",
   botonCop: "Pagar en pesos (PSE, Nequi o tarjeta)",
   botonUsd: "Pagar en dólares (tarjeta)",
 
@@ -126,7 +126,7 @@ export const WORKSHOP = {
     ["¿Necesito saber programar o diseñar?", "No. Claude escribe el código y tú das las instrucciones que te enseño."],
     ["¿Cuánto tiempo me toma?", "Unas 2 horas y media de video, más el tiempo de tus tareas. Recomendamos un módulo por semana."],
     ["¿Sirve para mi tipo de negocio?", "Sirve para servicios, marca personal y negocios pequeños. No está pensado para tiendas con catálogos grandes."],
-    ["¿Cómo pago desde México?", `Con tarjeta, en dólares${p.usd ? ` (${p.usd})` : ""}. PSE y Nequi solo funcionan en pesos colombianos.`],
+    ["¿Cómo pago?", `Con tarjeta de crédito o débito, en dólares${p.usd ? ` (${p.usd})` : ""}, desde cualquier país. Es un pago único.`],
     ["¿Cuándo tengo acceso?", "Al confirmarse el pago recibes en tu correo tu usuario y contraseña."],
     ["¿Me van a garantizar clientes o ventas?", "No. Te garantizamos un método claro y las herramientas para construir tu sistema. Lo que pase después depende de tu oferta y de tu trabajo."],
     ["¿ALMA es de Anthropic?", "No. Es un taller independiente de Conexión que enseña a usar Claude."],

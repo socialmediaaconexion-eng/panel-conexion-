@@ -18,7 +18,6 @@ export async function comprarWorkshop(_prev: string | null, formData: FormData):
   // El país decide el precio (decisión de Fer): Colombia → COP con IVA incluido (PSE, Nequi o tarjeta); resto → USD sin IVA.
   const pais = t("pais", 60);
   if (!WORKSHOP.paises.includes(pais)) return "Elige tu país para mostrarte el precio correcto.";
-  const moneda = monedaDePais(pais);
   if (!nombre || !email || !whatsapp) return "Completa tu nombre, tu correo y tu WhatsApp.";
   if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return "Ese correo no parece válido. Revísalo: ahí te llega el acceso.";
   if (whatsapp.replace(/\D/g, "").length < 10) return "Escribe tu WhatsApp con el indicativo del país (por ejemplo, +57 300 000 0000).";
@@ -26,6 +25,8 @@ export async function comprarWorkshop(_prev: string | null, formData: FormData):
   const admin = createAdminClient();
   const { data: curso } = await admin.from("cursos").select("id, titulo, precio_usd, precio_cop").eq("slug", WORKSHOP.slug).eq("activo", true).maybeSingle();
   if (!curso) return "El workshop no está disponible en este momento.";
+  // Precio único USD 45 (decisión de Fer, 20-nov): solo se cobra en COP si el curso tiene precio_cop cargado.
+  const moneda = monedaDePais(pais) === "COP" && Number(curso.precio_cop) > 0 ? "COP" : "USD";
   const monto = Number(moneda === "COP" ? curso.precio_cop : curso.precio_usd);
   if (!monto || monto <= 0) return moneda === "USD" ? "Por ahora el pago es solo en pesos colombianos." : "Por ahora el pago es solo en dólares.";
   if (await esCorreoDelEquipo(email, admin)) return "Ese correo pertenece al equipo de Conexión. Usa otro correo para comprar.";

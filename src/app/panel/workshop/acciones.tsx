@@ -14,7 +14,7 @@ export function AccionesInscripcion({ id, estado, vencida }: { id: string; estad
         <>
           <CredForm action={reenviar.bind(null, id)} submit="Reenviar acceso" className="ws-inline" fantasma />
           <Confirmar action={revocar.bind(null, id)} texto="Revocar" pregunta="¿Quitarle el acceso a este alumno?" />
-          <Confirmar action={reembolsar.bind(null, id)} texto="Reembolso" pregunta="¿Registrar la devolución (garantía de 7 días)? Recuerda procesarla en Bold. El alumno pierde el acceso." />
+          <Confirmar action={reembolsar.bind(null, id)} texto="Reembolso" pregunta="¿Registrar la devolución (garantía de 3 días)? Recuerda procesarla en Bold. El alumno pierde el acceso." />
         </>
       )}
       {(estado === "revocada" || estado === "reembolsada" || (estado === "activa" && vencida)) && (
