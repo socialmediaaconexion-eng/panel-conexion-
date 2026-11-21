@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 const IMPLEMENTACION = [
   ["🧭", "Estrategia de marca y comunicación", "Diagnóstico, cliente ideal, mensaje y oferta."],
-  ["✍️", "Guionización", "Guiones de tu VSL y de tus primeras piezas, con tu voz."],
+  ["🎬", "Guion y grabación de tu VSL", "Guiones de tu VSL y de tus primeras piezas, con tu voz. Grabamos tu VSL en persona en Medellín, o en otra ciudad de Colombia cubriendo viáticos."],
   ["🧲", "Embudo completo", "Landing, preguntas de calificación, agenda automática y página de gracias."],
   ["📣", "Campañas", "Estructura, públicos, anuncios y configuración en Meta."],
   ["📈", "Analítica conectada", "Píxel, UTMs y el embudo medido paso a paso, de cada anuncio a cada venta."],
@@ -31,7 +31,7 @@ const MENSUAL = [
   "Parte semanal: 3 números y 1 decisión",
 ];
 
-const NO_INCLUYE = ["La pauta (se paga directo a Meta)", "Manejo de comunidad y respuesta de mensajes", "Grabación presencial", "Módulos nuevos del panel fuera de lo acordado"];
+const NO_INCLUYE = ["La pauta (se paga directo a Meta)", "Manejo de comunidad y respuesta de mensajes", "Grabación presencial de los videos mensuales", "Módulos nuevos del panel fuera de lo acordado"];
 const TU_PARTE = ["Grabar en las fechas que agendamos", "Tener a alguien que atienda los leads", "Revisar y aprobar en 48 horas"];
 
 export default function PlanesPage() {
@@ -56,12 +56,13 @@ export default function PlanesPage() {
       {/* Precio: mes 1 a USD 1.800; desde el mes 2, USD 1.500/mes con descuento por continuar (dato de Fernanda, 21-nov-2026). */}
       <section className="lp-sec pl-precios" id="inversion">
         <p className="eyebrow">Cómo se paga</p>
-        <h2 className="lp-h2">Un mes para crearlo. Después, un precio con descuento si sigues con nosotros.</h2>
+        <h2 className="lp-h2">Un mes para crearlo. Desde el mes 2, tu mensualidad con descuento.</h2>
         <ol className="pl-linea" aria-label="Pagos mes a mes">
           <li><small>Mes 1</small><b>USD 1.800</b><span>Implementación</span></li>
           <li className="pl-linea-desc"><small>Mes 2</small><b>USD 1.500</b><span>Con descuento</span></li>
           <li className="pl-linea-desc"><small>Mes 3 en adelante</small><b>USD 1.500</b><span>Con descuento</span></li>
         </ol>
+        <p className="pl-linea-nota"><b>Permanencia mínima de 3 meses.</b> Si pausas y vuelves, mantienes el precio con descuento.</p>
       </section>
 
       <section className="lp-sec pl-dos">
@@ -81,11 +82,11 @@ export default function PlanesPage() {
 
         {/* Mensual */}
         <Tilt className="pl-card pl-mes">
-          <span className="plan-tag">Desde el mes 2 · Si sigues con nosotros</span>
+          <span className="plan-tag">Desde el mes 2 · Tu mensualidad</span>
           <h2>Dirección de Captación</h2>
           <div className="plan-precio"><small>USD</small>1.500<span className="plan-mes">/mes</span></div>
-          <p className="pl-desc"><b>Precio con descuento</b> para quienes siguen con nosotros el mes siguiente. El primer mes es de USD 1.800; desde el segundo pagas USD 1.500 al mes.</p>
-          <p className="pl-nota">Comienza cuando tu sistema está entregado. Permanencia mínima de 3 meses.</p>
+          <p className="pl-desc"><b>Precio con descuento</b> de tu mensualidad desde el mes 2. El primer mes es de USD 1.800; desde el segundo pagas USD 1.500 al mes. Si pausas y vuelves, mantienes el precio con descuento.</p>
+          <p className="pl-nota">Comienza cuando tu sistema está entregado. <b>Permanencia mínima de 3 meses.</b></p>
           <ul className="pl-check">{MENSUAL.map((t) => <li key={t}>{t}</li>)}</ul>
           <a className="btn btn-big pl-pagar pl-pagar-sec" href="/api/pagar?plan=mes">Pagar mensualidad</a>
         </Tilt>

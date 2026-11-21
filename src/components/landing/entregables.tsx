@@ -37,7 +37,7 @@ function Lineas({ n, corta }: { n: number; corta?: boolean }) {
 
 function MockGuion() {
   return (
-    <div className="ent-hojas" role="img" aria-label="Documentos de estrategia de marca y guion de VSL">
+    <div className="ent-hojas" role="img" aria-label="Documentos de estrategia de marca y guion de VSL, con la grabación presencial agendada">
       <div className="ent-hoja ent-hoja-atras">
         <p className="ent-hoja-tit">Estrategia de marca</p>
         {["Cliente ideal", "Mensaje", "Oferta"].map((t) => <div key={t} className="ent-bloque"><b>{t}</b><Lineas n={2} corta /></div>)}
@@ -48,6 +48,7 @@ function MockGuion() {
           <div key={t} className="ent-bloque"><b><em>{String(i + 1).padStart(2, "0")}</em>{t}</b><Lineas n={i === 3 ? 1 : 2} corta /></div>
         ))}
       </div>
+      <span className="ent-rodaje" aria-hidden="true"><i />Grabación del VSL · presencial</span>
     </div>
   );
 }
@@ -211,7 +212,7 @@ function MockComite() {
 type Item = { titulo: string; texto: string; mock: React.ReactNode; nota?: string; ancho?: boolean };
 
 const MES1: Item[] = [
-  { titulo: "Estrategia y guion de tu VSL", texto: "Diagnóstico, cliente ideal, mensaje y oferta. Luego los guiones de tu VSL y de tus primeras piezas, con tu voz.", mock: <MockGuion /> },
+  { titulo: "Estrategia, guion y grabación de tu VSL", texto: "Diagnóstico, cliente ideal, mensaje y oferta. Luego los guiones de tu VSL y de tus primeras piezas, con tu voz, y la grabación de tu VSL: presencial en Medellín, o en otra ciudad de Colombia cubriendo viáticos.", mock: <MockGuion /> },
   { titulo: "Landing con tu VSL", texto: "Tu página de venta con video, lista en computador y en celular.", mock: <MockLanding />, nota: "Captura real: la landing de Conexión" },
   { titulo: "Embudo completo", texto: "Landing, preguntas de calificación, agenda automática y página de gracias.", mock: <MockEmbudo />, nota: "Captura real: las preguntas del embudo de Conexión" },
   { titulo: "Campañas en Meta", texto: "Estructura, públicos, anuncios y configuración, cuando el guion, los videos y la landing ya están listos.", mock: <MockAnuncio />, nota: "Ilustración" },
@@ -261,9 +262,9 @@ export function Entregables() {
 
       <div className="ent-grupo">
         <div className="ent-grupo-head">
-          <span className="plan-tag">Desde el mes 2 · Si sigues con nosotros</span>
+          <span className="plan-tag">Desde el mes 2 · Tu mensualidad</span>
           <h3>Dirección de Captación, cada mes</h3>
-          <p className="ent-precio-linea"><b>USD 1.500/mes</b> · precio con descuento por continuar</p>
+          <p className="ent-precio-linea"><b>USD 1.500/mes</b> · precio con descuento desde el mes 2 · permanencia mínima de 3 meses</p>
         </div>
         <Grupo items={MENSUAL} cols={2} />
       </div>
