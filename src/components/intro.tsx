@@ -3,6 +3,7 @@
 // Una vez por sesión; ?intro=1 la repite. Respeta "reducir movimiento".
 const decidir = `(function(){try{
   var d=document.documentElement;if(location.pathname.indexOf('/panel')===0&&localStorage.getItem('cx-tema')==='dark')d.setAttribute('data-theme','dark');
+  if(/^\/(workshop|alma|curso)/.test(location.pathname)){d.classList.add('intro-skip');return;} // ALMA tiene su propia marca: sin intro de Conexión
   var q=location.search.indexOf('intro=1')>-1;
   var r=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
   if(!q&&(r||sessionStorage.getItem('cx-intro'))){d.classList.add('intro-skip');}
